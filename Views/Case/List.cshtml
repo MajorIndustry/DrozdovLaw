@@ -1,0 +1,43 @@
+@model DrozdovLaw.Models.CasesListViewModel
+@{
+    ViewBag.Lang = Model.Language;
+    ViewBag.Title = Model.Language == "ru" ? "Все кейсы" : "All cases";
+}
+
+<section class="container">
+    <div class="breadcrumbs">
+        <ul>
+            <li><a href="/">@(Model.Language == "ru" ? "Главная" : "Home")</a></li>
+            <li><a href="#">@(Model.Language == "ru" ? "Кейсы" : "Cases")</a></li>
+        </ul>
+    </div>
+    <h1>@(Model.Language == "ru" ? "Кейсы" : "Cases")</h1>
+</section>
+
+<div class="cards m-type-2">
+    @foreach (var c in Model.Cases.Where(c => c.IsPublished))
+    {
+        var title    = Model.Language == "ru" ? c.TitleRu    : c.TitleEn;
+        var status   = Model.Language == "ru" ? c.StatusRu   : c.StatusEn;
+        var location = Model.Language == "ru" ? c.LocationRu : c.LocationEn;
+        var summary  = Model.Language == "ru" ? c.SummaryRu  : c.SummaryEn;
+        <a href="@Url.Action("Detail", "Case", new { slug = c.Slug, lang = Model.Language })" class="cards__item">
+            <div class="e-status" style="color:@c.StatusColor">@status</div>
+            <h2>@title</h2>
+            @if (!string.IsNullOrEmpty(c.FlagImage))
+            {
+                <div class="e-location">
+                    <span class="flag-icon"><img src="~/images/@c.FlagImage.Replace("images/","")" alt=""></span>
+                    @location
+                </div>
+            }
+            <p>@summary</p>
+        </a>
+    }
+    @if (!Model.Cases.Any(c => c.IsPublished))
+    {
+        <p style="padding:40px;color:#888">
+            @(Model.Language == "ru" ? "Кейсов пока нет." : "No cases yet.")
+        </p>
+    }
+</div>

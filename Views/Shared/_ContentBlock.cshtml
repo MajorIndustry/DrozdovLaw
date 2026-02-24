@@ -1,0 +1,186 @@
+@model DrozdovLaw.Models.ContentBlock
+@{
+    var content = Model.Content ?? "";
+    var extra = Model.ExtraAttribute ?? "";
+}
+@switch (Model.Style)
+{
+    case "h1":
+        <h1>@content</h1>
+        break;
+    case "h2":
+
+        <h2>@content</h2>
+        break;
+    case "h3":
+
+        <h3>@content</h3>
+        break;
+    case "h4":
+
+        <h4>@content</h4>
+        break;
+    case "h5":
+
+        <h5>@content</h5>
+        break;
+    case "p":
+
+        <p>@Html.Raw(content)</p>
+        break;
+    case "p-large":
+
+        <p class="p-large">@Html.Raw(content)</p>
+        break;
+    case "blockquote":
+
+        <blockquote><p>@Html.Raw(content)</p></blockquote>
+        break;
+    case "small":
+
+        <small>@Html.Raw(content)</small>
+        break;
+
+    case "ul":
+        {
+            var items = content.Split('|', StringSplitOptions.RemoveEmptyEntries);
+            <ul>
+                @foreach (var item in items)
+                {
+                    <li>@item.Trim()</li>
+                }
+            </ul>
+            break;
+        }
+    case "ol":
+        {
+            var items = content.Split('|', StringSplitOptions.RemoveEmptyEntries);
+            <ol>
+                @foreach (var item in items)
+                {
+                    <li>@item.Trim()</li>
+                }
+            </ol>
+            break;
+        }
+
+    case "e-dots":
+        {
+            var colors = content.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            <div class="e-dots">
+                @foreach (var c in colors)
+                {
+                    <div class="e-dot" style="background:@c.Trim()"></div>
+                }
+            </div>
+            break;
+        }
+    case "e-id":
+        <div class="e-id">@content</div>
+        break;
+    case "e-details__type":
+        <div class="e-details__type" style="@(!string.IsNullOrEmpty(extra) ? $"color:{extra}" : "")">@content</div>
+        break;
+    case "e-details__loc":
+        <div class="e-details__loc">
+            @if (!string.IsNullOrEmpty(extra))
+            {
+                <span class="flag-icon"><img src="~/images/flags/England.png" alt=""></span>
+            }
+            @content
+        </div>
+        break;
+    case "e-details__def":
+        <div class="e-details__def"><span class="e-label">Тип:</span> @content</div>
+        break;
+
+    case "person":
+        {
+            // extra = "path/to/photo.jpg|Должность"
+            var parts = extra.Split('|');
+            var photo = parts.Length > 0 ? parts[0] : "";
+            var role = parts.Length > 1 ? parts[1] : "";
+            <div class="person-min">
+                <div class="person-min__vis">
+                    <img src="@(string.IsNullOrEmpty(photo) ? Url.Content("~/pictures/person-placeholder.jpg") : Url.Content("~/" + photo))" alt="@content">
+                </div>
+                <div class="person-min__info">
+                    <div class="person-min__type">@role</div>
+                    <div class="person-min__name">@content</div>
+                </div>
+            </div>
+            break;
+        }
+
+    case "note-title":
+
+        <h5>@content</h5>
+        break;
+    case "note-text":
+
+        <p>@Html.Raw(content)</p>
+        break;
+
+    case "decision-title":
+
+        <h2>@content</h2>
+        break;
+    case "decision-text":
+
+        <p>@Html.Raw(content)</p>
+        break;
+    case "case-link":
+        <p>Ссылка на дело: <a href="@content"><strong>@content</strong></a></p>
+        break;
+
+    case "docs-title":
+
+        <h2>@content</h2>
+        break;
+    case "doc-item":
+        <a href="#" class="docs-blocks__item">
+            <div class="e-type">@extra</div>
+            <h3>@content</h3>
+        </a>
+        break;
+
+    case "tags-title":
+
+        <h4>@content</h4>
+        break;
+    case "tag":
+        {
+            if (!string.IsNullOrEmpty(extra))
+            {
+                <a href="#" style="border-color:@extra;background:@extra">@content</a>
+            }
+            else
+            {
+                <a href="#" class="tags-btn">@content</a>
+            }
+            break;
+        }
+
+    case "breadcrumb":
+        {
+            var crumbs = content.Split('/', StringSplitOptions.RemoveEmptyEntries);
+            <div class="breadcrumbs">
+                <ul>
+                    @foreach (var crumb in crumbs)
+                    {
+                        <li><a href="#">@crumb.Trim()</a></li>
+                    }
+                </ul>
+            </div>
+            break;
+        }
+    case "section-title":
+
+        <h1>@content</h1>
+        break;
+
+    default:
+
+        <div class="content-block">@Html.Raw(content)</div>
+        break;
+}

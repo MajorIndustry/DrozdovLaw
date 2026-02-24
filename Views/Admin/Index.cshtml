@@ -1,0 +1,514 @@
+@model DrozdovLaw.Models.AdminIndexViewModel
+@{
+    Layout = null;
+    var lang = Model.ActiveLang;
+    var section = Model.ActiveSection;
+    var page = Model.SelectedPage ?? "";
+    var slug = Model.SelectedCase?.Slug ?? "";
+    var previewUrl = !string.IsNullOrEmpty(page) ? Url.Action("Preview", "Admin", new { page }) : "";
+    var showPreview = TempData["ShowPreview"] != null;
+    bool isCaseDetail = section == "case-detail" && Model.SelectedCase != null;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Админ — Drozdov Law</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#eef1f6;color:#2d3748;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* TOP BAR */
+.topbar{background:#1a1a2e;color:#fff;padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.topbar__logo{font-size:16px;font-weight:700}.topbar__logo span{color:#7eb8d4}
+.topbar__right{display:flex;align-items:center;gap:16px}
+.topbar__site{color:#7eb8d4;text-decoration:none;font-size:13px}.topbar__site:hover{color:#fff}
+.lang-toggle{display:flex;background:rgba(255,255,255,.1);border-radius:20px;padding:2px}
+.lang-toggle a{padding:4px 14px;border-radius:18px;font-size:13px;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;transition:.15s}
+.lang-toggle a.active{background:#fff;color:#1a1a2e}
+
+/* LAYOUT */
+.workspace{display:flex;flex:1;overflow:hidden}
+
+/* SIDEBAR */
+.sidebar{width:220px;background:#fff;border-right:1px solid #e2e8f0;display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
+.sidebar__section{padding:14px 0 6px}
+.sidebar__label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#a0aec0;padding:0 16px 8px;display:flex;align-items:center;justify-content:space-between}
+.sidebar__label a{font-size:10px;font-weight:600;color:#1a6fa8;text-decoration:none;text-transform:none;letter-spacing:0}
+.sidebar__link{display:flex;align-items:center;gap:8px;padding:8px 16px;color:#4a5568;text-decoration:none;font-size:13px;border-left:3px solid transparent;transition:.12s;cursor:pointer}
+.sidebar__link:hover{background:#f7fafc;color:#1a6fa8}
+.sidebar__link.active{border-left-color:#1a6fa8;background:#ebf4ff;color:#1a6fa8;font-weight:600}
+.sidebar__link.section-link{font-weight:600;font-size:13px;color:#2d3748}
+.sidebar__link.section-link.active{border-left-color:#1a6fa8;background:#ebf4ff;color:#1a6fa8}
+.case-links{border-left:3px solid #e2e8f0;margin-left:18px}
+.case-links a{padding:6px 16px;font-size:12px;color:#718096;display:block;text-decoration:none;border-left:2px solid transparent;transition:.1s}
+.case-links a:hover{color:#1a6fa8;background:#f7fafc}
+.case-links a.active{color:#1a6fa8;font-weight:600;border-left-color:#1a6fa8}
+.sidebar__divider{height:1px;background:#f0f4f8;margin:6px 0}
+.lang-badge{font-size:10px;padding:1px 6px;border-radius:8px;font-weight:700;margin-left:auto}
+.lang-badge.ru{background:#fff0f0;color:#e53e3e}
+.lang-badge.en{background:#ebf8ff;color:#2b6cb0}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.toolbar{background:#fff;border-bottom:1px solid #e2e8f0;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.toolbar__left{display:flex;align-items:center;gap:10px;min-width:0}
+.toolbar__title{font-size:15px;font-weight:700;color:#1a202c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:320px}
+.toolbar__sub{font-size:11px;color:#a0aec0;background:#f7fafc;border:1px solid #e2e8f0;padding:2px 8px;border-radius:10px;font-weight:600;flex-shrink:0}
+.toolbar__count{font-size:12px;color:#a0aec0;background:#edf2f7;padding:2px 8px;border-radius:10px;font-weight:600;flex-shrink:0}
+.toolbar__right{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:.12s;white-space:nowrap}
+.btn-primary{background:#1a6fa8;color:#fff}.btn-primary:hover{background:#155d8e}
+.btn-success{background:#16a34a;color:#fff}.btn-success:hover{background:#15803d}
+.btn-preview{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.btn-preview:hover{background:#dcfce7}.btn-preview.active{background:#16a34a;color:#fff}
+.btn-danger{background:#fff1f2;color:#e11d48;border:1px solid #fecdd3}.btn-danger:hover{background:#ffe4e6}
+.btn-outline{background:#fff;color:#4a5568;border:1px solid #e2e8f0}.btn-outline:hover{border-color:#1a6fa8;color:#1a6fa8;background:#f0f7fb}
+.btn-ghost{background:none;border:none;color:#4a5568;cursor:pointer;font-size:13px;font-weight:600;padding:6px 10px;border-radius:6px}.btn-ghost:hover{background:#f0f4f8}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px 8px;font-size:13px}
+.alert{padding:11px 20px;font-size:13px;font-weight:500;flex-shrink:0;background:#f0fdf4;color:#15803d;border-bottom:1px solid #bbf7d0;display:flex;align-items:center;gap:8px}
+.alert a{color:#16a34a;margin-left:auto;text-decoration:underline;font-size:12px}
+
+/* CONTENT AREA */
+.content-area{flex:1;display:flex;overflow:hidden}
+.table-wrap{flex:1;overflow-y:auto;padding:16px 20px;min-width:0}
+
+/* ── CASE LIST CARDS ── */
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:20px}
+.case-card{background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;transition:.15s;position:relative}
+.case-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);border-color:#b3d4ea}
+.case-card__header{padding:16px 16px 12px;border-bottom:1px solid #f0f4f8}
+.case-card__status{font-size:11px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.case-card__status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.case-card__title{font-size:15px;font-weight:700;color:#1a202c;line-height:1.3;margin-bottom:4px}
+.case-card__location{font-size:12px;color:#718096;display:flex;align-items:center;gap:4px}
+.case-card__body{padding:12px 16px}
+.case-card__summary{font-size:12px;color:#718096;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.case-card__footer{padding:10px 16px;border-top:1px solid #f0f4f8;display:flex;align-items:center;justify-content:space-between;background:#fafbfc}
+.case-card__actions{display:flex;gap:6px}
+.case-card__badge{font-size:10px;color:#a0aec0;font-weight:600}
+.case-card.unpublished{opacity:.65}
+.case-card.unpublished::after{content:'Скрыт';position:absolute;top:10px;right:10px;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;border:1px solid #fde68a}
+.add-case-card{background:#fff;border-radius:12px;border:2px dashed #cbd5e0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;cursor:pointer;transition:.15s;text-decoration:none;color:#a0aec0;min-height:200px}
+.add-case-card:hover{border-color:#1a6fa8;color:#1a6fa8;background:#f0f7fb}
+.add-case-card .icon{font-size:32px;margin-bottom:12px}
+.add-case-card p{font-size:13px;font-weight:600}
+
+/* ── BLOCKS TABLE ── */
+.drag-hint{font-size:11px;color:#a0aec0;margin-bottom:10px}
+.blocks-table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.blocks-table thead th{background:#f7fafc;color:#718096;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:9px 14px;text-align:left;border-bottom:1px solid #e2e8f0}
+.blocks-table tbody td{padding:10px 14px;border-bottom:1px solid #f0f4f8;font-size:13px;vertical-align:middle}
+.blocks-table tbody tr:last-child td{border-bottom:none}
+.blocks-table tbody tr:hover td{background:#fafbfd}
+.blocks-table tbody tr.dragging{opacity:.3}
+.drag-handle{color:#cbd5e0;font-size:16px;cursor:grab;user-select:none;line-height:1;padding:0 2px}.drag-handle:hover{color:#718096}
+.style-chip{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;font-family:'Consolas',monospace;border:1px solid}
+.chip-h{background:#faf5ff;color:#6b21a8;border-color:#e9d5ff}
+.chip-p{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
+.chip-sp{background:#fff7ed;color:#c2410c;border-color:#fed7aa}
+.chip-ls{background:#f0f9ff;color:#0369a1;border-color:#bae6fd}
+.chip-mt{background:#fef3c7;color:#92400e;border-color:#fde68a}
+.chip-as{background:#fdf2f8;color:#9d174d;border-color:#fbcfe8}
+.chip-bt{background:#f0fdf4;color:#065f46;border-color:#a7f3d0}
+.preview-text{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#4a5568}
+.preview-meta{font-size:11px;color:#a0aec0;margin-top:2px}
+.order-num{color:#a0aec0;font-size:12px;font-weight:600;text-align:center}
+.actions{display:flex;gap:4px}
+
+/* CASE META INFO BAR */
+.meta-bar{background:#fff;border-bottom:1px solid #e2e8f0;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;overflow-x:auto}
+.meta-bar__item{display:flex;align-items:center;gap:6px;font-size:12px;color:#718096;white-space:nowrap}
+.meta-bar__dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.meta-bar__sep{color:#e2e8f0;font-size:16px}
+
+/* LANG TAB */
+.lang-tabs{display:flex;gap:2px;background:#f0f4f8;border-radius:8px;padding:2px}
+.lang-tab{padding:4px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;color:#718096;transition:.12s}
+.lang-tab.active{background:#fff;color:#1a202c;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+
+/* PREVIEW */
+.preview-panel{width:0;flex-shrink:0;background:#fff;border-left:1px solid #e2e8f0;overflow:hidden;transition:width .25s ease;display:flex;flex-direction:column}
+.preview-panel.open{width:460px}
+.preview-panel__head{padding:12px 16px;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.preview-panel__head h3{font-size:13px;font-weight:700;color:#1a202c}
+.preview-panel__head .meta{font-size:11px;color:#a0aec0}
+.preview-close{background:none;border:none;font-size:18px;color:#a0aec0;cursor:pointer;padding:2px;line-height:1}.preview-close:hover{color:#4a5568}
+.preview-frame-wrap{flex:1;overflow:hidden;position:relative;background:#f7fafc}
+.preview-frame-wrap iframe{position:absolute;top:0;left:0;width:160%;height:160%;border:none;transform:scale(0.625);transform-origin:top left}
+.preview-foot{padding:7px 16px;border-top:1px solid #f0f4f8;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.preview-foot small{font-size:11px;color:#a0aec0}.preview-foot a{font-size:11px;color:#1a6fa8;text-decoration:none}.preview-foot a:hover{text-decoration:underline}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:80px 20px;color:#a0aec0}
+.empty-state .icon{font-size:52px;margin-bottom:16px}
+.empty-state h3{font-size:16px;color:#4a5568;margin-bottom:8px}
+.empty-state p{font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+    <div class="topbar__logo">&#9878; Drozdov Law <span>Admin</span></div>
+    <div class="topbar__right">
+        <div class="lang-toggle">
+            <a href="@Url.Action("Index","Admin", new { section, slug, page = page.Replace("-ru","").Replace("-en","") + "-ru", lang = "ru" })"
+               class="@(lang == "ru" ? "active" : "")">&#127479;&#127482; RU</a>
+            <a href="@Url.Action("Index","Admin", new { section, slug, page = page.Replace("-ru","").Replace("-en","") + "-en", lang = "en" })"
+               class="@(lang == "en" ? "active" : "")">&#127468;&#127463; EN</a>
+        </div>
+        <a href="/" class="topbar__site">&#8592; На сайт</a>
+    </div>
+</header>
+
+<div class="workspace">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <div class="sidebar__section">
+        <div class="sidebar__label">Кейсы</div>
+        <a href="@Url.Action("Index","Admin", new { section = "cases", lang })"
+           class="sidebar__link section-link @(section == "cases" ? "active" : "")">
+            &#128196; Все кейсы
+            <span style="margin-left:auto;background:#edf2f7;color:#718096;font-size:11px;padding:1px 7px;border-radius:10px;font-weight:700">@Model.Cases.Count</span>
+        </a>
+        @foreach (var c in Model.Cases)
+        {
+            var cSlug = c.Slug;
+            var cTitle = lang == "ru" ? c.TitleRu : c.TitleEn;
+            var isActive = section == "case-detail" && slug == cSlug;
+            <div>
+                <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=cSlug, page=$"case-{cSlug}-{lang}", lang })"
+                   class="sidebar__link @(isActive ? "active" : "")" style="padding-left:28px;font-size:12px">
+                    @if (!c.IsPublished) { <span style="color:#a0aec0">&#128274;</span> }
+                    @(cTitle.Length > 22 ? cTitle[..22] + "…" : cTitle)
+                    <span class="lang-badge @lang">@lang</span>
+                </a>
+                @if (isActive)
+                {
+                    <div class="case-links">
+                        <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=cSlug, page=$"case-{cSlug}-ru", lang="ru" })"
+                           class="@(page == $"case-{cSlug}-ru" ? "active" : "")">&#127479;&#127482; RU версия</a>
+                        <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=cSlug, page=$"case-{cSlug}-en", lang="en" })"
+                           class="@(page == $"case-{cSlug}-en" ? "active" : "")">&#127468;&#127463; EN версия</a>
+                        <a href="@Url.Action("EditCaseMeta","Admin", new { id=c.Id, lang })" style="color:#e53e3e">
+                            &#9998; Метаданные
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+        <div class="sidebar__divider"></div>
+        <a href="@Url.Action("CreateCase","Admin")" class="sidebar__link" style="color:#16a34a;font-weight:600">
+            &#43; Добавить кейс
+        </a>
+    </div>
+    <div class="sidebar__divider"></div>
+    <div class="sidebar__section">
+        <div class="sidebar__label">Статические страницы</div>
+        <a href="@Url.Action("Index","Admin", new { section="whoweare", page=$"whoweare-{lang}", lang })"
+           class="sidebar__link section-link @(section == "whoweare" ? "active" : "")">
+            &#128101; Кто мы
+            <span class="lang-badge @lang" style="margin-left:auto">@lang</span>
+        </a>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert">
+            &#9989; @TempData["Success"]
+            @if (!string.IsNullOrEmpty(previewUrl))
+            {
+                <a href="#" onclick="openPreview();return false">Открыть предпросмотр &#8594;</a>
+            }
+        </div>
+    }
+
+    @* ═══════════════════════════════════════════════════
+       СЕКЦИЯ 1: СПИСОК КЕЙСОВ
+       ═══════════════════════════════════════════════════ *@
+    @if (section == "cases")
+    {
+        <div class="toolbar">
+            <div class="toolbar__left">
+                <div class="toolbar__title">Управление кейсами</div>
+                <span class="toolbar__count">@Model.Cases.Count кейсов</span>
+            </div>
+            <div class="toolbar__right">
+                <a href="@Url.Action("CreateCase","Admin")" class="btn btn-success">&#43; Новый кейс</a>
+            </div>
+        </div>
+        <div class="content-area">
+            <div style="flex:1;overflow-y:auto">
+                @if (!Model.Cases.Any())
+                {
+                    <div class="empty-state">
+                        <div class="icon">&#128196;</div>
+                        <h3>Кейсов пока нет</h3>
+                        <p>Создайте первый кейс</p>
+                        <a href="@Url.Action("CreateCase","Admin")" class="btn btn-success" style="margin-top:16px">&#43; Новый кейс</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="cases-grid">
+                        @foreach (var c in Model.Cases)
+                        {
+                            <div class="case-card @(!c.IsPublished ? "unpublished" : "")">
+                                <div class="case-card__header">
+                                    <div class="case-card__status">
+                                        <div class="case-card__status-dot" style="background:@c.StatusColor"></div>
+                                        <span style="color:@c.StatusColor">@(lang == "ru" ? c.StatusRu : c.StatusEn)</span>
+                                    </div>
+                                    <div class="case-card__title">@(lang == "ru" ? c.TitleRu : c.TitleEn)</div>
+                                    <div class="case-card__location">&#127988; @(lang == "ru" ? c.LocationRu : c.LocationEn)</div>
+                                </div>
+                                <div class="case-card__body">
+                                    <div class="case-card__summary">@(lang == "ru" ? c.SummaryRu : c.SummaryEn)</div>
+                                </div>
+                                <div class="case-card__footer">
+                                    <div class="case-card__actions">
+                                        <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=c.Slug, page=$"case-{c.Slug}-{lang}", lang })"
+                                           class="btn btn-outline btn-sm">&#9998; Блоки</a>
+                                        <a href="@Url.Action("EditCaseMeta","Admin", new { id=c.Id, lang })"
+                                           class="btn btn-outline btn-sm">&#9881;</a>
+                                        <form method="post" action="@Url.Action("DeleteCase","Admin")"
+                                              onsubmit="return confirm('Удалить кейс «@(lang=="ru"?c.TitleRu:c.TitleEn)»? Это действие необратимо.')">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@c.Id">
+                                            <button type="submit" class="btn btn-danger btn-sm">&#128465;</button>
+                                        </form>
+                                    </div>
+                                    <div class="case-card__badge">@c.CreatedAt.ToString("dd.MM.yy")</div>
+                                </div>
+                            </div>
+                        }
+                        <a href="@Url.Action("CreateCase","Admin")" class="add-case-card">
+                            <div class="icon">&#43;</div>
+                            <p>Добавить кейс</p>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+    @* ═══════════════════════════════════════════════════
+       СЕКЦИЯ 2: РЕДАКТИРОВАНИЕ БЛОКОВ КЕЙСА / СТРАНИЦЫ
+       ═══════════════════════════════════════════════════ *@
+    @if (section == "case-detail" || section == "whoweare")
+    {
+        @* Метаинфо бар для кейса *@
+        @if (isCaseDetail && Model.SelectedCase != null)
+        {
+            var mc = Model.SelectedCase;
+            <div class="meta-bar">
+                <div class="meta-bar__item">
+                    <div class="meta-bar__dot" style="background:@mc.StatusColor"></div>
+                    <span>@(lang=="ru"?mc.StatusRu:mc.StatusEn)</span>
+                </div>
+                <span class="meta-bar__sep">|</span>
+                <div class="meta-bar__item">&#127988; @(lang=="ru"?mc.LocationRu:mc.LocationEn)</div>
+                <span class="meta-bar__sep">|</span>
+                <a href="@Url.Action("EditCaseMeta","Admin", new { id=mc.Id, lang })" class="btn btn-ghost btn-sm">&#9881; Метаданные</a>
+                <a href="@Url.RouteUrl("case-detail", new { slug=mc.Slug })?lang=@lang" target="_blank" class="btn btn-ghost btn-sm">&#8599; Открыть</a>
+            </div>
+        }
+
+        <div class="toolbar">
+            <div class="toolbar__left">
+                @if (isCaseDetail && Model.SelectedCase != null)
+                {
+                    <div class="toolbar__title">@(lang=="ru"?Model.SelectedCase.TitleRu:Model.SelectedCase.TitleEn)</div>
+                }
+                else
+                {
+                    <div class="toolbar__title">@(page.Contains("whoweare") ? (lang=="ru"?"Кто мы":"Who we are") : page)</div>
+                }
+                <span class="toolbar__sub">@lang.ToUpper()</span>
+                @if (Model.Blocks.Any())
+                {
+                    <span class="toolbar__count">@Model.Blocks.Count блоков</span>
+                }
+
+                @* Переключатель RU/EN *@
+                @if (isCaseDetail && Model.SelectedCase != null)
+                {
+                    <div class="lang-tabs" style="margin-left:8px">
+                        <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=Model.SelectedCase.Slug, page=$"case-{Model.SelectedCase.Slug}-ru", lang="ru" })"
+                           class="lang-tab @(lang=="ru"?"active":"")">&#127479;&#127482; RU</a>
+                        <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=Model.SelectedCase.Slug, page=$"case-{Model.SelectedCase.Slug}-en", lang="en" })"
+                           class="lang-tab @(lang=="en"?"active":"")">&#127468;&#127463; EN</a>
+                    </div>
+                }
+                else if (section == "whoweare")
+                {
+                    <div class="lang-tabs" style="margin-left:8px">
+                        <a href="@Url.Action("Index","Admin", new { section="whoweare", page="whoweare-ru", lang="ru" })"
+                           class="lang-tab @(lang=="ru"?"active":"")">&#127479;&#127482; RU</a>
+                        <a href="@Url.Action("Index","Admin", new { section="whoweare", page="whoweare-en", lang="en" })"
+                           class="lang-tab @(lang=="en"?"active":"")">&#127468;&#127463; EN</a>
+                    </div>
+                }
+            </div>
+            <div class="toolbar__right">
+                @if (!string.IsNullOrEmpty(page))
+                {
+                    <button class="btn btn-preview @(showPreview?"active":"")" id="previewBtn" onclick="togglePreview()">&#128065; Предпросмотр</button>
+                    <a href="@Url.Action("Create","Admin", new { page, lang, section, slug })" class="btn btn-primary">&#43; Блок</a>
+                }
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="table-wrap">
+                @if (!Model.Blocks.Any())
+                {
+                    <div class="empty-state">
+                        <div class="icon">&#128221;</div>
+                        <h3>Блоков нет</h3>
+                        <p>Добавьте первый блок кнопкой выше</p>
+                    </div>
+                }
+                else
+                {
+                    <p class="drag-hint">&#10783; Перетащите строки для изменения порядка — сохраняется автоматически</p>
+                    <table class="blocks-table">
+                        <thead>
+                            <tr>
+                                <th style="width:32px"></th>
+                                <th style="width:32px">#</th>
+                                <th style="width:160px">Стиль</th>
+                                <th>Содержимое</th>
+                                <th style="width:115px">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sortableBody">
+                            @foreach (var block in Model.Blocks)
+                            {
+                                var chipCls = block.Style switch {
+                                    "h1" or "h2" or "h3" or "h4" or "h5" or "section-title" => "chip-h",
+                                    "p" or "p-large" or "blockquote" or "small" => "chip-p",
+                                    "e-id" or "e-dots" or "e-details__type" or "e-details__loc" or "e-details__def" => "chip-sp",
+                                    "ul" or "ol" => "chip-ls",
+                                    "person" or "note-title" or "note-text" => "chip-as",
+                                    "decision-title" or "decision-text" or "case-link" or "docs-title" or "doc-item" or "tags-title" or "tag" => "chip-bt",
+                                    _ => "chip-mt"
+                                };
+                                <tr draggable="true" data-id="@block.Id">
+                                    <td><span class="drag-handle">&#10783;</span></td>
+                                    <td class="order-num">@block.Order</td>
+                                    <td><span class="style-chip @chipCls">@block.Style</span></td>
+                                    <td>
+                                        <div class="preview-text" title="@block.Content">
+                                            @(block.Content.Length > 80 ? block.Content[..80] + "…" : block.Content)
+                                        </div>
+                                        <div class="preview-meta">@block.UpdatedAt.ToString("dd.MM.yy HH:mm")</div>
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <a href="@Url.Action("Edit","Admin", new { id=block.Id, returnPage=page, lang, section, slug })"
+                                               class="btn btn-outline btn-sm btn-icon">&#9998;</a>
+                                            <form method="post" action="@Url.Action("Delete","Admin")"
+                                                  onsubmit="return confirm('Удалить блок?')">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@block.Id">
+                                                <input type="hidden" name="returnPage" value="@(page)">
+                                                <input type="hidden" name="lang" value="@lang">
+                                                <input type="hidden" name="section" value="@(section)">
+                                                <input type="hidden" name="slug" value="@slug">
+                                                <button type="submit" class="btn btn-danger btn-sm btn-icon">&#128465;</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+
+            <!-- PREVIEW PANEL -->
+            <div class="preview-panel @(showPreview?"open":"")" id="previewPanel">
+                <div class="preview-panel__head">
+                    <div>
+                        <h3>Предпросмотр</h3>
+                        <div class="meta">@(page) · @lang.ToUpper()</div>
+                    </div>
+                    <button class="preview-close" onclick="closePreview()">&#215;</button>
+                </div>
+                <div class="preview-frame-wrap">
+                    <iframe id="previewFrame"
+                            src="@(showPreview && !string.IsNullOrEmpty(previewUrl) ? previewUrl : "")"
+                            data-src="@previewUrl">
+                    </iframe>
+                </div>
+                <div class="preview-foot">
+                    <small>Масштаб 62.5%</small>
+                    <a href="@previewUrl" target="_blank">&#8599; Открыть в новой вкладке</a>
+                </div>
+            </div>
+        </div>
+    }
+</div><!-- /main -->
+</div><!-- /workspace -->
+
+<script>
+// Drag & Drop
+const tbody = document.getElementById('sortableBody');
+if (tbody) {
+    let dragged = null;
+    tbody.querySelectorAll('tr[draggable]').forEach(row => {
+        row.addEventListener('dragstart', () => { dragged = row; setTimeout(() => row.classList.add('dragging'), 0); });
+        row.addEventListener('dragend', () => { row.classList.remove('dragging'); dragged = null; saveOrder(); });
+        row.addEventListener('dragover', e => {
+            e.preventDefault();
+            if (!dragged || dragged === row) return;
+            const rect = row.getBoundingClientRect();
+            if (e.clientY < rect.top + rect.height / 2) tbody.insertBefore(dragged, row);
+            else tbody.insertBefore(dragged, row.nextSibling);
+        });
+    });
+    async function saveOrder() {
+        const ids = [...tbody.querySelectorAll('tr[data-id]')].map(r => r.dataset.id);
+        tbody.querySelectorAll('tr').forEach((r, i) => { const c = r.querySelector('.order-num'); if (c) c.textContent = i+1; });
+        try {
+            await fetch('@Url.Action("Reorder","Admin")', {
+                method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ page: '@(page)', ids })
+            });
+            if (document.getElementById('previewPanel').classList.contains('open')) reloadPreview();
+        } catch(e) { console.error(e); }
+    }
+}
+
+// Preview
+const panel = document.getElementById('previewPanel');
+const frame = document.getElementById('previewFrame');
+const previewBtn = document.getElementById('previewBtn');
+function openPreview() {
+    if (!panel) return;
+    panel.classList.add('open');
+    if (previewBtn) previewBtn.classList.add('active');
+    if (frame && !frame.src && frame.dataset.src) frame.src = frame.dataset.src;
+}
+function closePreview() {
+    if (!panel) return;
+    panel.classList.remove('open');
+    if (previewBtn) previewBtn.classList.remove('active');
+}
+function togglePreview() { panel && panel.classList.contains('open') ? closePreview() : openPreview(); }
+function reloadPreview() { if (frame && frame.dataset.src) { frame.src=''; setTimeout(()=>frame.src=frame.dataset.src,50); } }
+@if (showPreview && !string.IsNullOrEmpty(previewUrl))
+{
+    <text>window.addEventListener('load', openPreview);</text>
+}
+</script>
+</body>
+</html>

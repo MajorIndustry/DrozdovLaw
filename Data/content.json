@@ -1,0 +1,2804 @@
+{
+  "blocks": [
+    {
+      "id": "cr001",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "\u0413\u043B\u0430\u0432\u043D\u0430\u044F / \u041A\u0435\u0439\u0441\u044B",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr002",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr003",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 3,
+      "style": "h1",
+      "content": "\u041A.\u041A. \u043F\u0440\u043E\u0442\u0438\u0432 \u0428\u0432\u0435\u0439\u0446\u0430\u0440\u0438\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr004",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 4,
+      "style": "e-id",
+      "content": "\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u2116 110/2020",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr005",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "\u0414\u0435\u043F\u043E\u0440\u0442\u0430\u0446\u0438\u044F \u0432 \u0413\u0440\u0443\u0437\u0438\u044E \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0430",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr006",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "\u0428\u0432\u0435\u0439\u0446\u0430\u0440\u0438\u044F / \u041A\u043E\u043C\u0438\u0442\u0435\u0442 \u041E\u041E\u041D \u043F\u043E \u043F\u0440\u0430\u0432\u0430\u043C \u0440\u0435\u0431\u0435\u043D\u043A\u0430",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr007",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "\u043E\u0442\u043A\u0430\u0437 \u0432 \u0443\u0431\u0435\u0436\u0438\u0449\u0435 \u0438 \u0434\u0435\u043F\u043E\u0440\u0442\u0430\u0446\u0438\u044F \u0432 \u0441\u0442\u0440\u0430\u043D\u0443 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F / \u043F\u0440\u043E\u0436\u0438\u0432\u0430\u043D\u0438\u044F",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr008",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 8,
+      "style": "p",
+      "content": "On Tuesday 7 June 2016, the CJEU delivered its judgments in Ghezelbash and Karim. These cases relate to the scope of the right to an effective remedy in recital 19 and Article 27(1) of the Dublin III Regulation.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr009",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 9,
+      "style": "h2",
+      "content": "C-63/15 Ghezelbash",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr010",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 10,
+      "style": "p",
+      "content": "Mr Ghezelbash, an Iranian national, had his asylum claim in the Netherlands rejected following the acceptance of a \u0027take back\u0027 request by France pursuant to Article 12(4) DRIII. After being informed of this, the applicant submitted circumstantial evidence in support of his claims that he had returned to Iran from France for over three months.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr011",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 11,
+      "style": "p",
+      "content": "In line with the Opinion of Advocate General Sharpston, delivered on 17 March 2016, the Court decided that Article 4 of the Dublin III Regulation confers a right on the applicant to be informed of the criteria for determining the Member State responsible.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr012",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 12,
+      "style": "blockquote",
+      "content": "The Court dismissed the argument that enabling an appeal against the misapplication of Chapter.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr013",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 13,
+      "style": "p",
+      "content": "The Court thus concluded that Article 27(1) of the Dublin III Regulation should be interpreted as meaning that an asylum seeker is entitled to plead, in an appeal against a decision to transfer him, the incorrect application of one of the criteria for determining responsibility laid down in Chapter III of the Dublin III Regulation.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr014",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 14,
+      "style": "h2",
+      "content": "C-155/15 Karim",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr015",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 15,
+      "style": "p",
+      "content": "Mr Karim is a Syrian national who had his asylum claim in Sweden rejected after Slovenia accepted a \u0027take back\u0027 request pursuant to Article 13 of the Dublin III Regulation.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr016",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 16,
+      "style": "h3",
+      "content": "Work in the case of K.K. v. Switzerland:",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr017",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 17,
+      "style": "ul",
+      "content": "gathering information about the policy of assistance to refugees;|preparation of documents in the case;|defense of the defendant in court and representation of his interests.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr018",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 18,
+      "style": "p",
+      "content": "The Court acknowledged the fact that after the submissions of new documents indicating that Mr. Karim had left the territory for over three months, a new procedure for determining the responsible Member State had started.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr019",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 19,
+      "style": "h3",
+      "content": "The documents in the case:",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr020",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 20,
+      "style": "ol",
+      "content": "Respondent\u0027s statement;|Preparation of documents in the case;|Defense of the defendant in court and representation of his interests.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr021",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 21,
+      "style": "small",
+      "content": "This item was reproduced with the permission of ECRE from the weekly ELENA legal update supported by the Fundamental Rights and Citizenship Funding Programme and distributed by email.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr022",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 22,
+      "style": "person",
+      "content": "\u0414\u0420\u041E\u0417\u0414\u041E\u0412 \u0412\u0430\u0434\u0438\u043C",
+      "extraAttribute": "pictures/person-1.jpg|\u0410\u0434\u0432\u043E\u043A\u0430\u0442",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr023",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 23,
+      "style": "person",
+      "content": "\u041C\u0410\u0422\u042E\u0429\u0415\u041D\u041A\u041E\u0412 \u041D\u0438\u043A\u0438\u0442\u0430",
+      "extraAttribute": "pictures/person-2.jpg|\u0410\u0434\u0432\u043E\u043A\u0430\u0442",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr024",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 24,
+      "style": "note-title",
+      "content": "\u041F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr025",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 25,
+      "style": "note-text",
+      "content": "\u041F\u0440\u043E\u0446\u0435\u0434\u0443\u0440\u0430 \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u044F, \u0443\u0442\u0440\u0430\u0442\u044B, \u043B\u0438\u0448\u0435\u043D\u0438\u044F \u0441\u0442\u0430\u0442\u0443\u0441\u0430 \u0431\u0435\u0436\u0435\u043D\u0446\u0430 \u0440\u0435\u0433\u0443\u043B\u0438\u0440\u0443\u0435\u0442\u0441\u044F \u0417\u0430\u043A\u043E\u043D\u043E\u043C \u00AB\u041E \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u0438 \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u043D\u044B\u043C \u0433\u0440\u0430\u0436\u0434\u0430\u043D\u0430\u043C \u0438 \u043B\u0438\u0446\u0430\u043C \u0431\u0435\u0437 \u0433\u0440\u0430\u0436\u0434\u0430\u043D\u0441\u0442\u0432\u0430 \u0441\u0442\u0430\u0442\u0443\u0441\u0430 \u0431\u0435\u0436\u0435\u043D\u0446\u0430, \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0438 \u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0439 \u0437\u0430\u0449\u0438\u0442\u044B\u00BB, \u0430 \u0442\u0430\u043A\u0436\u0435 \u041F\u043E\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435\u043C \u0421\u043E\u0432\u0435\u0442\u0430 \u041C\u0438\u043D\u0438\u0441\u0442\u0440\u043E\u0432 \u00AB\u0412\u043E\u043F\u0440\u043E\u0441\u044B \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u044F \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u043D\u044B\u043C\u00BB.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr026",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 26,
+      "style": "note-title",
+      "content": "\u041F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr027",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 27,
+      "style": "note-text",
+      "content": "\u041F\u0440\u043E\u0446\u0435\u0434\u0443\u0440\u0430 \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u044F, \u0443\u0442\u0440\u0430\u0442\u044B, \u043B\u0438\u0448\u0435\u043D\u0438\u044F \u0441\u0442\u0430\u0442\u0443\u0441\u0430 \u0431\u0435\u0436\u0435\u043D\u0446\u0430 \u0440\u0435\u0433\u0443\u043B\u0438\u0440\u0443\u0435\u0442\u0441\u044F \u0417\u0430\u043A\u043E\u043D\u043E\u043C \u00AB\u041E \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u0438 \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u043D\u044B\u043C \u0433\u0440\u0430\u0436\u0434\u0430\u043D\u0430\u043C\u00BB.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr028",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 28,
+      "style": "decision-title",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr029",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 29,
+      "style": "decision-text",
+      "content": "\u0414\u0435\u043F\u043E\u0440\u0442\u0430\u0446\u0438\u044F \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0430 \u043D\u0430 \u0432\u0440\u0435\u043C\u044F \u0440\u0430\u0441\u0441\u043C\u043E\u0442\u0440\u0435\u043D\u0438\u044F \u0434\u0435\u043B\u0430 \u0432 \u041A\u043E\u043C\u0438\u0442\u0435\u0442\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr030",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 30,
+      "style": "case-link",
+      "content": "https://www..",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr031",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 31,
+      "style": "docs-title",
+      "content": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u043F\u043E \u0434\u0435\u043B\u0443",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr032",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 32,
+      "style": "doc-item",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435 \u0441\u0443\u0434\u0435\u0431\u043D\u043E\u0433\u043E \u0434\u0435\u043B\u0430",
+      "extraAttribute": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 PDF",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr033",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 33,
+      "style": "doc-item",
+      "content": "\u0421\u0432\u0438\u0434\u0435\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u043E \u043E \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u0438 \u0441\u0442\u0430\u0442\u0443\u0441\u0430 \u0431\u0435\u0436\u0435\u043D\u0446\u0430",
+      "extraAttribute": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 PDF",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr034",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 34,
+      "style": "tags-title",
+      "content": "\u0422\u0435\u0433\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr035",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 35,
+      "style": "tag",
+      "content": "Dublin Transfer",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr036",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 36,
+      "style": "tag",
+      "content": "Effective access to procedures",
+      "extraAttribute": "#1E6F89",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr037",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 37,
+      "style": "tag",
+      "content": "Effective remedy",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr038",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 38,
+      "style": "tag",
+      "content": "Inhuman or degrading treatment or punishment",
+      "extraAttribute": "#B4D4EB",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr039",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 39,
+      "style": "tag",
+      "content": "Request to take back",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "cr040",
+      "pageName": "case-kk-vs-switzerland-ru",
+      "order": 40,
+      "style": "section-title",
+      "content": "\u041F\u041E\u0425\u041E\u0416\u0418\u0415 \u041A\u0415\u0419\u0421\u042B",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce001",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "Home / Cases",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce002",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce003",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 3,
+      "style": "h1",
+      "content": "K.K. v. Switzerland",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce004",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 4,
+      "style": "e-id",
+      "content": "Communication No. 110/2020",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce005",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "Deportation to Georgia stopped",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce006",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "Switzerland / UN Committee on the Rights of the Child",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce007",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "Type: refusal of asylum and deportation to the country of origin / residence",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce008",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 8,
+      "style": "p",
+      "content": "On Tuesday 7 June 2016, the CJEU delivered its judgments in Ghezelbash and Karim. These cases relate to the scope of the right to an effective remedy in recital 19 and Article 27(1) of the Dublin III Regulation.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce009",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 9,
+      "style": "h2",
+      "content": "C-63/15 Ghezelbash",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce010",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 10,
+      "style": "p",
+      "content": "Mr Ghezelbash, an Iranian national, had his asylum claim in the Netherlands rejected following the acceptance of a \u0027take back\u0027 request by France pursuant to Article 12(4) DRIII.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce011",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 11,
+      "style": "p",
+      "content": "In line with the Opinion of Advocate General Sharpston, the Court decided that Article 4 of the Dublin III Regulation confers a right on the applicant to be informed of the criteria for determining the Member State responsible.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce012",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 12,
+      "style": "blockquote",
+      "content": "The Court dismissed the argument that enabling an appeal against the misapplication of Chapter.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce013",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 13,
+      "style": "p",
+      "content": "The Court thus concluded that Article 27(1) of the Dublin III Regulation should be interpreted as meaning that an asylum seeker is entitled to plead the incorrect application of one of the criteria for determining responsibility.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce014",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 14,
+      "style": "h2",
+      "content": "C-155/15 Karim",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce015",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 15,
+      "style": "p",
+      "content": "Mr Karim is a Syrian national who had his asylum claim in Sweden rejected after Slovenia accepted a \u0027take back\u0027 request pursuant to Article 13 of the Dublin III Regulation.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce016",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 16,
+      "style": "h3",
+      "content": "Work in the case of K.K. v. Switzerland:",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce017",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 17,
+      "style": "ul",
+      "content": "Gathering information about the policy of assistance to refugees;|Preparation of documents in the case;|Defense of the defendant in court and representation of his interests.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce018",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 18,
+      "style": "p",
+      "content": "The Court acknowledged the fact that after the submissions of new documents, a new procedure for determining the responsible Member State had started.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce019",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 19,
+      "style": "h3",
+      "content": "The documents in the case:",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce020",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 20,
+      "style": "ol",
+      "content": "Respondent\u0027s statement;|Preparation of documents in the case;|Defense of the defendant in court and representation of his interests.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce021",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 21,
+      "style": "small",
+      "content": "This item was reproduced with the permission of ECRE from the weekly ELENA legal update.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce022",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 22,
+      "style": "person",
+      "content": "DROZDOV Vadim",
+      "extraAttribute": "pictures/person-1.jpg|Lawyer",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce023",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 23,
+      "style": "person",
+      "content": "MATYUSHCHENKOV Nikita",
+      "extraAttribute": "pictures/person-2.jpg|Lawyer",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce024",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 24,
+      "style": "note-title",
+      "content": "Explanation",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce025",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 25,
+      "style": "note-text",
+      "content": "The procedure for granting, losing, and revoking refugee status is regulated by the Law on granting foreign citizens and stateless persons refugee status.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce026",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 26,
+      "style": "note-title",
+      "content": "Explanation",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce027",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 27,
+      "style": "note-text",
+      "content": "The procedure for granting, losing, and revoking refugee status is regulated by the Law on granting foreign citizens...",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce028",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 28,
+      "style": "decision-title",
+      "content": "Decision",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce029",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 29,
+      "style": "decision-text",
+      "content": "Deportation stopped pending consideration of the case by the Committee",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce030",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 30,
+      "style": "case-link",
+      "content": "https://www..",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce031",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 31,
+      "style": "docs-title",
+      "content": "Case documents",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce032",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 32,
+      "style": "doc-item",
+      "content": "Court decision",
+      "extraAttribute": "PDF Document",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce033",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 33,
+      "style": "doc-item",
+      "content": "Certificate of refugee status",
+      "extraAttribute": "PDF Document",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce034",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 34,
+      "style": "tags-title",
+      "content": "Tags",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce035",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 35,
+      "style": "tag",
+      "content": "Dublin Transfer",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce036",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 36,
+      "style": "tag",
+      "content": "Effective access to procedures",
+      "extraAttribute": "#1E6F89",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce037",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 37,
+      "style": "tag",
+      "content": "Effective remedy",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce038",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 38,
+      "style": "tag",
+      "content": "Inhuman or degrading treatment or punishment",
+      "extraAttribute": "#B4D4EB",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce039",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 39,
+      "style": "tag",
+      "content": "Request to take back",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "ce040",
+      "pageName": "case-kk-vs-switzerland-en",
+      "order": 40,
+      "style": "section-title",
+      "content": "SIMILAR CASES",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr001",
+      "pageName": "case-discrimination-ru",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "\u0413\u043B\u0430\u0432\u043D\u0430\u044F / \u041A\u0435\u0439\u0441\u044B",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr002",
+      "pageName": "case-discrimination-ru",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#EA7C3E,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr003",
+      "pageName": "case-discrimination-ru",
+      "order": 3,
+      "style": "h1",
+      "content": "\u0414\u0438\u0441\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u0446\u0438\u044F",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr004",
+      "pageName": "case-discrimination-ru",
+      "order": 4,
+      "style": "e-id",
+      "content": "\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u2116 045/2019",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr005",
+      "pageName": "case-discrimination-ru",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E \u0443\u0441\u043F\u0435\u0448\u043D\u043E",
+      "extraAttribute": "#EA7C3E",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr006",
+      "pageName": "case-discrimination-ru",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "\u0413\u0435\u0440\u043C\u0430\u043D\u0438\u044F / \u041E\u0440\u0433\u0430\u043D \u0436\u0430\u043B\u043E\u0431\u044B",
+      "extraAttribute": "images/flag-de.png",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr007",
+      "pageName": "case-discrimination-ru",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "\u0422\u0438\u043F: \u0434\u0438\u0441\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u0446\u0438\u044F \u043F\u043E \u043D\u0430\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u043C\u0443 \u043F\u0440\u0438\u0437\u043D\u0430\u043A\u0443",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr008",
+      "pageName": "case-discrimination-ru",
+      "order": 8,
+      "style": "p",
+      "content": "\u0418\u0434\u0435\u043D\u0442\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044E \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438 \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u0446\u0430, \u0445\u043E\u0434\u0430\u0442\u0430\u0439\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0433\u043E \u043E \u0437\u0430\u0449\u0438\u0442\u0435, \u043D\u0435 \u0438\u043C\u0435\u044E\u0449\u0435\u0433\u043E \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430 \u0434\u043B\u044F \u0432\u044B\u0435\u0437\u0434\u0430 \u0437\u0430 \u0433\u0440\u0430\u043D\u0438\u0446\u0443.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr009",
+      "pageName": "case-discrimination-ru",
+      "order": 9,
+      "style": "h2",
+      "content": "\u041E\u0431\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u0430 \u0434\u0435\u043B\u0430",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr010",
+      "pageName": "case-discrimination-ru",
+      "order": 10,
+      "style": "p",
+      "content": "\u0417\u0430\u044F\u0432\u0438\u0442\u0435\u043B\u044C \u043F\u043E\u0434\u0432\u0435\u0440\u0433\u0441\u044F \u0434\u0438\u0441\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u0446\u0438\u0438 \u043F\u043E \u043D\u0430\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u043C\u0443 \u043F\u0440\u0438\u0437\u043D\u0430\u043A\u0443 \u043F\u0440\u0438 \u0442\u0440\u0443\u0434\u043E\u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0435. \u0420\u0430\u0431\u043E\u0442\u043E\u0434\u0430\u0442\u0435\u043B\u044C \u043E\u0442\u043A\u0430\u0437\u0430\u043B \u0432 \u043F\u0440\u0438\u0451\u043C\u0435 \u043D\u0430 \u0440\u0430\u0431\u043E\u0442\u0443, \u0441\u0441\u044B\u043B\u0430\u044F\u0441\u044C \u043D\u0430 \u043D\u0430\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u0441\u043E\u0438\u0441\u043A\u0430\u0442\u0435\u043B\u044F, \u0447\u0442\u043E \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043F\u0440\u044F\u043C\u044B\u043C \u043D\u0430\u0440\u0443\u0448\u0435\u043D\u0438\u0435\u043C \u0430\u043D\u0442\u0438\u0434\u0438\u0441\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0433\u043E \u0437\u0430\u043A\u043E\u043D\u043E\u0434\u0430\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u0430 \u0415\u0421.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr011",
+      "pageName": "case-discrimination-ru",
+      "order": 11,
+      "style": "blockquote",
+      "content": "\u0414\u0438\u0441\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u0446\u0438\u044F \u043F\u043E \u043D\u0430\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u043C\u0443 \u043F\u0440\u0438\u0437\u043D\u0430\u043A\u0443 \u043D\u0435\u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u0430 \u0438 \u043D\u0430\u0440\u0443\u0448\u0430\u0435\u0442 \u043E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u043F\u0440\u0430\u0432\u0430 \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr012",
+      "pageName": "case-discrimination-ru",
+      "order": 12,
+      "style": "h3",
+      "content": "\u0420\u0430\u0431\u043E\u0442\u0430 \u043F\u043E \u0434\u0435\u043B\u0443:",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr013",
+      "pageName": "case-discrimination-ru",
+      "order": 13,
+      "style": "ul",
+      "content": "\u0421\u0431\u043E\u0440 \u0434\u043E\u043A\u0430\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0431\u0430\u0437\u044B|\u041F\u043E\u0434\u0430\u0447\u0430 \u0436\u0430\u043B\u043E\u0431\u044B \u0432 \u043E\u0440\u0433\u0430\u043D \u043F\u043E \u0440\u0430\u0441\u0441\u043C\u043E\u0442\u0440\u0435\u043D\u0438\u044E \u0436\u0430\u043B\u043E\u0431|\u041F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043E\u0432 \u0437\u0430\u044F\u0432\u0438\u0442\u0435\u043B\u044F",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr014",
+      "pageName": "case-discrimination-ru",
+      "order": 14,
+      "style": "person",
+      "content": "\u0414\u0420\u041E\u0417\u0414\u041E\u0412 \u0412\u0430\u0434\u0438\u043C",
+      "extraAttribute": "pictures/person-1.jpg|\u0410\u0434\u0432\u043E\u043A\u0430\u0442",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr015",
+      "pageName": "case-discrimination-ru",
+      "order": 15,
+      "style": "decision-title",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr016",
+      "pageName": "case-discrimination-ru",
+      "order": 16,
+      "style": "decision-text",
+      "content": "\u0416\u0430\u043B\u043E\u0431\u0430 \u043F\u0440\u0438\u0437\u043D\u0430\u043D\u0430 \u043E\u0431\u043E\u0441\u043D\u043E\u0432\u0430\u043D\u043D\u043E\u0439, \u0440\u0430\u0431\u043E\u0442\u043E\u0434\u0430\u0442\u0435\u043B\u044C \u043F\u0440\u0438\u0432\u043B\u0435\u0447\u0451\u043D \u043A \u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr017",
+      "pageName": "case-discrimination-ru",
+      "order": 17,
+      "style": "docs-title",
+      "content": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u043F\u043E \u0434\u0435\u043B\u0443",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr018",
+      "pageName": "case-discrimination-ru",
+      "order": 18,
+      "style": "doc-item",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435 \u043E\u0440\u0433\u0430\u043D\u0430 \u0436\u0430\u043B\u043E\u0431\u044B",
+      "extraAttribute": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 PDF",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr019",
+      "pageName": "case-discrimination-ru",
+      "order": 19,
+      "style": "tags-title",
+      "content": "\u0422\u0435\u0433\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr020",
+      "pageName": "case-discrimination-ru",
+      "order": 20,
+      "style": "tag",
+      "content": "\u0414\u0438\u0441\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u0446\u0438\u044F",
+      "extraAttribute": "#EA7C3E",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr021",
+      "pageName": "case-discrimination-ru",
+      "order": 21,
+      "style": "tag",
+      "content": "\u0422\u0440\u0443\u0434\u043E\u0432\u043E\u0435 \u043F\u0440\u0430\u0432\u043E",
+      "extraAttribute": "#1E6F89",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "dr022",
+      "pageName": "case-discrimination-ru",
+      "order": 22,
+      "style": "section-title",
+      "content": "\u041F\u041E\u0425\u041E\u0416\u0418\u0415 \u041A\u0415\u0419\u0421\u042B",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de001",
+      "pageName": "case-discrimination-en",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "Home / Cases",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de002",
+      "pageName": "case-discrimination-en",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#EA7C3E,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de003",
+      "pageName": "case-discrimination-en",
+      "order": 3,
+      "style": "h1",
+      "content": "Discrimination",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de004",
+      "pageName": "case-discrimination-en",
+      "order": 4,
+      "style": "e-id",
+      "content": "Communication No. 045/2019",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de005",
+      "pageName": "case-discrimination-en",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "Successfully completed",
+      "extraAttribute": "#EA7C3E",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de006",
+      "pageName": "case-discrimination-en",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "Germany / Complaint body",
+      "extraAttribute": "images/flag-de.png",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de007",
+      "pageName": "case-discrimination-en",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "Type: discrimination on grounds of nationality",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de008",
+      "pageName": "case-discrimination-en",
+      "order": 8,
+      "style": "p",
+      "content": "Identification of a foreigner seeking protection, who has no document for travel abroad.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de009",
+      "pageName": "case-discrimination-en",
+      "order": 9,
+      "style": "h2",
+      "content": "Case circumstances",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de010",
+      "pageName": "case-discrimination-en",
+      "order": 10,
+      "style": "p",
+      "content": "The applicant was subjected to discrimination on national grounds during employment. The employer refused to hire, citing the applicant\u0027s nationality, which is a direct violation of EU anti-discrimination legislation.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de011",
+      "pageName": "case-discrimination-en",
+      "order": 11,
+      "style": "blockquote",
+      "content": "Discrimination on grounds of nationality is inadmissible and violates fundamental human rights.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de012",
+      "pageName": "case-discrimination-en",
+      "order": 12,
+      "style": "h3",
+      "content": "Work in the case:",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de013",
+      "pageName": "case-discrimination-en",
+      "order": 13,
+      "style": "ul",
+      "content": "Gathering evidence|Filing a complaint with the complaint body|Representing the applicant\u0027s interests",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de014",
+      "pageName": "case-discrimination-en",
+      "order": 14,
+      "style": "person",
+      "content": "DROZDOV Vadim",
+      "extraAttribute": "pictures/person-1.jpg|Lawyer",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de015",
+      "pageName": "case-discrimination-en",
+      "order": 15,
+      "style": "decision-title",
+      "content": "Decision",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de016",
+      "pageName": "case-discrimination-en",
+      "order": 16,
+      "style": "decision-text",
+      "content": "The complaint was upheld, the employer was held liable",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de017",
+      "pageName": "case-discrimination-en",
+      "order": 17,
+      "style": "docs-title",
+      "content": "Case documents",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de018",
+      "pageName": "case-discrimination-en",
+      "order": 18,
+      "style": "doc-item",
+      "content": "Complaint body decision",
+      "extraAttribute": "PDF Document",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de019",
+      "pageName": "case-discrimination-en",
+      "order": 19,
+      "style": "tags-title",
+      "content": "Tags",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de020",
+      "pageName": "case-discrimination-en",
+      "order": 20,
+      "style": "tag",
+      "content": "Discrimination",
+      "extraAttribute": "#EA7C3E",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de021",
+      "pageName": "case-discrimination-en",
+      "order": 21,
+      "style": "tag",
+      "content": "Labour law",
+      "extraAttribute": "#1E6F89",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "de022",
+      "pageName": "case-discrimination-en",
+      "order": 22,
+      "style": "section-title",
+      "content": "SIMILAR CASES",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr001",
+      "pageName": "whoweare-ru",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr002",
+      "pageName": "whoweare-ru",
+      "order": 4,
+      "style": "h1",
+      "content": "\u043A\u0442\u043E \u043C\u044B",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr003",
+      "pageName": "whoweare-ru",
+      "order": 2,
+      "style": "p-large",
+      "content": "\u0410\u0434\u0432\u043E\u043A\u0430\u0442\u0441\u043A\u043E\u0435 \u0431\u044E\u0440\u043E \u00ABVD\u00BB \u043E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442 \u0441\u0432\u043E\u044E \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u0432 \u0428\u0432\u0435\u0439\u0446\u0430\u0440\u0438\u0438 \u0438 \u0415\u0421, \u043E\u0431\u044A\u0435\u0434\u0438\u043D\u044F\u0435\u0442 \u0441\u043F\u043B\u043E\u0447\u0451\u043D\u043D\u0443\u044E \u043A\u043E\u043C\u0430\u043D\u0434\u0443 \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0443\u044E\u0449\u0438\u0445 \u0430\u0434\u0432\u043E\u043A\u0430\u0442\u043E\u0432 \u0432 \u0441\u0444\u0435\u0440\u0435 \u0433\u0440\u0430\u0436\u0434\u0430\u043D\u0441\u043A\u043E\u0433\u043E \u043F\u0440\u0430\u0432\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr004",
+      "pageName": "whoweare-ru",
+      "order": 3,
+      "style": "p-large",
+      "content": "\u0410\u0434\u0432\u043E\u043A\u0430\u0442\u044B \u00ABVD\u00BB \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0441\u043E\u043F\u0440\u043E\u0432\u043E\u0436\u0434\u0430\u044E\u0442 \u043F\u0440\u043E\u0435\u043A\u0442\u044B \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u043E\u0439 \u0441\u0442\u0435\u043F\u0435\u043D\u0438 \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u0438, \u043E\u043A\u0430\u0437\u044B\u0432\u0430\u044E\u0442 \u044E\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043A\u0443\u044E \u043F\u043E\u043C\u043E\u0449\u044C \u0432\u043B\u0430\u0434\u0435\u043B\u044C\u0446\u0430\u043C, \u0440\u0443\u043A\u043E\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044F\u043C \u0431\u0438\u0437\u043D\u0435\u0441\u0430 \u0438 \u0433\u0440\u0430\u0436\u0434\u0430\u043D\u0430\u043C, \u043D\u0443\u0436\u0434\u0430\u044E\u0449\u0438\u043C\u0441\u044F \u0432 \u0437\u0430\u0449\u0438\u0442\u0435 \u0438 \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0438 \u043D\u0430\u0440\u0443\u0448\u0435\u043D\u043D\u044B\u0445 \u043F\u0440\u0430\u0432.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr005",
+      "pageName": "whoweare-ru",
+      "order": 5,
+      "style": "h2",
+      "content": "\u041C\u044B \u0441\u043E\u0445\u0440\u0430\u043D\u044F\u0435\u043C \u043A\u043E\u043D\u0444\u0438\u0434\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043A\u043B\u0438\u0435\u043D\u0442\u0430",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr006",
+      "pageName": "whoweare-ru",
+      "order": 6,
+      "style": "p-large",
+      "content": "\u041C\u044B \u0441\u043E\u0445\u0440\u0430\u043D\u044F\u0435\u043C \u0441\u0442\u0440\u043E\u0433\u0443\u044E \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043A\u043B\u0438\u0435\u043D\u0442\u0430. \u041D\u0430\u0448\u0430 \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442 GDPR, \u0437\u0430\u043A\u043E\u043D\u0430\u043C\u0438 \u043A\u043E\u043D\u0444\u0438\u0434\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr007",
+      "pageName": "whoweare-ru",
+      "order": 7,
+      "style": "p-large",
+      "content": "GDPR \u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0435 \u0438 \u0432\u0432\u043E\u0434\u0438\u0442 \u043D\u043E\u0432\u044B\u0435 \u043F\u0440\u0430\u0432\u0430 \u0433\u0440\u0430\u0436\u0434\u0430\u043D\u0430\u043C \u0415\u0421, \u0430 \u0442\u0430\u043A\u0436\u0435 \u0434\u0430\u0451\u0442 \u0433\u0440\u0430\u0436\u0434\u0430\u043D\u0430\u043C \u0431\u043E\u043B\u044C\u0448\u0435 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F \u043D\u0430\u0434 \u0441\u0432\u043E\u0438\u043C\u0438 \u043B\u0438\u0447\u043D\u044B\u043C\u0438 \u0434\u0430\u043D\u043D\u044B\u043C\u0438.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "wr008",
+      "pageName": "whoweare-ru",
+      "order": 8,
+      "style": "section-title",
+      "content": "\u041D\u0430\u0448\u0438 \u041A\u0415\u0419\u0421\u042B",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we001",
+      "pageName": "whoweare-en",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "Home",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we002",
+      "pageName": "whoweare-en",
+      "order": 2,
+      "style": "h1",
+      "content": "Who we are",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we003",
+      "pageName": "whoweare-en",
+      "order": 3,
+      "style": "p-large",
+      "content": "Law office \u0022VD\u0022 operates in Switzerland and the EU, bringing together a cohesive team of practicing civil law attorneys.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we004",
+      "pageName": "whoweare-en",
+      "order": 4,
+      "style": "p-large",
+      "content": "\u0022VD\u0022 attorneys successfully manage projects of varying complexity, providing legal assistance to business owners, managers, and citizens in need of protection and restoration of violated rights.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we005",
+      "pageName": "whoweare-en",
+      "order": 5,
+      "style": "h2",
+      "content": "We maintain the confidentiality of each client",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we006",
+      "pageName": "whoweare-en",
+      "order": 6,
+      "style": "p-large",
+      "content": "We maintain strict confidentiality for each client. Our activities fully comply with GDPR and confidentiality laws.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we007",
+      "pageName": "whoweare-en",
+      "order": 7,
+      "style": "p-large",
+      "content": "GDPR strengthens existing and introduces new rights for EU citizens, and also gives citizens more control over their personal data.",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "we008",
+      "pageName": "whoweare-en",
+      "order": 8,
+      "style": "section-title",
+      "content": "Our CASES",
+      "extraAttribute": null,
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "8d5bcba3-72e9-49b1-a206-7874052a8a24",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "\u0413\u043B\u0430\u0432\u043D\u0430\u044F / \u041A\u0435\u0439\u0441\u044B",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836764Z"
+    },
+    {
+      "id": "fdc646c2-762b-40d4-a54b-dffde1f842d0",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 3,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836775Z"
+    },
+    {
+      "id": "27aeb26e-a7f8-4c27-aa68-11b4900c1f23",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 2,
+      "style": "h1",
+      "content": "\u0425\u043B\u0435\u0431\u043D\u044B\u0435 \u043A\u0440\u043E\u0448\u043A\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836777Z"
+    },
+    {
+      "id": "5737e12f-29ce-414a-bb71-c944efe2e516",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 4,
+      "style": "e-id",
+      "content": "\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u2116 \u2014/\u2014",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836782Z"
+    },
+    {
+      "id": "3272f5d6-3075-435d-9a05-0c0a2cef93a0",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "\u0421\u0442\u0430\u0442\u0443\u0441 \u0434\u0435\u043B\u0430",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2026-02-19T12:37:06.3836797Z"
+    },
+    {
+      "id": "113ae871-c2b8-4385-a609-7d48dae4d65e",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "123",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2026-02-19T12:37:06.3836806Z"
+    },
+    {
+      "id": "e00bb1be-ed21-415e-8282-8182a60f4ff2",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "\u0422\u0438\u043F: \u0443\u043A\u0430\u0436\u0438\u0442\u0435 \u0442\u0438\u043F \u0434\u0435\u043B\u0430",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836808Z"
+    },
+    {
+      "id": "e5fd7afa-ca21-4b73-8e8d-d93d2e3034b4",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 8,
+      "style": "p",
+      "content": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836809Z"
+    },
+    {
+      "id": "79d44ffe-88b8-4619-9782-402d882fa145",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 9,
+      "style": "h2",
+      "content": "\u0420\u0430\u0437\u0434\u0435\u043B 1",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836811Z"
+    },
+    {
+      "id": "6a118aab-45d9-4dc8-94a0-d3f067a8e339",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 10,
+      "style": "p",
+      "content": "\u0422\u0435\u043A\u0441\u0442 \u043F\u0435\u0440\u0432\u043E\u0433\u043E \u0440\u0430\u0437\u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836813Z"
+    },
+    {
+      "id": "c84aed26-1073-4ed6-9f3c-d1bfa88f090a",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 11,
+      "style": "blockquote",
+      "content": "\u041A\u043B\u044E\u0447\u0435\u0432\u0430\u044F \u0446\u0438\u0442\u0430\u0442\u0430 \u043F\u043E \u0434\u0435\u043B\u0443.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836815Z"
+    },
+    {
+      "id": "374ad571-a54c-4cb0-8842-a25a7a3d9839",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 12,
+      "style": "h2",
+      "content": "\u0420\u0430\u0437\u0434\u0435\u043B 2",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836816Z"
+    },
+    {
+      "id": "12298bd8-e23d-49a0-a088-a3dd9b4686b5",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 13,
+      "style": "p",
+      "content": "\u0422\u0435\u043A\u0441\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E \u0440\u0430\u0437\u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836821Z"
+    },
+    {
+      "id": "d1d675a5-99bb-4e06-b985-244e39fcd58c",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 14,
+      "style": "h3",
+      "content": "\u0420\u0430\u0431\u043E\u0442\u0430 \u043F\u043E \u0434\u0435\u043B\u0443:",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836822Z"
+    },
+    {
+      "id": "09422069-212d-4b40-924d-77a30a07faf4",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 15,
+      "style": "ul",
+      "content": "\u0421\u0431\u043E\u0440 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438|\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432|\u0417\u0430\u0449\u0438\u0442\u0430 \u0432 \u0441\u0443\u0434\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836824Z"
+    },
+    {
+      "id": "b52d6fd5-8aad-4243-8fd1-9efccc1cd46f",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 16,
+      "style": "small",
+      "content": "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A: \u0443\u043A\u0430\u0436\u0438\u0442\u0435 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836826Z"
+    },
+    {
+      "id": "30a864b9-6861-4bda-830b-987d307f1306",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 17,
+      "style": "person",
+      "content": "\u0414\u0420\u041E\u0417\u0414\u041E\u0412 \u0412\u0430\u0434\u0438\u043C",
+      "extraAttribute": "pictures/person-1.jpg|\u0410\u0434\u0432\u043E\u043A\u0430\u0442",
+      "updatedAt": "2026-02-19T12:37:06.3836827Z"
+    },
+    {
+      "id": "7b0db77e-a489-48a2-b9f0-7f855885c18e",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 18,
+      "style": "note-title",
+      "content": "\u041F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.383683Z"
+    },
+    {
+      "id": "62087427-2ee0-4d42-91e4-b033131ac792",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 19,
+      "style": "note-text",
+      "content": "\u0414\u043E\u0431\u0430\u0432\u044C\u0442\u0435 \u043F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435 \u043A \u0434\u0435\u043B\u0443.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836831Z"
+    },
+    {
+      "id": "df5172ad-c548-4df3-8dc1-8b4eb35a6e77",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 20,
+      "style": "decision-title",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836833Z"
+    },
+    {
+      "id": "026608cb-1629-4d5b-afcb-ba1ab9aa9236",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 21,
+      "style": "decision-text",
+      "content": "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0438\u0442\u043E\u0433 \u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836836Z"
+    },
+    {
+      "id": "df80ef2d-a2d6-484a-8075-5de8ada4406e",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 22,
+      "style": "case-link",
+      "content": "https://",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836837Z"
+    },
+    {
+      "id": "cc4753db-53e7-4ba0-94e6-48b09932a312",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 23,
+      "style": "docs-title",
+      "content": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u043F\u043E \u0434\u0435\u043B\u0443",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836838Z"
+    },
+    {
+      "id": "5745c1ae-1596-4a85-8d5f-b68be16b5be6",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 24,
+      "style": "doc-item",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435 \u0441\u0443\u0434\u0435\u0431\u043D\u043E\u0433\u043E \u0434\u0435\u043B\u0430",
+      "extraAttribute": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 PDF",
+      "updatedAt": "2026-02-19T12:37:06.383684Z"
+    },
+    {
+      "id": "3c91d385-cfe9-4ca7-bdab-c3defd94130e",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 25,
+      "style": "tags-title",
+      "content": "\u0422\u0435\u0433\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836889Z"
+    },
+    {
+      "id": "d57f841a-f762-40ae-8c84-5477649c89ca",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 26,
+      "style": "tag",
+      "content": "Tag 1",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2026-02-19T12:37:06.3836891Z"
+    },
+    {
+      "id": "ba9fcd1a-9859-472c-99ac-ef7cd1524872",
+      "pageName": "case-hlebnye-kroshki-ru",
+      "order": 27,
+      "style": "section-title",
+      "content": "\u041F\u041E\u0425\u041E\u0416\u0418\u0415 \u041A\u0415\u0419\u0421\u042B",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3836893Z"
+    },
+    {
+      "id": "729e48c1-0fa4-4938-9f61-7eb034a0920d",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "Home / Cases",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838207Z"
+    },
+    {
+      "id": "29aba493-7ea4-427b-bb6e-fee5d85e5774",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838212Z"
+    },
+    {
+      "id": "5cbb433d-b49a-4ff8-886f-e171cea5005b",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 3,
+      "style": "h1",
+      "content": "Bread",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838213Z"
+    },
+    {
+      "id": "c44d005b-f7c3-463e-84b1-2c927e2bbe76",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 4,
+      "style": "e-id",
+      "content": "Communication No. \u2014/\u2014",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838215Z"
+    },
+    {
+      "id": "fe08a12c-0151-4d96-86ac-197e96c4dca9",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "Case status",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2026-02-19T12:37:06.3838216Z"
+    },
+    {
+      "id": "7d79dad1-76c3-434a-8ad4-0533b747b8ae",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "123",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2026-02-19T12:37:06.3838218Z"
+    },
+    {
+      "id": "6c781a5d-5c0d-436a-9240-4dcc26e70902",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "Type: specify case type",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.383822Z"
+    },
+    {
+      "id": "7e63337e-4393-4657-9d0a-85ace1c4f32a",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 8,
+      "style": "p",
+      "content": "Enter case description.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838221Z"
+    },
+    {
+      "id": "562a0c65-83d0-4226-b3da-89cdde07096c",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 9,
+      "style": "h2",
+      "content": "Section 1",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838223Z"
+    },
+    {
+      "id": "67bbbf9c-a7b0-4d86-8bff-8c4a210fcc2a",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 10,
+      "style": "p",
+      "content": "First section text.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838226Z"
+    },
+    {
+      "id": "2d19e357-a2d4-49ef-9fff-c95a77d0f063",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 11,
+      "style": "blockquote",
+      "content": "Key case quote.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838227Z"
+    },
+    {
+      "id": "22b41fe3-396a-43d1-b150-3958785040dd",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 12,
+      "style": "h2",
+      "content": "Section 2",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838229Z"
+    },
+    {
+      "id": "e9529438-070d-4245-b3d7-9d4b2c864436",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 13,
+      "style": "p",
+      "content": "Second section text.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.383823Z"
+    },
+    {
+      "id": "5b084a58-c346-4f52-9d2f-ad3786e974bd",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 14,
+      "style": "h3",
+      "content": "Work in the case:",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838232Z"
+    },
+    {
+      "id": "4e1d7fbc-52c8-47af-ae64-49b0b49682ca",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 15,
+      "style": "ul",
+      "content": "Information gathering|Document preparation|Court representation",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838233Z"
+    },
+    {
+      "id": "9a734712-96a1-4b91-aaf0-a9eba3be9562",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 16,
+      "style": "small",
+      "content": "Source: specify information source.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838235Z"
+    },
+    {
+      "id": "9bc406ad-c4b0-43ba-954a-ff0c0bf80e77",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 17,
+      "style": "person",
+      "content": "DROZDOV Vadim",
+      "extraAttribute": "pictures/person-1.jpg|Lawyer",
+      "updatedAt": "2026-02-19T12:37:06.3838236Z"
+    },
+    {
+      "id": "11c9925a-3b19-41ff-b56c-f1430ca767ff",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 18,
+      "style": "note-title",
+      "content": "Explanation",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838239Z"
+    },
+    {
+      "id": "c65d4535-54fb-4149-8c70-388c94e456f9",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 19,
+      "style": "note-text",
+      "content": "Add case explanation.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838241Z"
+    },
+    {
+      "id": "997f1700-d4fd-4beb-b929-17fe631f9fd2",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 20,
+      "style": "decision-title",
+      "content": "Decision",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838242Z"
+    },
+    {
+      "id": "601376d8-05a6-421a-9db8-9114eb3cd1c3",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 21,
+      "style": "decision-text",
+      "content": "Specify case outcome.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838244Z"
+    },
+    {
+      "id": "d71b5193-5c1d-4cbe-b469-bbe23790aef6",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 22,
+      "style": "case-link",
+      "content": "https://",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838245Z"
+    },
+    {
+      "id": "334c03e7-2ace-41c4-a50e-363c610d0e7e",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 23,
+      "style": "docs-title",
+      "content": "Case documents",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838246Z"
+    },
+    {
+      "id": "a18b2bc2-a3a0-4dba-a000-f652c8cc7555",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 24,
+      "style": "doc-item",
+      "content": "Court decision",
+      "extraAttribute": "PDF Document",
+      "updatedAt": "2026-02-19T12:37:06.3838248Z"
+    },
+    {
+      "id": "8dc2d7de-f28b-4419-a195-6725601ebfd3",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 25,
+      "style": "tags-title",
+      "content": "Tags",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838249Z"
+    },
+    {
+      "id": "657ca6cc-93c4-4e62-9d36-bc0d3e46e62f",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 26,
+      "style": "tag",
+      "content": "Tag 1",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2026-02-19T12:37:06.3838252Z"
+    },
+    {
+      "id": "8f892cf5-2a6a-4dfe-94e3-b8fa70fb107d",
+      "pageName": "case-hlebnye-kroshki-en",
+      "order": 27,
+      "style": "section-title",
+      "content": "SIMILAR CASES",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:37:06.3838254Z"
+    },
+    {
+      "id": "53a9bf99-1b7b-4282-be7a-13e253e73c7e",
+      "pageName": "case-aaa-ru",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "\u0413\u043B\u0430\u0432\u043D\u0430\u044F / \u041A\u0435\u0439\u0441\u044B",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239218Z"
+    },
+    {
+      "id": "a819babd-38e1-4abd-b918-32021abef3de",
+      "pageName": "case-aaa-ru",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239226Z"
+    },
+    {
+      "id": "bd285e42-8d7c-4b16-b78e-896538ecf3a5",
+      "pageName": "case-aaa-ru",
+      "order": 3,
+      "style": "h1",
+      "content": "AAA",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239227Z"
+    },
+    {
+      "id": "60a35f8e-33bb-4585-987e-2d9863f69ce0",
+      "pageName": "case-aaa-ru",
+      "order": 4,
+      "style": "e-id",
+      "content": "\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u2116 \u2014/\u2014",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.423923Z"
+    },
+    {
+      "id": "822acd51-ee87-4b15-bcc8-48bfcae2b19c",
+      "pageName": "case-aaa-ru",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "\u0421\u0442\u0430\u0442\u0443\u0441 \u0434\u0435\u043B\u0430",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2026-02-19T12:42:07.4239237Z"
+    },
+    {
+      "id": "20959862-096d-46b1-a432-69bc8116ded6",
+      "pageName": "case-aaa-ru",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "123",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2026-02-19T12:42:07.4239242Z"
+    },
+    {
+      "id": "095b38f0-1a19-4f69-b8a6-00f4f92cbc43",
+      "pageName": "case-aaa-ru",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "\u0422\u0438\u043F: \u0443\u043A\u0430\u0436\u0438\u0442\u0435 \u0442\u0438\u043F \u0434\u0435\u043B\u0430",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239281Z"
+    },
+    {
+      "id": "a6b0b5ce-73a5-45e8-b5ef-1ed68344fe03",
+      "pageName": "case-aaa-ru",
+      "order": 8,
+      "style": "p",
+      "content": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239283Z"
+    },
+    {
+      "id": "79a9955e-0f8e-45f3-b4de-a53b74a9ff88",
+      "pageName": "case-aaa-ru",
+      "order": 9,
+      "style": "h2",
+      "content": "\u0420\u0430\u0437\u0434\u0435\u043B 1",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239285Z"
+    },
+    {
+      "id": "8096b584-c313-4125-bcc4-0bf63725b072",
+      "pageName": "case-aaa-ru",
+      "order": 10,
+      "style": "p",
+      "content": "\u0422\u0435\u043A\u0441\u0442 \u043F\u0435\u0440\u0432\u043E\u0433\u043E \u0440\u0430\u0437\u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239287Z"
+    },
+    {
+      "id": "3c3493df-e864-48ef-84c9-10e96ae2f5ec",
+      "pageName": "case-aaa-ru",
+      "order": 11,
+      "style": "blockquote",
+      "content": "\u041A\u043B\u044E\u0447\u0435\u0432\u0430\u044F \u0446\u0438\u0442\u0430\u0442\u0430 \u043F\u043E \u0434\u0435\u043B\u0443.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239289Z"
+    },
+    {
+      "id": "880609cb-e6df-459b-9573-4dcd8c43fb93",
+      "pageName": "case-aaa-ru",
+      "order": 12,
+      "style": "h2",
+      "content": "\u0420\u0430\u0437\u0434\u0435\u043B 2",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.423929Z"
+    },
+    {
+      "id": "323b0ef0-fe79-424d-a866-891441200d6b",
+      "pageName": "case-aaa-ru",
+      "order": 13,
+      "style": "p",
+      "content": "\u0422\u0435\u043A\u0441\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E \u0440\u0430\u0437\u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239294Z"
+    },
+    {
+      "id": "5d78ad09-f638-42da-8a9b-f8086a43cb94",
+      "pageName": "case-aaa-ru",
+      "order": 14,
+      "style": "h3",
+      "content": "\u0420\u0430\u0431\u043E\u0442\u0430 \u043F\u043E \u0434\u0435\u043B\u0443:",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239296Z"
+    },
+    {
+      "id": "00bf2f5c-be61-4730-a0f0-b475824c0220",
+      "pageName": "case-aaa-ru",
+      "order": 15,
+      "style": "ul",
+      "content": "\u0421\u0431\u043E\u0440 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438|\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432|\u0417\u0430\u0449\u0438\u0442\u0430 \u0432 \u0441\u0443\u0434\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239297Z"
+    },
+    {
+      "id": "9bfa90cc-6351-489d-82aa-f59a0681fb35",
+      "pageName": "case-aaa-ru",
+      "order": 16,
+      "style": "small",
+      "content": "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A: \u0443\u043A\u0430\u0436\u0438\u0442\u0435 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239299Z"
+    },
+    {
+      "id": "845d54ea-25d5-4850-86ff-4fa8513d2ae7",
+      "pageName": "case-aaa-ru",
+      "order": 17,
+      "style": "person",
+      "content": "\u0414\u0420\u041E\u0417\u0414\u041E\u0412 \u0412\u0430\u0434\u0438\u043C",
+      "extraAttribute": "pictures/person-1.jpg|\u0410\u0434\u0432\u043E\u043A\u0430\u0442",
+      "updatedAt": "2026-02-19T12:42:07.4239301Z"
+    },
+    {
+      "id": "653f9e71-3581-4ace-b98a-1590c161a660",
+      "pageName": "case-aaa-ru",
+      "order": 18,
+      "style": "note-title",
+      "content": "\u041F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239303Z"
+    },
+    {
+      "id": "02c190b4-428f-4cdd-8c37-781f08a6b377",
+      "pageName": "case-aaa-ru",
+      "order": 19,
+      "style": "note-text",
+      "content": "\u0414\u043E\u0431\u0430\u0432\u044C\u0442\u0435 \u043F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435 \u043A \u0434\u0435\u043B\u0443.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239305Z"
+    },
+    {
+      "id": "c60f9455-9f2c-48d2-a0bd-620be4a46724",
+      "pageName": "case-aaa-ru",
+      "order": 20,
+      "style": "decision-title",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239306Z"
+    },
+    {
+      "id": "f0513fb0-ec70-4081-a343-eaad52fdd7fa",
+      "pageName": "case-aaa-ru",
+      "order": 21,
+      "style": "decision-text",
+      "content": "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0438\u0442\u043E\u0433 \u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239309Z"
+    },
+    {
+      "id": "0985a298-d99d-4ff9-ab81-fad59490c3b2",
+      "pageName": "case-aaa-ru",
+      "order": 22,
+      "style": "case-link",
+      "content": "https://",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239311Z"
+    },
+    {
+      "id": "fda1b68b-0a29-461d-92aa-0cdc9236bc49",
+      "pageName": "case-aaa-ru",
+      "order": 23,
+      "style": "docs-title",
+      "content": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u043F\u043E \u0434\u0435\u043B\u0443",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239313Z"
+    },
+    {
+      "id": "74112c38-4ae7-4749-8687-f5e888763c28",
+      "pageName": "case-aaa-ru",
+      "order": 24,
+      "style": "doc-item",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435 \u0441\u0443\u0434\u0435\u0431\u043D\u043E\u0433\u043E \u0434\u0435\u043B\u0430",
+      "extraAttribute": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 PDF",
+      "updatedAt": "2026-02-19T12:42:07.4239314Z"
+    },
+    {
+      "id": "d4de40de-b337-43b1-9144-bb6b1fa1266e",
+      "pageName": "case-aaa-ru",
+      "order": 25,
+      "style": "tags-title",
+      "content": "\u0422\u0435\u0433\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239316Z"
+    },
+    {
+      "id": "8225ba8c-7488-449a-a1d4-9b1d59d993f1",
+      "pageName": "case-aaa-ru",
+      "order": 26,
+      "style": "tag",
+      "content": "Tag 1",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2026-02-19T12:42:07.4239317Z"
+    },
+    {
+      "id": "a9652b2d-7a66-4b43-bb1c-b5d04dfb8933",
+      "pageName": "case-aaa-ru",
+      "order": 27,
+      "style": "section-title",
+      "content": "\u041F\u041E\u0425\u041E\u0416\u0418\u0415 \u041A\u0415\u0419\u0421\u042B",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239319Z"
+    },
+    {
+      "id": "547dfef4-661b-48b8-9093-cfa3be73b39f",
+      "pageName": "case-aaa-en",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "Home / Cases",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.42397Z"
+    },
+    {
+      "id": "52659dc5-34e5-4522-aabc-fe0c92cb475b",
+      "pageName": "case-aaa-en",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239704Z"
+    },
+    {
+      "id": "ebad7fb2-55ee-49b7-a533-6bd3a783a150",
+      "pageName": "case-aaa-en",
+      "order": 3,
+      "style": "h1",
+      "content": "AAA",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239705Z"
+    },
+    {
+      "id": "656e27ad-0b6a-474c-9091-f1c1fb318f4d",
+      "pageName": "case-aaa-en",
+      "order": 4,
+      "style": "e-id",
+      "content": "Communication No. \u2014/\u2014",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239707Z"
+    },
+    {
+      "id": "85babb7e-48d0-4d5b-83f2-f7ecd657ec8e",
+      "pageName": "case-aaa-en",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "Case status",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2026-02-19T12:42:07.4239708Z"
+    },
+    {
+      "id": "8b35c404-d553-4629-b6fc-3d70191242c4",
+      "pageName": "case-aaa-en",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "123",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2026-02-19T12:42:07.4239711Z"
+    },
+    {
+      "id": "1000a75e-3af9-473e-a49a-9e0994f0b39f",
+      "pageName": "case-aaa-en",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "Type: specify case type",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239712Z"
+    },
+    {
+      "id": "9f26f244-b7d8-40f0-be56-d893c14c954a",
+      "pageName": "case-aaa-en",
+      "order": 8,
+      "style": "p",
+      "content": "Enter case description.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239714Z"
+    },
+    {
+      "id": "5dcad553-1a9f-493d-b2e1-a08e104d0c6d",
+      "pageName": "case-aaa-en",
+      "order": 9,
+      "style": "h2",
+      "content": "Section 1",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239715Z"
+    },
+    {
+      "id": "20b68168-45ea-4265-b230-42922abb9385",
+      "pageName": "case-aaa-en",
+      "order": 10,
+      "style": "p",
+      "content": "First section text.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239718Z"
+    },
+    {
+      "id": "ae876811-342b-4770-bdcf-b26ff582016f",
+      "pageName": "case-aaa-en",
+      "order": 11,
+      "style": "blockquote",
+      "content": "Key case quote.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.423972Z"
+    },
+    {
+      "id": "0b0f6083-d283-4c78-9a1a-1a2e5148dcb0",
+      "pageName": "case-aaa-en",
+      "order": 12,
+      "style": "h2",
+      "content": "Section 2",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239721Z"
+    },
+    {
+      "id": "1318dc81-383c-45c9-9873-9246ea0e5993",
+      "pageName": "case-aaa-en",
+      "order": 13,
+      "style": "p",
+      "content": "Second section text.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239722Z"
+    },
+    {
+      "id": "053aa334-ee1f-47e2-a88d-2a8684154f71",
+      "pageName": "case-aaa-en",
+      "order": 14,
+      "style": "h3",
+      "content": "Work in the case:",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239724Z"
+    },
+    {
+      "id": "8199cfed-5d89-45f1-ad1c-7a11d720cd6d",
+      "pageName": "case-aaa-en",
+      "order": 15,
+      "style": "ul",
+      "content": "Information gathering|Document preparation|Court representation",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239725Z"
+    },
+    {
+      "id": "2ecdfbda-f2ec-4f20-83c0-bff86f32fbbf",
+      "pageName": "case-aaa-en",
+      "order": 16,
+      "style": "small",
+      "content": "Source: specify information source.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239727Z"
+    },
+    {
+      "id": "99c3b948-dd09-440f-9ed0-107a9661ac34",
+      "pageName": "case-aaa-en",
+      "order": 17,
+      "style": "person",
+      "content": "DROZDOV Vadim",
+      "extraAttribute": "pictures/person-1.jpg|Lawyer",
+      "updatedAt": "2026-02-19T12:42:07.4239728Z"
+    },
+    {
+      "id": "4a10f635-11f6-4d03-ac30-91b968c8f61a",
+      "pageName": "case-aaa-en",
+      "order": 18,
+      "style": "note-title",
+      "content": "Explanation",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239731Z"
+    },
+    {
+      "id": "9035897f-f4c7-4d38-b30f-290632fcdee5",
+      "pageName": "case-aaa-en",
+      "order": 19,
+      "style": "note-text",
+      "content": "Add case explanation.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239733Z"
+    },
+    {
+      "id": "e716afad-2ceb-413e-a1ea-f782c273bdfe",
+      "pageName": "case-aaa-en",
+      "order": 20,
+      "style": "decision-title",
+      "content": "Decision",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239734Z"
+    },
+    {
+      "id": "4afa424a-ef87-4bcb-8179-f0d5eef04b9a",
+      "pageName": "case-aaa-en",
+      "order": 21,
+      "style": "decision-text",
+      "content": "Specify case outcome.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239736Z"
+    },
+    {
+      "id": "1cb80c30-e26f-48a1-85f1-12b68b23b291",
+      "pageName": "case-aaa-en",
+      "order": 22,
+      "style": "case-link",
+      "content": "https://",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239759Z"
+    },
+    {
+      "id": "95b01c67-923c-4930-a053-aa747b023791",
+      "pageName": "case-aaa-en",
+      "order": 23,
+      "style": "docs-title",
+      "content": "Case documents",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239761Z"
+    },
+    {
+      "id": "fc9c5d93-ac22-468c-aec6-ba80ee5e53d2",
+      "pageName": "case-aaa-en",
+      "order": 24,
+      "style": "doc-item",
+      "content": "Court decision",
+      "extraAttribute": "PDF Document",
+      "updatedAt": "2026-02-19T12:42:07.4239763Z"
+    },
+    {
+      "id": "4b45e2d2-7e51-48c4-aff1-7006aff5f862",
+      "pageName": "case-aaa-en",
+      "order": 25,
+      "style": "tags-title",
+      "content": "Tags",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239764Z"
+    },
+    {
+      "id": "5f19e516-836c-44d2-b58b-ca947647ddf2",
+      "pageName": "case-aaa-en",
+      "order": 26,
+      "style": "tag",
+      "content": "Tag 1",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2026-02-19T12:42:07.4239767Z"
+    },
+    {
+      "id": "45521ae8-bc9f-4776-a37f-a76bd1653839",
+      "pageName": "case-aaa-en",
+      "order": 27,
+      "style": "section-title",
+      "content": "SIMILAR CASES",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:42:07.4239769Z"
+    },
+    {
+      "id": "f969d7ce-7e54-4876-90f7-81aa9829202c",
+      "pageName": "case-chp-uruch-ru",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "\u0413\u043B\u0430\u0432\u043D\u0430\u044F / \u041A\u0435\u0439\u0441\u044B",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236512Z"
+    },
+    {
+      "id": "da46322b-782d-4b29-b46b-c7fe1467e81e",
+      "pageName": "case-chp-uruch-ru",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236514Z"
+    },
+    {
+      "id": "da945ae7-aaef-45d8-a609-ac753d5b12e6",
+      "pageName": "case-chp-uruch-ru",
+      "order": 4,
+      "style": "h1",
+      "content": "\u041F\u0440\u043E\u0435\u0445\u0430\u043B\u0430 \u043C\u0430\u0448\u0438\u043D\u0430",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:44:54.5892017Z"
+    },
+    {
+      "id": "401dcae0-53ac-46a0-8cfd-349d8bdafd7c",
+      "pageName": "case-chp-uruch-ru",
+      "order": 3,
+      "style": "e-id",
+      "content": "\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u2116 \u2014/\u2014",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236517Z"
+    },
+    {
+      "id": "ba530036-6c31-4186-a6d5-6f2f683297a8",
+      "pageName": "case-chp-uruch-ru",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "\u0421\u0442\u0430\u0442\u0443\u0441 \u0434\u0435\u043B\u0430",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2026-02-19T12:43:50.1236519Z"
+    },
+    {
+      "id": "0f1bef70-a3ec-4ebd-bb1f-77f8de0fa318",
+      "pageName": "case-chp-uruch-ru",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "123",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2026-02-19T12:43:50.1236521Z"
+    },
+    {
+      "id": "96d023f8-45dc-4d97-a261-bc691ea99c43",
+      "pageName": "case-chp-uruch-ru",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "\u0422\u0438\u043F: \u0443\u043A\u0430\u0436\u0438\u0442\u0435 \u0442\u0438\u043F \u0434\u0435\u043B\u0430",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236525Z"
+    },
+    {
+      "id": "d9c9981c-15a6-46b8-92fe-627c95f90961",
+      "pageName": "case-chp-uruch-ru",
+      "order": 8,
+      "style": "p",
+      "content": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236527Z"
+    },
+    {
+      "id": "2948c494-9eea-4cb6-95ab-b4de66e2c4d4",
+      "pageName": "case-chp-uruch-ru",
+      "order": 9,
+      "style": "h2",
+      "content": "\u0420\u0430\u0437\u0434\u0435\u043B 1",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236529Z"
+    },
+    {
+      "id": "1e1b7fcd-6d2b-4707-8887-6c695cd4887f",
+      "pageName": "case-chp-uruch-ru",
+      "order": 10,
+      "style": "p",
+      "content": "\u0422\u0435\u043A\u0441\u0442 \u043F\u0435\u0440\u0432\u043E\u0433\u043E \u0440\u0430\u0437\u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236531Z"
+    },
+    {
+      "id": "e1bed1d8-2e8d-486a-9ac1-e2d3a6a1346a",
+      "pageName": "case-chp-uruch-ru",
+      "order": 11,
+      "style": "blockquote",
+      "content": "\u041A\u043B\u044E\u0447\u0435\u0432\u0430\u044F \u0446\u0438\u0442\u0430\u0442\u0430 \u043F\u043E \u0434\u0435\u043B\u0443.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236533Z"
+    },
+    {
+      "id": "de027e40-c465-4612-bfad-83e0e16ecd60",
+      "pageName": "case-chp-uruch-ru",
+      "order": 12,
+      "style": "h2",
+      "content": "\u0420\u0430\u0437\u0434\u0435\u043B 2",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236535Z"
+    },
+    {
+      "id": "36cd6f46-45c0-4fd1-834b-abf2354e7ede",
+      "pageName": "case-chp-uruch-ru",
+      "order": 13,
+      "style": "p",
+      "content": "\u0422\u0435\u043A\u0441\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E \u0440\u0430\u0437\u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236536Z"
+    },
+    {
+      "id": "f4a34607-747b-430b-aa7e-4c1c5b0bd456",
+      "pageName": "case-chp-uruch-ru",
+      "order": 14,
+      "style": "h3",
+      "content": "\u0420\u0430\u0431\u043E\u0442\u0430 \u043F\u043E \u0434\u0435\u043B\u0443:",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236538Z"
+    },
+    {
+      "id": "4c7e49e9-ac2e-48e9-a2f2-92a087ca0347",
+      "pageName": "case-chp-uruch-ru",
+      "order": 15,
+      "style": "ul",
+      "content": "\u0421\u0431\u043E\u0440 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438|\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432|\u0417\u0430\u0449\u0438\u0442\u0430 \u0432 \u0441\u0443\u0434\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236541Z"
+    },
+    {
+      "id": "95467614-c96f-4d51-b03a-b89277dbc92f",
+      "pageName": "case-chp-uruch-ru",
+      "order": 16,
+      "style": "small",
+      "content": "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A: \u0443\u043A\u0430\u0436\u0438\u0442\u0435 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236543Z"
+    },
+    {
+      "id": "17373348-769d-4842-b521-bcffce4a5834",
+      "pageName": "case-chp-uruch-ru",
+      "order": 17,
+      "style": "person",
+      "content": "\u0414\u0420\u041E\u0417\u0414\u041E\u0412 \u0412\u0430\u0434\u0438\u043C",
+      "extraAttribute": "pictures/person-1.jpg|\u0410\u0434\u0432\u043E\u043A\u0430\u0442",
+      "updatedAt": "2026-02-19T12:43:50.1236545Z"
+    },
+    {
+      "id": "47e4fb4a-da6e-47aa-9346-080273bdbd0a",
+      "pageName": "case-chp-uruch-ru",
+      "order": 18,
+      "style": "note-title",
+      "content": "\u041F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236589Z"
+    },
+    {
+      "id": "b3df5c29-fbeb-4121-9d06-3aa281d66a20",
+      "pageName": "case-chp-uruch-ru",
+      "order": 19,
+      "style": "note-text",
+      "content": "\u0414\u043E\u0431\u0430\u0432\u044C\u0442\u0435 \u043F\u043E\u044F\u0441\u043D\u0435\u043D\u0438\u0435 \u043A \u0434\u0435\u043B\u0443.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236591Z"
+    },
+    {
+      "id": "c2723188-1501-4517-be94-0f091fe1c9ba",
+      "pageName": "case-chp-uruch-ru",
+      "order": 20,
+      "style": "decision-title",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236593Z"
+    },
+    {
+      "id": "8642ffa8-8e0e-4fde-9f4e-553842eda61f",
+      "pageName": "case-chp-uruch-ru",
+      "order": 21,
+      "style": "decision-text",
+      "content": "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0438\u0442\u043E\u0433 \u0434\u0435\u043B\u0430.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236595Z"
+    },
+    {
+      "id": "9184cb7f-061a-48a5-9de7-97f794e9f606",
+      "pageName": "case-chp-uruch-ru",
+      "order": 22,
+      "style": "case-link",
+      "content": "https://",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236596Z"
+    },
+    {
+      "id": "1fcc300e-11d2-4f90-9da2-98d6cde0e289",
+      "pageName": "case-chp-uruch-ru",
+      "order": 23,
+      "style": "docs-title",
+      "content": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u043F\u043E \u0434\u0435\u043B\u0443",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236599Z"
+    },
+    {
+      "id": "f7fe3de7-da36-4d91-873a-aaf65031dd66",
+      "pageName": "case-chp-uruch-ru",
+      "order": 24,
+      "style": "doc-item",
+      "content": "\u0420\u0435\u0448\u0435\u043D\u0438\u0435 \u0441\u0443\u0434\u0435\u0431\u043D\u043E\u0433\u043E \u0434\u0435\u043B\u0430",
+      "extraAttribute": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 PDF",
+      "updatedAt": "2026-02-19T12:43:50.1236601Z"
+    },
+    {
+      "id": "7136906d-a24b-44b5-97e3-35645a7dd683",
+      "pageName": "case-chp-uruch-ru",
+      "order": 25,
+      "style": "tags-title",
+      "content": "\u0422\u0435\u0433\u0438",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236603Z"
+    },
+    {
+      "id": "e31e0413-cef0-4ab4-b5ad-f89f80572872",
+      "pageName": "case-chp-uruch-ru",
+      "order": 26,
+      "style": "tag",
+      "content": "Tag 1",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2026-02-19T12:43:50.1236605Z"
+    },
+    {
+      "id": "a24cd161-dcc2-49f0-be1f-4c7bd35e6cb1",
+      "pageName": "case-chp-uruch-ru",
+      "order": 27,
+      "style": "section-title",
+      "content": "\u041F\u041E\u0425\u041E\u0416\u0418\u0415 \u041A\u0415\u0419\u0421\u042B",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236607Z"
+    },
+    {
+      "id": "461777e3-133a-493a-8a07-9aaac90a8e91",
+      "pageName": "case-chp-uruch-en",
+      "order": 1,
+      "style": "breadcrumb",
+      "content": "Home / Cases",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236864Z"
+    },
+    {
+      "id": "441a60df-7428-4e7a-ab99-3a86f1122c0e",
+      "pageName": "case-chp-uruch-en",
+      "order": 2,
+      "style": "e-dots",
+      "content": "#B8B399,#1E6F89",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236865Z"
+    },
+    {
+      "id": "282d882e-863a-4092-8faf-23825be399de",
+      "pageName": "case-chp-uruch-en",
+      "order": 3,
+      "style": "h1",
+      "content": "Chp on Uruch",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236867Z"
+    },
+    {
+      "id": "03f4fa4d-2f02-428b-a802-a247dcbbfac5",
+      "pageName": "case-chp-uruch-en",
+      "order": 4,
+      "style": "e-id",
+      "content": "Communication No. \u2014/\u2014",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236871Z"
+    },
+    {
+      "id": "ffdc2cee-d608-4e06-8294-2372ca7f1d30",
+      "pageName": "case-chp-uruch-en",
+      "order": 5,
+      "style": "e-details__type",
+      "content": "Case status",
+      "extraAttribute": "#B8B399",
+      "updatedAt": "2026-02-19T12:43:50.1236872Z"
+    },
+    {
+      "id": "e9580cd5-e89c-4662-9317-de36577af533",
+      "pageName": "case-chp-uruch-en",
+      "order": 6,
+      "style": "e-details__loc",
+      "content": "123",
+      "extraAttribute": "images/flags/England.png",
+      "updatedAt": "2026-02-19T12:43:50.1236874Z"
+    },
+    {
+      "id": "aea7a674-65bb-40fa-8ecf-a32a4d403df9",
+      "pageName": "case-chp-uruch-en",
+      "order": 7,
+      "style": "e-details__def",
+      "content": "Type: specify case type",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236876Z"
+    },
+    {
+      "id": "3a1f4c60-7a34-452e-8965-cf2f4d476018",
+      "pageName": "case-chp-uruch-en",
+      "order": 8,
+      "style": "p",
+      "content": "Enter case description.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236877Z"
+    },
+    {
+      "id": "89fd283f-bd44-4aa4-bd82-2f1dfb1e834f",
+      "pageName": "case-chp-uruch-en",
+      "order": 9,
+      "style": "h2",
+      "content": "Section 1",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236879Z"
+    },
+    {
+      "id": "bd18b87d-ebf4-4f43-adc8-304dd755b444",
+      "pageName": "case-chp-uruch-en",
+      "order": 10,
+      "style": "p",
+      "content": "First section text.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236881Z"
+    },
+    {
+      "id": "50f57701-d3fd-4c35-bf78-f110128848b5",
+      "pageName": "case-chp-uruch-en",
+      "order": 11,
+      "style": "blockquote",
+      "content": "Key case quote.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236882Z"
+    },
+    {
+      "id": "dc4d0e41-1ca9-439c-b93b-7a21513a39ea",
+      "pageName": "case-chp-uruch-en",
+      "order": 12,
+      "style": "h2",
+      "content": "Section 2",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236962Z"
+    },
+    {
+      "id": "5e0a3dff-0bce-42bb-a690-d8d146913ee9",
+      "pageName": "case-chp-uruch-en",
+      "order": 13,
+      "style": "p",
+      "content": "Second section text.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236964Z"
+    },
+    {
+      "id": "35890114-f6c8-4f8c-96bf-1e94a9a57423",
+      "pageName": "case-chp-uruch-en",
+      "order": 14,
+      "style": "h3",
+      "content": "Work in the case:",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236965Z"
+    },
+    {
+      "id": "67232109-9629-4597-ad3f-e82a88c1181a",
+      "pageName": "case-chp-uruch-en",
+      "order": 15,
+      "style": "ul",
+      "content": "Information gathering|Document preparation|Court representation",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236967Z"
+    },
+    {
+      "id": "af5b0e7a-7df6-4eb6-890f-183edc838f75",
+      "pageName": "case-chp-uruch-en",
+      "order": 16,
+      "style": "small",
+      "content": "Source: specify information source.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236969Z"
+    },
+    {
+      "id": "7d4a8c83-f157-40fc-a91a-0f0b34fdd941",
+      "pageName": "case-chp-uruch-en",
+      "order": 17,
+      "style": "person",
+      "content": "DROZDOV Vadim",
+      "extraAttribute": "pictures/person-1.jpg|Lawyer",
+      "updatedAt": "2026-02-19T12:43:50.123697Z"
+    },
+    {
+      "id": "96e05d68-be5b-45e1-bfed-0f9e3de4e684",
+      "pageName": "case-chp-uruch-en",
+      "order": 18,
+      "style": "note-title",
+      "content": "Explanation",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236972Z"
+    },
+    {
+      "id": "06ac81c8-f5db-4066-8d56-a0711b88c153",
+      "pageName": "case-chp-uruch-en",
+      "order": 19,
+      "style": "note-text",
+      "content": "Add case explanation.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236974Z"
+    },
+    {
+      "id": "01a98b02-aee2-4742-a11e-b8c6a175ed84",
+      "pageName": "case-chp-uruch-en",
+      "order": 20,
+      "style": "decision-title",
+      "content": "Decision",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236977Z"
+    },
+    {
+      "id": "66f2f994-1609-496e-a97a-288af7f097d5",
+      "pageName": "case-chp-uruch-en",
+      "order": 21,
+      "style": "decision-text",
+      "content": "Specify case outcome.",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236979Z"
+    },
+    {
+      "id": "e6b9fe71-51e4-49cd-8aa2-30f3370ce9dd",
+      "pageName": "case-chp-uruch-en",
+      "order": 22,
+      "style": "case-link",
+      "content": "https://",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.123698Z"
+    },
+    {
+      "id": "ebfc312c-65d2-430e-af7d-500c6882ad92",
+      "pageName": "case-chp-uruch-en",
+      "order": 23,
+      "style": "docs-title",
+      "content": "Case documents",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236982Z"
+    },
+    {
+      "id": "84a46398-f100-4a95-a1e3-5123ffd7f60d",
+      "pageName": "case-chp-uruch-en",
+      "order": 24,
+      "style": "doc-item",
+      "content": "Court decision",
+      "extraAttribute": "PDF Document",
+      "updatedAt": "2026-02-19T12:43:50.1236983Z"
+    },
+    {
+      "id": "2b5fa019-3551-4602-93ec-cc45600c4de6",
+      "pageName": "case-chp-uruch-en",
+      "order": 25,
+      "style": "tags-title",
+      "content": "Tags",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236985Z"
+    },
+    {
+      "id": "2352948f-4158-4310-a349-b4bf8bdbc605",
+      "pageName": "case-chp-uruch-en",
+      "order": 26,
+      "style": "tag",
+      "content": "Tag 1",
+      "extraAttribute": "#D5A968",
+      "updatedAt": "2026-02-19T12:43:50.1236986Z"
+    },
+    {
+      "id": "aff3bbe1-ab6f-42c5-81b1-c7d593105857",
+      "pageName": "case-chp-uruch-en",
+      "order": 27,
+      "style": "section-title",
+      "content": "SIMILAR CASES",
+      "extraAttribute": null,
+      "updatedAt": "2026-02-19T12:43:50.1236988Z"
+    }
+  ],
+  "cases": [
+    {
+      "id": "case-meta-001",
+      "slug": "kk-vs-switzerland",
+      "titleRu": "\u041A.\u041A. \u043F\u0440\u043E\u0442\u0438\u0432 \u0428\u0432\u0435\u0439\u0446\u0430\u0440\u0438\u0438",
+      "titleEn": "K.K. v. Switzerland",
+      "statusColor": "#B4D4EB",
+      "statusRu": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E \u0443\u0441\u043F\u0435\u0448\u043D\u043E",
+      "statusEn": "Successfully completed",
+      "locationRu": "\u0428\u0432\u0435\u0439\u0446\u0430\u0440\u0438\u044F / \u041A\u043E\u043C\u0438\u0442\u0435\u0442 \u041E\u041E\u041D \u043F\u043E \u043F\u0440\u0430\u0432\u0430\u043C \u0440\u0435\u0431\u0435\u043D\u043A\u0430",
+      "locationEn": "Switzerland / UN Committee on the Rights of the Child",
+      "summaryRu": "\u0418\u0434\u0435\u043D\u0442\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044E \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438 \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u0446\u0430, \u0445\u043E\u0434\u0430\u0442\u0430\u0439\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0433\u043E \u043E \u0437\u0430\u0449\u0438\u0442\u0435, \u043D\u0435 \u0438\u043C\u0435\u044E\u0449\u0435\u0433\u043E \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430 \u0434\u043B\u044F \u0432\u044B\u0435\u0437\u0434\u0430 \u0437\u0430 \u0433\u0440\u0430\u043D\u0438\u0446\u0443...",
+      "summaryEn": "Identification of a foreigner seeking protection, who has no document for travel abroad...",
+      "flagImage": "images/flag-sw.png",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "isPublished": true
+    },
+    {
+      "id": "case-meta-002",
+      "slug": "discrimination",
+      "titleRu": "\u0414\u0438\u0441\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u0446\u0438\u044F",
+      "titleEn": "Discrimination",
+      "statusColor": "#EA7C3E",
+      "statusRu": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E \u0443\u0441\u043F\u0435\u0448\u043D\u043E",
+      "statusEn": "Successfully completed",
+      "locationRu": "\u0413\u0435\u0440\u043C\u0430\u043D\u0438\u044F / \u041E\u0440\u0433\u0430\u043D \u0436\u0430\u043B\u043E\u0431\u044B",
+      "locationEn": "Germany / Complaint body",
+      "summaryRu": "\u0418\u0434\u0435\u043D\u0442\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044E \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438 \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u0446\u0430, \u0445\u043E\u0434\u0430\u0442\u0430\u0439\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0433\u043E \u043E \u0437\u0430\u0449\u0438\u0442\u0435, \u043D\u0435 \u0438\u043C\u0435\u044E\u0449\u0435\u0433\u043E \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430 \u0434\u043B\u044F \u0432\u044B\u0435\u0437\u0434\u0430 \u0437\u0430 \u0433\u0440\u0430\u043D\u0438\u0446\u0443.",
+      "summaryEn": "Identification of a foreigner seeking protection, who has no document for travel abroad.",
+      "flagImage": "images/flag-de.png",
+      "createdAt": "2025-01-02T00:00:00Z",
+      "isPublished": true
+    },
+    {
+      "id": "be80fd7f-051b-4d55-bc82-1ad55a30da06",
+      "slug": "hlebnye-kroshki",
+      "titleRu": "\u0425\u043B\u0435\u0431\u043D\u044B\u0435 \u043A\u0440\u043E\u0448\u043A\u0438",
+      "titleEn": "Bread",
+      "statusColor": "#b4d4eb",
+      "statusRu": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E \u0443\u0441\u043F\u0435\u0448\u043D\u043E",
+      "statusEn": "Successfully completed",
+      "locationRu": "123",
+      "locationEn": "123",
+      "summaryRu": "123",
+      "summaryEn": "123",
+      "flagImage": "images/flag-sw.png",
+      "createdAt": "2026-02-19T12:37:06.382898Z",
+      "isPublished": true
+    },
+    {
+      "id": "c6d24d81-3357-4af1-a90a-289f3f5b5724",
+      "slug": "aaa",
+      "titleRu": "AAA",
+      "titleEn": "AAA",
+      "statusColor": "#b4d4eb",
+      "statusRu": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E \u0443\u0441\u043F\u0435\u0448\u043D\u043E",
+      "statusEn": "Successfully completed",
+      "locationRu": "123",
+      "locationEn": "123",
+      "summaryRu": "122",
+      "summaryEn": "1223",
+      "flagImage": "images/flag-sw.png",
+      "createdAt": "2026-02-19T12:42:07.4232842Z",
+      "isPublished": true
+    },
+    {
+      "id": "81e5962f-1bde-4c5d-84c3-e103d87a20f1",
+      "slug": "chp-uruch",
+      "titleRu": "\u0427\u041F \u043D\u0430 \u0423\u0440\u0443\u0447\u044C\u0435",
+      "titleEn": "Chp on Uruch",
+      "statusColor": "#b4d4eb",
+      "statusRu": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E \u0443\u0441\u043F\u0435\u0448\u043D\u043E",
+      "statusEn": "Successfully completed",
+      "locationRu": "123",
+      "locationEn": "123",
+      "summaryRu": " \u0427\u0442\u043E-\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C",
+      "summaryEn": " \u0427\u0442\u043E-\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C",
+      "flagImage": "images/flag-sw.png",
+      "createdAt": "2026-02-19T12:43:50.1236486Z",
+      "isPublished": true
+    }
+  ]
+}

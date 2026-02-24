@@ -1,0 +1,151 @@
+@model DrozdovLaw.Models.EditCaseMetaViewModel
+@{
+    Layout = null;
+    var c = Model.Case;
+    var lang = Model.Lang;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Метаданные кейса — Drozdov Law Admin</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#eef1f6;min-height:100vh}
+.ph{background:#1a1a2e;color:#fff;padding:0 32px;height:52px;display:flex;align-items:center;gap:16px}
+.ph a{color:#7eb8d4;text-decoration:none;font-size:13px}
+.ph h1{font-size:15px;font-weight:700;color:#fff;margin-left:8px}
+.pb{max-width:760px;margin:32px auto;padding:0 20px}
+.card{background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:20px}
+.ch{padding:20px 24px;border-bottom:1px solid #e2e8f0}
+.ch h2{font-size:17px;font-weight:700;color:#1a202c}
+.ch p{font-size:13px;color:#718096;margin-top:2px}
+.cb{padding:24px}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.fg label{font-size:11px;font-weight:700;color:#4a5568;text-transform:uppercase;letter-spacing:.4px}
+.fg input,.fg textarea{padding:9px 12px;border:1px solid #e2e8f0;border-radius:7px;font-size:14px;color:#1a202c;font-family:inherit;transition:.12s;background:#fff;width:100%}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:#1a6fa8;box-shadow:0 0 0 3px rgba(26,111,168,.1)}
+.fg textarea{resize:vertical;min-height:64px;line-height:1.5}
+.hint{font-size:11px;color:#a0aec0;margin-top:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sep{font-size:11px;font-weight:700;color:#a0aec0;text-transform:uppercase;letter-spacing:.8px;margin:18px 0 12px;padding-bottom:5px;border-bottom:1px solid #f0f4f8}
+.cf{padding:16px 24px;border-top:1px solid #f0f4f8;background:#fafbfc;display:flex;align-items:center;justify-content:space-between}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:.12s}
+.btn-primary{background:#1a6fa8;color:#fff}.btn-primary:hover{background:#155d8e}
+.btn-outline{background:#fff;color:#4a5568;border:1px solid #e2e8f0}.btn-outline:hover{border-color:#1a6fa8;color:#1a6fa8}
+.btn-danger{background:#fff1f2;color:#e11d48;border:1px solid #fecdd3;font-size:13px;padding:8px 14px}
+.toggle-row{display:flex;align-items:center;gap:10px}
+.toggle{position:relative;width:44px;height:24px}
+.toggle input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;inset:0;background:#cbd5e0;border-radius:24px;cursor:pointer;transition:.2s}
+.toggle-slider:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.toggle input:checked + .toggle-slider{background:#16a34a}
+.toggle input:checked + .toggle-slider:before{transform:translateX(20px)}
+.color-row{display:flex;align-items:center;gap:8px}
+.color-row input[type=color]{width:40px;height:34px;padding:2px;border:1px solid #e2e8f0;border-radius:6px;cursor:pointer}
+.presets{display:flex;gap:5px}
+.preset{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:.12s}
+.preset:hover{transform:scale(1.15);box-shadow:0 0 0 2px #1a6fa8}
+.slug-box{background:#f7fafc;border:1px solid #e2e8f0;border-radius:7px;padding:9px 12px;font-size:14px;color:#718096;font-family:monospace}
+</style>
+</head>
+<body>
+<header class="ph">
+    <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=c.Slug, lang })">&#8592; Назад к кейсу</a>
+    <span style="color:#374151">|</span>
+    <h1>Метаданные: @(lang=="ru" ? c.TitleRu : c.TitleEn)</h1>
+</header>
+
+<div class="pb">
+    <div class="card">
+        <div class="ch"><h2>Редактировать метаданные кейса</h2><p>Эти данные используются для карточек в списке и секции "Похожие кейсы"</p></div>
+        <form method="post" action="@Url.Action("EditCaseMeta","Admin")">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="Case.Id" value="@c.Id">
+            <input type="hidden" name="Case.Slug" value="@c.Slug">
+            <input type="hidden" name="Case.CreatedAt" value="@c.CreatedAt.ToString("o")">
+            <input type="hidden" name="Lang" value="@lang">
+
+            <div class="cb">
+                <div class="sep">Идентификатор</div>
+                <div class="fg">
+                    <label>Slug (не изменяется)</label>
+                    <div class="slug-box">/@c.Slug</div>
+                    <div class="hint">Slug изменить нельзя — он является частью URL страницы</div>
+                </div>
+
+                <div class="sep">Заголовки</div>
+                <div class="grid2">
+                    <div class="fg"><label>Название RU</label><input name="Case.TitleRu" value="@c.TitleRu" required></div>
+                    <div class="fg"><label>Название EN</label><input name="Case.TitleEn" value="@c.TitleEn" required></div>
+                </div>
+
+                <div class="sep">Статус</div>
+                <div class="grid2">
+                    <div class="fg"><label>Статус RU</label><input name="Case.StatusRu" value="@c.StatusRu"></div>
+                    <div class="fg"><label>Статус EN</label><input name="Case.StatusEn" value="@c.StatusEn"></div>
+                </div>
+                <div class="fg">
+                    <label>Цвет статуса</label>
+                    <div class="color-row">
+                        <input type="color" name="Case.StatusColor" id="sc" value="@c.StatusColor" oninput="document.getElementById('sch').value=this.value">
+                        <input type="text" id="sch" value="@c.StatusColor" oninput="document.getElementById('sc').value=this.value" style="width:110px">
+                        <div class="presets">
+                            <div class="preset" style="background:#B4D4EB" onclick="setC('#B4D4EB')"></div>
+                            <div class="preset" style="background:#EA7C3E" onclick="setC('#EA7C3E')"></div>
+                            <div class="preset" style="background:#B8B399" onclick="setC('#B8B399')"></div>
+                            <div class="preset" style="background:#86D6B9" onclick="setC('#86D6B9')"></div>
+                            <div class="preset" style="background:#D5A968" onclick="setC('#D5A968')"></div>
+                            <div class="preset" style="background:#1E6F89" onclick="setC('#1E6F89')"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sep">Локация</div>
+                <div class="grid2">
+                    <div class="fg"><label>Локация RU</label><input name="Case.LocationRu" value="@c.LocationRu"></div>
+                    <div class="fg"><label>Локация EN</label><input name="Case.LocationEn" value="@c.LocationEn"></div>
+                </div>
+                <div class="fg">
+                    <label>Путь к флагу</label>
+                    <input name="Case.FlagImage" value="@c.FlagImage" placeholder="images/flag-sw.png">
+                    <div class="hint">Относительный путь от wwwroot. Пример: images/flag-sw.png</div>
+                </div>
+
+                <div class="sep">Краткое описание</div>
+                <div class="grid2">
+                    <div class="fg"><label>Описание RU</label><textarea name="Case.SummaryRu">@c.SummaryRu</textarea></div>
+                    <div class="fg"><label>Описание EN</label><textarea name="Case.SummaryEn">@c.SummaryEn</textarea></div>
+                </div>
+
+                <div class="sep">Публикация</div>
+                <div class="toggle-row">
+                    <label class="toggle">
+                        <input type="checkbox" name="Case.IsPublished" value="true" @(c.IsPublished ? "checked" : "")>
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span style="font-size:14px;color:#2d3748">Опубликован (виден в списке кейсов)</span>
+                    <input type="hidden" name="Case.IsPublished" value="false">
+                </div>
+            </div>
+
+            <div class="cf">
+                <form method="post" action="@Url.Action("DeleteCase","Admin")"
+                      onsubmit="return confirm('Удалить кейс «@c.TitleRu»? Все блоки будут удалены. Это действие необратимо.')">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@c.Id">
+                    <button type="submit" class="btn btn-danger">&#128465; Удалить кейс</button>
+                </form>
+                <div style="display:flex;gap:8px">
+                    <a href="@Url.Action("Index","Admin", new { section="case-detail", slug=c.Slug, lang })" class="btn btn-outline">Отмена</a>
+                    <button type="submit" class="btn btn-primary">&#10003; Сохранить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+function setC(hex){document.getElementById('sc').value=hex;document.getElementById('sch').value=hex;}
+</script>
+</body>
+</html>

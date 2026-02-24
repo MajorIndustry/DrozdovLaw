@@ -1,0 +1,206 @@
+@model DrozdovLaw.Models.CaseViewModel
+@{
+    ViewBag.Lang = Model.Language;
+    ViewBag.Title = Model.Meta != null ? (Model.Language == "ru" ? Model.Meta.TitleRu : Model.Meta.TitleEn) : Model.PageName;
+    ViewBag.PageLayoutClass = "m-light";
+
+    // 1. Определяем группы стилей для разных зон страницы
+    var headStyles    = new[] { "breadcrumb", "e-dots", "h1", "e-id", "e-details__type", "e-details__loc", "e-details__def" };
+    var asideStyles   = new[] { "person", "note-title", "note-text" };
+    var bottomStyles  = new[] { "decision-title", "decision-text", "case-link", "docs-title", "doc-item", "tags-title", "tag" };
+    var sectionStyles = new[] { "section-title" };
+
+    // 2. Распределяем блоки по зонам (сортировка Order уже применена в сервисе) [cite: 1, 5, 6, 8]
+    var headBlocks    = Model.Blocks.Where(b => headStyles.Contains(b.Style)).ToList();
+    var bodyBlocks    = Model.Blocks.Where(b => !headStyles.Contains(b.Style)
+                                             && !asideStyles.Contains(b.Style)
+                                             && !bottomStyles.Contains(b.Style)
+                                             && !sectionStyles.Contains(b.Style)).ToList();
+    var asideBlocks   = Model.Blocks.Where(b => asideStyles.Contains(b.Style)).ToList();
+    var bottomBlocks  = Model.Blocks.Where(b => bottomStyles.Contains(b.Style)).ToList();
+    
+    var sectionTitle  = Model.Blocks.FirstOrDefault(b => b.Style == "section-title");
+}
+
+<section class="container">
+    @* Хлебные крошки (всегда сверху, если есть) *@
+    @foreach (var b in headBlocks.Where(b => b.Style == "breadcrumb"))
+    { 
+        @await Html.PartialAsync("_ContentBlock", b) 
+    }
+
+    <div class="section-article">
+
+        @* ── ЛЕВАЯ КОЛОНКА (основной текст) ── *@
+        <div class="section-article__content">
+
+            @* Шапка статьи: теперь один цикл для соблюдения порядка *@
+            <div class="section-article__head">
+                
+                @foreach (var b in headBlocks.Where(b => b.Style is "e-dots" or "h1" or "e-id"))
+                {
+                    @await Html.PartialAsync("_ContentBlock", b)
+                }
+
+                <a href="#" class="btn-primary u-not-desktop">
+                    @(Model.Language == "ru" ? "Получить консультацию" : "Get a consultation")
+                </a>
+
+                @* Группа деталей (тип, локация) выводится отдельным рядом, но тоже в своем порядке *@
+                <div class="e-details">
+                    @foreach (var b in headBlocks.Where(b => b.Style is "e-details__type" or "e-details__loc" or "e-details__def"))
+                    {
+                        @await Html.PartialAsync("_ContentBlock", b)
+                    }
+                </div>
+            </div>
+
+            @* Основной текст: здесь и так был один цикл, порядок сохраняется [cite: 16] *@
+            @foreach (var b in bodyBlocks)
+            { 
+                @await Html.PartialAsync("_ContentBlock", b) 
+            }
+        </div>
+
+        @* ── ПРАВАЯ КОЛОНКА (aside) ── *@
+        <div class="section-article__aside">
+            <a href="#" class="btn-primary u-desktop-only">
+                @(Model.Language == "ru" ? "Получить консультацию" : "Get a consultation")
+            </a>
+
+            @* Адвокаты *@
+            @{ var personBlocks = asideBlocks.Where(b => b.Style == "person").ToList(); }
+            @if (personBlocks.Any())
+            {
+                <div class="person-min-wrap u-after-load">
+                    @foreach (var b in personBlocks)
+                    { 
+                        @await Html.PartialAsync("_ContentBlock", b) 
+                    }
+                </div>
+            }
+
+            @* Пояснения (группировка Title + Text) [cite: 20] *@
+            @{ var noteBlocks = asideBlocks.Where(b => b.Style is "note-title" or "note-text").ToList(); }
+            @if (noteBlocks.Any())
+            {
+                <div class="section-article__notes u-after-load">
+                    @{
+                        bool hasOpenDiv = false;
+                        foreach (var b in noteBlocks)
+                        {
+                            if (b.Style == "note-title")
+                            {
+                                if (hasOpenDiv) { @:</div> 
+                                }
+                                @:<div class="section-article__note">
+                                hasOpenDiv = true;
+                            }
+                            @await Html.PartialAsync("_ContentBlock", b)
+                        }
+                        if (hasOpenDiv) { @:</div> 
+                        }
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    @* ── НИЖНЯЯ СЕКЦИЯ (решение + документы + теги) ── *@
+    @if (bottomBlocks.Any())
+    {
+        <div class="section-article__bottom">
+            <div class="section-article__content">
+
+                @* 1. Решение (заголовки, текст и ссылки в общем порядке) *@
+                @foreach (var b in bottomBlocks.Where(b => b.Style is "decision-title" or "decision-text" or "case-link"))
+                {
+                    @await Html.PartialAsync("_ContentBlock", b)
+                }
+
+                @* 2. Документы (Заголовок + список) *@
+                @{ 
+                    var docTitle = bottomBlocks.FirstOrDefault(b => b.Style == "docs-title");
+                    var docItems = bottomBlocks.Where(b => b.Style == "doc-item").ToList();
+                }
+                @if (docItems.Any())
+                {
+                    if (docTitle != null) { @await Html.PartialAsync("_ContentBlock", docTitle) }
+                    <div class="docs-blocks">
+                        @foreach (var b in docItems)
+                        { 
+                            @await Html.PartialAsync("_ContentBlock", b) 
+                        }
+                    </div>
+                }
+
+                @* 3. Теги *@
+                @{ 
+                    var tagsTitle = bottomBlocks.FirstOrDefault(b => b.Style == "tags-title");
+                    var tags = bottomBlocks.Where(b => b.Style == "tag").ToList();
+                }
+                @if (tags.Any())
+                {
+                    <div class="tags">
+                        @if (tagsTitle != null) { @await Html.PartialAsync("_ContentBlock", tagsTitle) }
+                        <ul>
+                            @foreach (var b in tags)
+                            {
+                                <li>@await Html.PartialAsync("_ContentBlock", b)</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</section>
+
+@* ── ПОХОЖИЕ КЕЙСЫ (динамически из CaseMeta) ── *@
+@{
+    // Инжектируем сервис для получения списка кейсов
+    var contentSvc = Context.RequestServices.GetService<DrozdovLaw.Services.ContentService>()!;
+    var allCases = await contentSvc.GetAllCasesAsync();
+    // Показываем остальные опубликованные кейсы (кроме текущего), максимум 4
+    var similarCases = allCases
+        .Where(c => c.IsPublished && c.Slug != Model.Meta?.Slug)
+        .Take(4).ToList();
+}
+<div class="section-grey">
+    <div class="content">
+        <section class="container">
+            @if (sectionTitle != null)
+            { @await Html.PartialAsync("_ContentBlock", sectionTitle) }
+        </section>
+        <div class="cards m-type-2 m-type-2a">
+            @foreach (var c in similarCases)
+            {
+                var cTitle    = Model.Language == "ru" ? c.TitleRu    : c.TitleEn;
+                var cStatus   = Model.Language == "ru" ? c.StatusRu   : c.StatusEn;
+                var cLocation = Model.Language == "ru" ? c.LocationRu : c.LocationEn;
+                var cSummary  = Model.Language == "ru" ? c.SummaryRu  : c.SummaryEn;
+                <a href="@Url.Action("Detail","Case", new { slug = c.Slug, lang = Model.Language })" class="cards__item">
+                    <div class="e-status" style="color:@c.StatusColor">@cStatus</div>
+                    <h2>@cTitle</h2>
+                    @if (!string.IsNullOrEmpty(c.FlagImage))
+                    {
+                        <div class="e-location">
+                            <span class="flag-icon"><img src="~/images/@c.FlagImage.Replace("images/","")" alt=""></span>
+                            @cLocation
+                        </div>
+                    }
+                    <p>@cSummary</p>
+                </a>
+            }
+            @if (!similarCases.Any())
+            {
+                <p style="color:#999;padding:20px">@(Model.Language == "ru" ? "Других кейсов пока нет." : "No other cases yet.")</p>
+            }
+        </div>
+        <div class="more-link">
+            <a href="@Url.Action("List","Case", new { lang = Model.Language })" class="btn-secondary">
+                @(Model.Language == "ru" ? "Больше кейсов" : "More cases")
+            </a>
+        </div>
+    </div>
+</div>

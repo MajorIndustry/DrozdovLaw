@@ -1,0 +1,224 @@
+@model DrozdovLaw.Models.AdminEditViewModel
+@{
+    var isNew = string.IsNullOrEmpty(Model.Block.Id) || !Model.Block.Id.Contains('-');
+    var title = isNew ? "Новый блок" : "Редактирование блока";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>@title — Drozdov Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+               background: #f5f5f5; color: #333; }
+
+        .admin-header {
+            background: #1a1a2e; color: #fff; padding: 16px 32px;
+            display: flex; align-items: center; gap: 16px;
+        }
+        .admin-header a { color: #7eb8d4; text-decoration: none; font-size: 14px; }
+        .admin-header h1 { font-size: 18px; font-weight: 600; }
+
+        .edit-wrap { max-width: 900px; margin: 40px auto; padding: 0 24px; }
+
+        .card { background: #fff; border-radius: 10px; padding: 32px;
+                box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+
+        .card h2 { font-size: 20px; color: #1a1a2e; margin-bottom: 28px;
+                   padding-bottom: 16px; border-bottom: 1px solid #eee; }
+
+        .form-group { margin-bottom: 22px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600;
+                             color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .4px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 6px;
+            font-size: 14px; font-family: inherit; transition: border-color .15s;
+            background: #fafafa;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: #1a6fa8; background: #fff;
+            box-shadow: 0 0 0 3px rgba(26,111,168,.1);
+        }
+        .form-group textarea { min-height: 180px; resize: vertical; font-family: 'Consolas', monospace; }
+
+        .form-hint { font-size: 12px; color: #999; margin-top: 5px; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        /* Стиль превью */
+        .preview-box {
+            border: 1px dashed #ddd; border-radius: 6px; padding: 16px;
+            background: #fefefe; min-height: 60px; margin-top: 16px;
+        }
+        .preview-box h3 { font-size: 12px; color: #999; text-transform: uppercase;
+                           letter-spacing: .5px; margin-bottom: 10px; }
+
+        /* Карточка с информацией о стилях */
+        .style-info { background: #f0f7fb; border: 1px solid #bee3f8; border-radius: 6px;
+                       padding: 14px 16px; margin-bottom: 22px; font-size: 13px; }
+        .style-info strong { color: #1a6fa8; }
+        .style-info code { background: #daedf8; padding: 2px 5px; border-radius: 3px;
+                            font-size: 12px; }
+
+        .actions-bar { display: flex; gap: 12px; margin-top: 28px; padding-top: 20px;
+                        border-top: 1px solid #eee; }
+
+        .btn { display: inline-block; padding: 10px 22px; border-radius: 6px; font-size: 14px;
+               font-weight: 600; text-decoration: none; cursor: pointer; border: none;
+               transition: .15s; }
+        .btn-primary { background: #1a6fa8; color: #fff; }
+        .btn-primary:hover { background: #145d8e; }
+        .btn-secondary { background: #f0f0f0; color: #555; }
+        .btn-secondary:hover { background: #e0e0e0; }
+
+        /* Список стилей в подсказке */
+        .style-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .style-tag { padding: 3px 8px; background: #e8f4fc; color: #1a6fa8;
+                      border-radius: 4px; font-size: 11px; font-family: monospace;
+                      border: 1px solid #bee3f8; cursor: pointer; transition: .1s; }
+        .style-tag:hover { background: #1a6fa8; color: #fff; }
+    </style>
+</head>
+<body>
+
+@{
+    var bSection = ViewBag.Section as string ?? "cases";
+    var bSlug = ViewBag.Slug as string ?? "";
+}
+<div class="admin-header">
+    <a href="@Url.Action("Index", "Admin", new { section = bSection, slug = bSlug, page = Model.ReturnPage, lang = Model.Lang })">← Назад</a>
+    <h1>@title</h1>
+    <span style="font-size:12px; color:#7eb8d4;">@Model.ReturnPage · @Model.Lang.ToUpper()</span>
+</div>
+
+<div class="edit-wrap">
+    <div class="card">
+        <h2>@title</h2>
+
+        <div class="style-info">
+            <strong>Как задавать списки:</strong> для стилей <code>ul</code> и <code>ol</code> разделяйте пункты символом <code>|</code><br>
+            Пример: <code>Первый пункт|Второй пункт|Третий пункт</code><br><br>
+            <strong>Для e-dots</strong> (цветные точки): цвета через запятую — <code>#B8B399,#1E6F89</code><br>
+            <strong>Для breadcrumb</strong>: пути через <code>/</code> — <code>Главная / Кейсы</code>
+        </div>
+
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Block.Id" />
+            <input type="hidden" asp-for="Block.PageName" />
+            <input type="hidden" asp-for="ReturnPage" />
+            <input type="hidden" asp-for="Lang" />
+            <input type="hidden" name="section" value="@bSection" />
+            <input type="hidden" name="slug" value="@bSlug" />
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Block.Style">Стиль блока</label>
+                    <select asp-for="Block.Style" id="styleSelect">
+                        @foreach (var grp in DrozdovLaw.Models.AdminEditViewModel.AvailableStyles.GroupBy(s => s.Group))
+                        {
+                            <optgroup label="@grp.Key">
+                                @foreach (var s in grp)
+                                {
+                                    <option value="@s.Value" selected="@(Model.Block.Style == s.Value)">@s.Value — @s.Description</option>
+                                }
+                            </optgroup>
+                        }
+                    </select>
+                    <div class="form-hint">Или кликните на стиль ниже для быстрого выбора:</div>
+                    <div class="style-grid">
+                        @foreach (var s in DrozdovLaw.Models.AdminEditViewModel.AvailableStyles)
+                        {
+                            <span class="style-tag" onclick="document.getElementById('styleSelect').value='@s.Value'; updatePreview()" title="@s.Description">@s.Value</span>
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Block.Order">Порядок (позиция)</label>
+                    <input asp-for="Block.Order" type="number" min="1" />
+                    <div class="form-hint">Меньше = выше на странице</div>
+
+                    <br>
+                    <label asp-for="Block.ExtraAttribute">Доп. атрибут (цвет / путь к флагу)</label>
+                    <input asp-for="Block.ExtraAttribute" placeholder="#B8B399 или images/flags/Russia.png" />
+                    <div class="form-hint">Для e-details__type: CSS-цвет. Для e-details__loc: путь к изображению флага.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Block.Content">Содержимое</label>
+                <textarea asp-for="Block.Content" id="contentArea" oninput="updatePreview()"></textarea>
+                <span asp-validation-for="Block.Content" style="color:red; font-size:12px;"></span>
+            </div>
+
+            <!-- Превью -->
+            <div class="preview-box">
+                <h3>Предварительный просмотр</h3>
+                <div id="previewContent"></div>
+            </div>
+
+            <div class="actions-bar">
+                <button type="submit" class="btn btn-primary">💾 Сохранить</button>
+                <a href="@Url.Action("Index", "Admin", new { section = bSection, slug = bSlug, page = Model.ReturnPage, lang = Model.Lang })" class="btn btn-secondary">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function updatePreview() {
+    const style = document.getElementById('styleSelect').value;
+    const content = document.getElementById('contentArea').value;
+    const extra = document.getElementById('Block_ExtraAttribute')?.value || '';
+    const preview = document.getElementById('previewContent');
+    let html = '';
+    switch (style) {
+        case 'h1': html = `<h1 style="font-size:28px;font-weight:700">${content}</h1>`; break;
+        case 'h2': html = `<h2 style="font-size:22px;font-weight:600">${content}</h2>`; break;
+        case 'h3': html = `<h3 style="font-size:18px;font-weight:600">${content}</h3>`; break;
+        case 'h4': html = `<h4 style="font-size:16px;font-weight:600">${content}</h4>`; break;
+        case 'h5': html = `<h5 style="font-size:14px;font-weight:600">${content}</h5>`; break;
+        case 'p': case 'p-large': html = `<p style="line-height:1.6">${content}</p>`; break;
+        case 'blockquote': html = `<blockquote style="border-left:3px solid #ccc;padding-left:16px;color:#666;font-style:italic"><p>${content}</p></blockquote>`; break;
+        case 'small': html = `<small style="font-size:12px;color:#888">${content}</small>`; break;
+        case 'ul': { const items=content.split('|').filter(Boolean); html=`<ul>${items.map(i=>`<li>${i.trim()}</li>`).join('')}</ul>`; break; }
+        case 'ol': { const items=content.split('|').filter(Boolean); html=`<ol>${items.map(i=>`<li>${i.trim()}</li>`).join('')}</ol>`; break; }
+        case 'e-dots': { const cols=content.split(','); html=`<div style="display:flex;gap:8px">${cols.map(c=>`<div style="width:20px;height:20px;border-radius:50%;background:${c.trim()}"></div>`).join('')}</div>`; break; }
+        case 'e-id': html = `<div style="font-size:13px;color:#888">${content}</div>`; break;
+        case 'e-details__type': html = `<div style="font-weight:600;color:#B8B399">${content}</div>`; break;
+        case 'e-details__loc': html = `<div style="font-size:13px">🏳️ ${content}</div>`; break;
+        case 'e-details__def': html = `<div style="font-size:13px"><strong>Тип:</strong> ${content}</div>`; break;
+        case 'person': {
+            const [photo,role]=(extra||'').split('|');
+            html=`<div style="display:flex;align-items:center;gap:12px;padding:10px;border:1px solid #eee;border-radius:8px;margin:4px 0">
+                    <div style="width:44px;height:44px;border-radius:50%;background:#ddd;display:flex;align-items:center;justify-content:center;font-size:20px">👤</div>
+                    <div><div style="font-size:11px;color:#888">${role||'Адвокат'}</div><div style="font-weight:700">${content}</div></div>
+                  </div>`;
+            break;
+        }
+        case 'note-title': html = `<h5 style="font-size:14px;font-weight:700;margin-bottom:6px">${content}</h5>`; break;
+        case 'note-text': html = `<p style="font-size:13px;color:#666">${content}</p>`; break;
+        case 'decision-title': html = `<h2 style="font-size:22px;font-weight:600">${content}</h2>`; break;
+        case 'decision-text': html = `<p>${content}</p>`; break;
+        case 'case-link': html = `<p>Ссылка на дело: <a href="${content}" style="color:#1a6fa8"><strong>${content}</strong></a></p>`; break;
+        case 'docs-title': html = `<h2 style="font-size:22px;font-weight:600">${content}</h2>`; break;
+        case 'doc-item': html = `<div style="border:1px solid #eee;border-radius:6px;padding:12px 16px;margin:6px 0"><div style="font-size:11px;color:#888">${extra||'Документ PDF'}</div><h3 style="font-size:15px;margin-top:4px">${content}</h3></div>`; break;
+        case 'tags-title': html = `<h4 style="font-size:16px;font-weight:600">${content}</h4>`; break;
+        case 'tag': { const bg=extra||'#ccc'; html=`<a href="#" style="display:inline-block;padding:4px 12px;border-radius:3px;background:${bg};color:#fff;font-size:12px;margin:2px">${content}</a>`; break; }
+        case 'breadcrumb': { const crumbs=content.split('/').map(c=>`<a href="#" style="color:#888">${c.trim()}</a>`); html=`<nav style="font-size:13px">${crumbs.join(' / ')}</nav>`; break; }
+        case 'section-title': html = `<h1 style="font-size:26px;font-weight:700;text-transform:uppercase">${content}</h1>`; break;
+        default: html = content;
+    }
+    preview.innerHTML = html;
+}
+
+// Инициализация при загрузке
+document.getElementById('styleSelect').addEventListener('change', updatePreview);
+updatePreview();
+</script>
+
+</body>
+</html>
