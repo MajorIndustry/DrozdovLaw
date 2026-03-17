@@ -6,8 +6,8 @@
     var mainBlocks = Model.Blocks.Where(b => b.Style != "section-title").ToList();
     var sectionTitle = Model.Blocks.FirstOrDefault(b => b.Style == "section-title");
 
-    var contentSvc = Context.RequestServices.GetService<DrozdovLaw.Services.ContentService>()!;
-    var allCases = await contentSvc.GetAllCasesAsync();
+    // var contentSvc = Context.RequestServices.GetService<DrozdovLaw.Services.ContentService>()!;
+    // var allCases = await contentSvc.GetAllCasesAsync();
 }
 
 <section class="container">
@@ -22,26 +22,28 @@
     </div>
 </section>
 
-@if (sectionTitle != null || allCases.Any(c => c.IsPublished))
+@if (sectionTitle != null || Model.Cases.Any())
 {
     <section class="container">
         @if (sectionTitle != null)
-        { @await Html.PartialAsync("_ContentBlock", sectionTitle) }
+        {
+            @await Html.PartialAsync("_ContentBlock", sectionTitle)
+        }
     </section>
     <div class="cards m-type-2 m-type-2a">
-        @foreach (var c in allCases.Where(c => c.IsPublished).Take(4))
+        @foreach (var c in Model.Cases.Take(4))
         {
             var cTitle = Model.Language == "ru" ? c.TitleRu : c.TitleEn;
             var cStatus = Model.Language == "ru" ? c.StatusRu : c.StatusEn;
             var cLocation = Model.Language == "ru" ? c.LocationRu : c.LocationEn;
             var cSummary = Model.Language == "ru" ? c.SummaryRu : c.SummaryEn;
-            <a href="@Url.Action("Detail","Case", new { slug = c.Slug, lang = Model.Language })" class="cards__item">
+            <a href="@Url.Action("Detail", "Case", new { slug = c.Slug, lang = Model.Language })" class="cards__item">
                 <div class="e-status" style="color:@c.StatusColor">@cStatus</div>
                 <h2>@cTitle</h2>
                 @if (!string.IsNullOrEmpty(c.FlagImage))
                 {
                     <div class="e-location">
-                        <span class="flag-icon"><img src="~/images/@c.FlagImage.Replace("images/","")" alt=""></span>
+                        <span class="flag-icon"><img src="~/images/@c.FlagImage.Replace("images/", "")" alt=""></span>
                         @cLocation
                     </div>
                 }
