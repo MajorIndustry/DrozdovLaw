@@ -5,11 +5,13 @@ public class PageViewModel
     public string PageName { get; set; } = string.Empty;
     public string Language { get; set; } = "ru";
     public List<ContentBlock> Blocks { get; set; } = new();
+    public List<CaseMeta> Cases { get; set; } = new();
 }
 
 public class CaseViewModel : PageViewModel
 {
     public CaseMeta? Meta { get; set; }
+    public List<CaseMeta> SimilarCases { get; set; } = new();
 }
 
 // Список кейсов

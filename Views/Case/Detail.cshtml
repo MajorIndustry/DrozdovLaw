@@ -156,16 +156,7 @@
     }
 </section>
 
-@* ── ПОХОЖИЕ КЕЙСЫ (динамически из CaseMeta) ── *@
-@{
-    // Инжектируем сервис для получения списка кейсов
-    var contentSvc = Context.RequestServices.GetService<DrozdovLaw.Services.ContentService>()!;
-    var allCases = await contentSvc.GetAllCasesAsync();
-    // Показываем остальные опубликованные кейсы (кроме текущего), максимум 4
-    var similarCases = allCases
-        .Where(c => c.IsPublished && c.Slug != Model.Meta?.Slug)
-        .Take(4).ToList();
-}
+@* ── ПОХОЖИЕ КЕЙСЫ ── *@
 <div class="section-grey">
     <div class="content">
         <section class="container">
@@ -173,7 +164,7 @@
             { @await Html.PartialAsync("_ContentBlock", sectionTitle) }
         </section>
         <div class="cards m-type-2 m-type-2a">
-            @foreach (var c in similarCases)
+            @foreach (var c in Model.SimilarCases)
             {
                 var cTitle    = Model.Language == "ru" ? c.TitleRu    : c.TitleEn;
                 var cStatus   = Model.Language == "ru" ? c.StatusRu   : c.StatusEn;
@@ -192,7 +183,7 @@
                     <p>@cSummary</p>
                 </a>
             }
-            @if (!similarCases.Any())
+            @if (!Model.SimilarCases.Any())
             {
                 <p style="color:#999;padding:20px">@(Model.Language == "ru" ? "Других кейсов пока нет." : "No other cases yet.")</p>
             }
