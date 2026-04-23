@@ -1,115 +1,251 @@
-# Drozdov Law — ASP.NET Core MVC
+Drozdov Law Office — Веб-приложение
+Платформа для управления контентом юридического сайта Vadim Drozdov Law Office. Реализована на ASP.NET Core MVC (C#) с использованием Entity Framework Core и MS SQL Server.
 
-## Структура проекта
+Приложение позволяет управлять кейсами (делами), статическими страницами, локализованным контентом и медиа-блоками через админ-панель. Поддерживает мультиязычность с автоматическим переводом через Google Cloud Translation API.
 
-```
+Оглавление
+Возможности
+
+Архитектура
+
+Технологический стек
+
+Установка и запуск
+
+Требования
+
+Конфигурация
+
+Сборка и миграции
+
+Использование
+
+Структура проекта
+
+API и сервисы
+
+Лицензия
+
+Возможности
+Мультиязычность (русский, английский и любые дополнительные языки, добавляемые через админку)
+
+Управление кейсами (разделами)
+
+Создание / редактирование / удаление разделов
+
+Автоматический перевод контента на все языки при создании
+
+Копирование и перевод блоков между языками вручную
+
+Гибкая система контент-блоков
+
+Поддержка более 20 стилей (заголовки, текст, списки, цитаты, карточки людей, ссылки, документы, теги, хлебные крошки, цветные точки и т.д.)
+
+Drag-and-drop изменение порядка блоков
+
+Динамический выбор дополнительных атрибутов (цвет, изображение, URL, тип документа) в зависимости от стиля блока
+
+Статические страницы (например, «Кто мы») с мультиязычным контентом
+
+Админ-панель с удобным интерфейсом, переключением языков и предпросмотром
+
+Управление языками через админку (добавление / удаление с автоматическим созданием переведённых страниц)
+
+Google Cloud Translation API для автоматического перевода
+
+Архитектура
+Проект построен по многослойной архитектуре, разделённой на зоны ответственности:
+
+Models — сущности БД (Section, Page, ContentBlock, BlockStyle, Language)
+
+Data — контекст AppDbContext (Entity Framework Core)
+
+Interfaces — контракты сервисов (IBlockService, ISectionService, IPreviewService, ILanguageService, ITranslationService, ICaseTemplateBuilder)
+
+Services — бизнес-логика (BlockService, SectionService, PreviewService, LanguageService, TranslationService, CaseTemplateBuilder)
+
+Controllers — AdminController, CaseController, WhoWeAreController, HomeController
+
+Views — Razor-представления (админка, публичные страницы)
+
+Применяются принципы SOLID, внедрение зависимостей (DI), все операции с базой данных вынесены в сервисы.
+
+Технологический стек
+Backend: ASP.NET Core MVC (.NET 8+)
+
+ORM: Entity Framework Core
+
+База данных: Microsoft SQL Server
+
+Переводы: Google Cloud Translation API v2
+
+Аутентификация: (опционально) ASP.NET Core Identity (не включена в текущую версию)
+
+Хранение изображений: локальная папка wwwroot/pictures
+
+Контейнеризация: (опционально) Docker
+
+Установка и запуск
+Требования
+.NET 8 SDK
+
+SQL Server (LocalDB, Express или полноценный сервер)
+
+Git
+
+API-ключ Google Cloud Translation (для автоматического перевода)
+
+Конфигурация
+Клонируйте репозиторий:
+
+bash
+git clone https://github.com/MajorIndustry/DrozdovLaw.git
+cd DrozdovLaw
+Настройте строку подключения в appsettings.json:
+
+json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=DrozdovLawDb;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}
+Настройте Google Translate API (если планируете использовать авто-перевод):
+
+Получите API-ключ в Google Cloud Console
+
+Включите Cloud Translation API
+
+Добавьте ключ в appsettings.json:
+
+json
+{
+  "GoogleTranslate": {
+    "ApiKey": "ВАШ_API_КЛЮЧ"
+  }
+}
+Установите инструменты EF Core (если ещё не установлены):
+
+bash
+dotnet tool install --global dotnet-ef
+Сборка и миграции
+Восстановите пакеты:
+
+bash
+dotnet restore
+Создайте миграцию и обновите базу данных:
+
+bash
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+Запустите приложение:
+
+bash
+dotnet run
+Откройте в браузере:
+
+Публичная часть: https://localhost:5001
+
+Админ-панель: https://localhost:5001/Admin
+
+Использование
+Админ-панель (/Admin)
+Разделы (Cases)
+
+Создание нового раздела с заполнением данных на базовом языке – остальные языки переводятся автоматически
+
+Редактирование блоков (текст, стиль, цвет, изображения)
+
+Изменение порядка блоков перетаскиванием
+
+Копирование и перевод блоков с одного языка на другой
+
+Редактирование метаданных раздела (название, статус, описание, флаг, цвет)
+
+Статические страницы («Кто мы»)
+
+Управление языками – добавление/удаление языков; при добавлении автоматически создаются страницы для всех разделов с переведённым контентом
+
+Публичная часть
+Список кейсов с карточками (название, статус, флаг, описание)
+
+Детальная страница кейса с гибкой вёрсткой блоков
+
+Страница «Кто мы»
+
+Переключение языка в шапке и футере
+
+Структура проекта
+text
 DrozdovLaw/
 ├── Controllers/
-│   ├── CaseController.cs        # Страница "Кейс" (RU + EN)
-│   ├── WhoWeAreController.cs    # Страница "Кто мы" (RU + EN)
-│   ├── AdminController.cs       # Панель администратора
-│   └── HomeController.cs        # Редирект на главную
-│
+│   ├── AdminController.cs
+│   ├── CaseController.cs
+│   ├── HomeController.cs
+│   └── WhoWeAreController.cs
+├── Data/
+│   └── AppDbContext.cs
+├── Interfaces/
+│   ├── IBlockService.cs
+│   ├── ICaseTemplateBuilder.cs
+│   ├── ILanguageService.cs
+│   ├── IPreviewService.cs
+│   ├── ISectionService.cs
+│   └── ITranslationService.cs
 ├── Models/
-│   ├── ContentBlock.cs          # Модель текстового блока
-│   └── ViewModels.cs            # ViewModel для страниц и админки
-│
+│   ├── ViewModels/
+│   │    ├── AdminEditViewModel.cs
+│   │    ├── AdminIndexViewModel.cs
+│   │    ├── CaseViewModel.cs
+│   │    ├── CreateSectionViewModel.cs
+│   │    ├── EditSectionViewModel.cs
+│   │    ├── PageViewModel.cs
+│   ├── BlockStyle.cs
+│   ├── ContentBlock.cs
+│   ├── Language.cs
+│   ├── Page.cs
+│   └── Section.cs
 ├── Services/
-│   └── ContentService.cs        # Чтение/запись JSON, CRUD операции
-│
+│   ├── BlockService.cs
+│   ├── CaseTemplateBuilder.cs
+│   ├── LanguageService.cs
+│   ├── PreviewService.cs
+│   ├── SectionService.cs
+│   └── TranslationService.cs
 ├── Views/
-│   ├── Shared/
-│   │   ├── _Layout.cshtml       # Общий шаблон (хэдер + футер)
-│   │   └── _ContentBlock.cshtml # Partial view для рендеринга блока по стилю
+│   ├── Admin/
+│   │   ├── Index.cshtml
+│   │   ├── EditBlock.cshtml
+│   │   ├── EditSection.cshtml
+│   │   ├── CreateSection.cshtml
+│   │   └── ...
 │   ├── Case/
-│   │   └── Index.cshtml         # Страница кейса
+│   │   ├── Detail.cshtml
+│   │   └── List.cshtml
 │   ├── WhoWeAre/
-│   │   └── Index.cshtml         # Страница "Кто мы"
-│   └── Admin/
-│       ├── Index.cshtml         # Список блоков страницы
-│       └── Edit.cshtml          # Редактор блока с превью
-│
-└── Data/
-    └── content.json             # База данных (все текстовые блоки)
-```
-
-## Запуск
-
-```bash
-cd DrozdovLaw
-dotnet run
-```
-
-Приложение запустится на http://localhost:5000
-
-## URL-адреса
-
-| URL                          | Описание                        |
-|------------------------------|---------------------------------|
-| `/Case?lang=ru`              | Кейс на русском                 |
-| `/Case?lang=en`              | Case in English                 |
-| `/WhoWeAre?lang=ru`          | Кто мы (RU)                     |
-| `/WhoWeAre?lang=en`          | Who we are (EN)                 |
-| `/Admin`                     | Панель администратора           |
-| `/Admin?page=case-ru`        | Блоки страницы case-ru          |
-| `/Admin?page=case-en`        | Блоки страницы case-en          |
-| `/Admin?page=whoweare-ru`    | Блоки страницы whoweare-ru      |
-| `/Admin?page=whoweare-en`    | Блоки страницы whoweare-en      |
-
-## Стили текстовых блоков
-
-Все стили выявлены из HTML-файлов case.html, caseEn.html, whoweare.html, whoweareEn.html:
-
-| Стиль             | HTML-элемент               | Описание                              |
-|-------------------|---------------------------|---------------------------------------|
-| `h1`              | `<h1>`                    | Заголовок первого уровня              |
-| `h2`              | `<h2>`                    | Заголовок второго уровня             |
-| `h3`              | `<h3>`                    | Заголовок третьего уровня            |
-| `h4`              | `<h4>`                    | Заголовок четвёртого уровня          |
-| `h5`              | `<h5>`                    | Заголовок пятого уровня              |
-| `p`               | `<p>`                     | Обычный абзац                         |
-| `p-large`         | `<p class="p-large">`     | Крупный абзац (секция e-text-large)  |
-| `blockquote`      | `<blockquote>`            | Цитата                                |
-| `small`           | `<small>`                 | Мелкий текст / сноска                |
-| `ul`              | `<ul><li>...</li></ul>`   | Маркированный список (через `\|`)    |
-| `ol`              | `<ol><li>...</li></ol>`   | Нумерованный список (через `\|`)     |
-| `e-id`            | `<div class="e-id">`      | ID/номер дела                         |
-| `e-details__type` | `<div class="e-details__type">` | Тип результата (с цветом в ExtraAttribute) |
-| `e-details__loc`  | `<div class="e-details__loc">`  | Локация/юрисдикция (флаг в ExtraAttribute) |
-| `e-details__def`  | `<div class="e-details__def">`  | Определение/тип дела              |
-| `note-title`      | `<h5>` внутри `.section-article__note` | Заголовок пояснения        |
-| `note-text`       | `<p>` внутри `.section-article__note`  | Текст пояснения           |
-| `breadcrumb`      | `.breadcrumbs ul li`      | Хлебные крошки (через `/`)           |
-| `section-title`   | `<h1>` секции             | Заголовок секции страницы            |
-| `e-dots`          | `<div class="e-dots">`    | Цветные точки (цвета через `,`)      |
-
-## Формат content.json
-
-```json
-{
-  "blocks": [
-    {
-      "id": "уникальный-id",
-      "pageName": "case-ru",          // case-ru | case-en | whoweare-ru | whoweare-en
-      "order": 1,                      // порядок на странице
-      "style": "h1",                   // стиль из таблицы выше
-      "content": "К.К. против Швейцарии",
-      "extraAttribute": null,          // цвет или путь к флагу (для e-details)
-      "updatedAt": "2025-01-01T00:00:00Z"
-    }
-  ]
-}
-```
-
-## Возможности Admin-панели
-
-- 📋 **Список блоков** по страницам с порядком, стилем и превью текста
-- ✏️ **Редактирование** любого блока с живым превью стиля
-- ➕ **Добавление** новых блоков
-- 🗑 **Удаление** блоков
-- ☰ **Drag & Drop** для изменения порядка блоков (сохраняется через AJAX)
-- 🏷 **Быстрый выбор стиля** кликом по бейджу
-
-## CSS
-
-Подключите `css/styles.css` из оригинальных файлов проекта в папку `wwwroot/css/`.
+│   │   └── Index.cshtml
+│   └── Shared/
+│       ├── _Layout.cshtml
+│       └── _ContentBlock.cshtml
+├── wwwroot/
+│   ├── css/
+│   ├── js/
+│   └── pictures/
+└── Program.cs
+API и сервисы
+Основные сервисы
+Сервис	Описание
+IBlockService / BlockService	CRUD для контент-блоков, работа со страницами, стилями, языками
+ISectionService / SectionService	Управление разделами, создание с автопереводом, копирование блоков
+ILanguageService / LanguageService	Управление языками, создание статических страниц при добавлении языка
+IPreviewService / PreviewService	Генерация предпросмотра страниц для админки
+ITranslationService / TranslationService	Интеграция с Google Cloud Translation API
+API эндпоинты
+Маршрут	Назначение
+GET /Admin	Главная админ-панели
+POST /Admin/CreateSection	Создание раздела
+POST /Admin/EditBlock	Сохранение блока
+POST /Admin/ReorderBlocks	Изменение порядка блоков
+POST /Admin/UploadImage	Загрузка изображения
+POST /Admin/CopyAndTranslateBlocks	Копирование и перевод блоков
+GET /Case/Detail/{slug}	Детальная страница кейса
+GET /Case/List	Список кейсов
