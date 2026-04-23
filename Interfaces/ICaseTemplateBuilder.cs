@@ -1,8 +1,9 @@
 ﻿using DrozdovLaw.Models;
+using DrozdovLaw.Models.ViewModels;
 
 namespace DrozdovLaw.Interfaces;
 
 public interface ICaseTemplateBuilder
 {
-    List<ContentBlock> BuildTemplateBlocks(string pageName, string slug, string lang, CreateCaseViewModel vm);
+    IEnumerable<ContentBlock> BuildTemplateBlocks(int pageId, string slug, string lang, CreateSectionViewModel model);
 }

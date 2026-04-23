@@ -1,0 +1,274 @@
+﻿@model List<DrozdovLaw.Models.Language>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление языками — Drozdov Law Admin</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+            background: #eef1f6;
+            min-height: 100vh
+        }
+
+        .ph {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 0 32px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+            .ph a {
+                color: #7eb8d4;
+                text-decoration: none;
+                font-size: 13px
+            }
+
+            .ph h1 {
+                font-size: 15px;
+                font-weight: 700;
+                color: #fff;
+                margin-left: 8px
+            }
+
+        .pb {
+            max-width: 760px;
+            margin: 32px auto;
+            padding: 0 20px
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,.05);
+            margin-bottom: 20px
+        }
+
+        .ch {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e2e8f0
+        }
+
+            .ch h2 {
+                font-size: 17px;
+                font-weight: 700;
+                color: #1a202c
+            }
+
+            .ch p {
+                font-size: 13px;
+                color: #718096;
+                margin-top: 2px
+            }
+
+        .cb {
+            padding: 24px
+        }
+
+        .fg {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 14px
+        }
+
+            .fg label {
+                font-size: 11px;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: .4px
+            }
+
+            .fg input {
+                padding: 9px 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 7px;
+                font-size: 14px;
+                color: #1a202c;
+                font-family: inherit;
+                transition: .12s;
+                background: #fff;
+                width: 100%
+            }
+
+                .fg input:focus {
+                    outline: none;
+                    border-color: #1a6fa8;
+                    box-shadow: 0 0 0 3px rgba(26,111,168,.1)
+                }
+
+                .fg input[readonly] {
+                    background: #f7fafc;
+                    color: #718096
+                }
+
+        .hint {
+            font-size: 11px;
+            color: #a0aec0;
+            margin-top: 3px
+        }
+
+        .cf {
+            padding: 16px 24px;
+            border-top: 1px solid #f0f4f8;
+            background: #fafbfc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: .12s
+        }
+
+        .btn-primary {
+            background: #1a6fa8;
+            color: #fff
+        }
+
+            .btn-primary:hover {
+                background: #155d8e
+            }
+
+        .btn-outline {
+            background: #fff;
+            color: #4a5568;
+            border: 1px solid #e2e8f0
+        }
+
+            .btn-outline:hover {
+                border-color: #1a6fa8;
+                color: #1a6fa8
+            }
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            padding: 24px;
+        }
+
+        .language-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .language-card__code {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a202c;
+            text-transform: uppercase;
+        }
+
+        .language-card__name {
+            font-size: 14px;
+            color: #718096;
+            margin: 8px 0 16px;
+        }
+
+        .language-card__actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: .12s
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #4a5568;
+            border: 1px solid #e2e8f0
+        }
+
+            .btn-outline:hover {
+                border-color: #1a6fa8;
+                color: #1a6fa8
+            }
+
+        .btn-danger {
+            background: #fff1f2;
+            color: #e11d48;
+            border: 1px solid #fecdd3
+        }
+
+        .btn-success {
+            background: #16a34a;
+            color: #fff;
+        }
+        /* шапка и контейнер как в других админских */
+    </style>
+</head>
+<body>
+    <header class="ph">
+        <a href="@Url.Action("Index", "Admin")">← Назад в админку</a>
+        <span>|</span>
+        <h1>Языки</h1>
+    </header>
+
+    <div class="pb">
+        <div class="card">
+            <div class="ch"><h2>Управление языками</h2></div>
+            <div style="padding:16px 24px; display:flex; justify-content: space-between; align-items: center;">
+                <span>Всего языков: @Model.Count</span>
+                <a href="@Url.Action("CreateLanguage")" class="btn btn-success">➕ Добавить язык</a>
+            </div>
+            <div class="languages-grid">
+                @foreach (var lang in Model)
+                {
+                    <div class="language-card">
+                        <div class="language-card__code">@lang.Code</div>
+                        <div class="language-card__name">@lang.Name</div>
+                        <div class="language-card__actions">
+                            <form method="post" action="@Url.Action("DeleteLanguage")" style="display:inline" onsubmit="return confirm('Удалить язык @lang.Name?')">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="code" value="@lang.Code" />
+                                <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

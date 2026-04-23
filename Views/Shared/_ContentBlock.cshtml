@@ -2,49 +2,44 @@
 @{
     var content = Model.Content ?? "";
     var extra = Model.ExtraAttribute ?? "";
+    var styleName = Model.Style?.Name ?? "";
+
+    var colorStyle = !string.IsNullOrEmpty(extra) && extra.StartsWith("#") ? $"color:{extra};" : null;
+    var colorAttr = colorStyle != null ? $"style=\"{colorStyle}\"" : "";
 }
-@switch (Model.Style)
+@switch (styleName)
 {
     case "h1":
-        <h1>@content</h1>
+        <h1 @Html.Raw(colorAttr)>@content</h1>
         break;
     case "h2":
-
-        <h2>@content</h2>
+        <h2 @Html.Raw(colorAttr)>@content</h2>
         break;
     case "h3":
-
-        <h3>@content</h3>
+        <h3 @Html.Raw(colorAttr)>@content</h3>
         break;
     case "h4":
-
-        <h4>@content</h4>
+        <h4 @Html.Raw(colorAttr)>@content</h4>
         break;
     case "h5":
-
-        <h5>@content</h5>
+        <h5 @Html.Raw(colorAttr)>@content</h5>
         break;
     case "p":
-
-        <p>@Html.Raw(content)</p>
+        <p @Html.Raw(colorAttr)>@Html.Raw(content)</p>
         break;
     case "p-large":
-
-        <p class="p-large">@Html.Raw(content)</p>
+        <p class="p-large" @Html.Raw(colorAttr)>@Html.Raw(content)</p>
         break;
     case "blockquote":
-
-        <blockquote><p>@Html.Raw(content)</p></blockquote>
+        <blockquote><p @Html.Raw(colorAttr)>@Html.Raw(content)</p></blockquote>
         break;
     case "small":
-
-        <small>@Html.Raw(content)</small>
+        <small @Html.Raw(colorAttr)>@Html.Raw(content)</small>
         break;
-
     case "ul":
         {
             var items = content.Split('|', StringSplitOptions.RemoveEmptyEntries);
-            <ul>
+            <ul @Html.Raw(colorAttr)>
                 @foreach (var item in items)
                 {
                     <li>@item.Trim()</li>
@@ -55,7 +50,7 @@
     case "ol":
         {
             var items = content.Split('|', StringSplitOptions.RemoveEmptyEntries);
-            <ol>
+            <ol @Html.Raw(colorAttr)>
                 @foreach (var item in items)
                 {
                     <li>@item.Trim()</li>
@@ -63,16 +58,24 @@
             </ol>
             break;
         }
-
     case "e-dots":
         {
-            var colors = content.Split(',', StringSplitOptions.RemoveEmptyEntries);
-            <div class="e-dots">
-                @foreach (var c in colors)
-                {
-                    <div class="e-dot" style="background:@c.Trim()"></div>
-                }
-            </div>
+            if (!string.IsNullOrEmpty(extra))
+            {
+                <div class="e-dots">
+                    <div class="e-dot" style="background:@extra"></div>
+                </div>
+            }
+            else if (!string.IsNullOrEmpty(content))
+            {
+                var colors = content.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                <div class="e-dots">
+                    @foreach (var c in colors)
+                    {
+                        <div class="e-dot" style="background:@c.Trim()"></div>
+                    }
+                </div>
+            }
             break;
         }
     case "e-id":
@@ -85,7 +88,7 @@
         <div class="e-details__loc">
             @if (!string.IsNullOrEmpty(extra))
             {
-                <span class="flag-icon"><img src="~/images/flags/England.png" alt=""></span>
+                <span class="flag-icon"><img src="~/@extra" alt=""></span>
             }
             @content
         </div>
@@ -93,10 +96,8 @@
     case "e-details__def":
         <div class="e-details__def"><span class="e-label">Тип:</span> @content</div>
         break;
-
     case "person":
         {
-            // extra = "path/to/photo.jpg|Должность"
             var parts = extra.Split('|');
             var photo = parts.Length > 0 ? parts[0] : "";
             var role = parts.Length > 1 ? parts[1] : "";
@@ -111,31 +112,34 @@
             </div>
             break;
         }
-
     case "note-title":
-
-        <h5>@content</h5>
+        <h5 @Html.Raw(colorAttr)>@content</h5>
         break;
     case "note-text":
-
-        <p>@Html.Raw(content)</p>
+        <p @Html.Raw(colorAttr)>@Html.Raw(content)</p>
         break;
-
     case "decision-title":
-
-        <h2>@content</h2>
+        <h2 @Html.Raw(colorAttr)>@content</h2>
         break;
     case "decision-text":
-
-        <p>@Html.Raw(content)</p>
+        <p @Html.Raw(colorAttr)>@Html.Raw(content)</p>
         break;
     case "case-link":
-        <p>Ссылка на дело: <a href="@content"><strong>@content</strong></a></p>
+        {
+            var linkUrl = !string.IsNullOrEmpty(extra) ? extra : content;
+            var linkText = !string.IsNullOrEmpty(content) ? content : linkUrl;
+            if (linkUrl.StartsWith("http://") || linkUrl.StartsWith("https://"))
+            {
+                <p>Ссылка на дело: <a href="@linkUrl"><strong>@linkText</strong></a></p>
+            }
+            else
+            {
+                <p>Ссылка на дело: <strong>@linkText</strong></p>
+            }
+        }
         break;
-
     case "docs-title":
-
-        <h2>@content</h2>
+        <h2 @Html.Raw(colorAttr)>@content</h2>
         break;
     case "doc-item":
         <a href="#" class="docs-blocks__item">
@@ -143,10 +147,8 @@
             <h3>@content</h3>
         </a>
         break;
-
     case "tags-title":
-
-        <h4>@content</h4>
+        <h4 @Html.Raw(colorAttr)>@content</h4>
         break;
     case "tag":
         {
@@ -160,7 +162,6 @@
             }
             break;
         }
-
     case "breadcrumb":
         {
             var crumbs = content.Split('/', StringSplitOptions.RemoveEmptyEntries);
@@ -175,12 +176,9 @@
             break;
         }
     case "section-title":
-
-        <h1>@content</h1>
+        <h1 @Html.Raw(colorAttr)>@content</h1>
         break;
-
     default:
-
         <div class="content-block">@Html.Raw(content)</div>
         break;
 }

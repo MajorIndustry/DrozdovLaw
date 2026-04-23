@@ -1,32 +1,37 @@
 using DrozdovLaw.Interfaces;
 using DrozdovLaw.Models;
+using DrozdovLaw.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-
-namespace DrozdovLaw.Controllers;
 
 public class WhoWeAreController : Controller
 {
     private readonly IBlockService _blockService;
-    private readonly ICaseService _caseService;
+    private readonly ISectionService _sectionService;
+    private readonly ILanguageService _languageService;
 
-    public WhoWeAreController(IBlockService blockService, ICaseService caseService)
+    public WhoWeAreController(IBlockService blockService, ISectionService sectionService, ILanguageService languageService)
     {
         _blockService = blockService;
-        _caseService = caseService;
+        _sectionService = sectionService;
+        _languageService = languageService;
     }
 
     public async Task<IActionResult> Index(string lang = "ru")
     {
-        var pageName = lang == "en" ? "whoweare-en" : "whoweare-ru";
-        var blocks = await _blockService.GetPageBlocksAsync(pageName);
-        var cases = await _caseService.GetAllCasesAsync();
+        var pageId = await _blockService.GetOrCreatePageIdAsync("whoweare", lang,
+            lang == "ru" ? " то мы" : "Who we are", null);
+        var page = await _blockService.GetPageAsync("whoweare", lang, null);
+        var blocks = await _blockService.GetPageBlocksAsync("whoweare", lang, null);
+        var sections = await _sectionService.GetAllSectionsAsync();
+
         ViewBag.Lang = lang;
+        ViewBag.AvailableLanguages = await _languageService.GetAllAsync();
         return View(new PageViewModel
         {
-            PageName = pageName,
+            Page = page ?? new Page { SystemName = "whoweare", Name = lang == "ru" ? " то мы" : "Who we are", LanguageCode = lang },
             Language = lang,
             Blocks = blocks,
-            Cases = cases.Where(c => c.IsPublished).ToList()
+            Sections = sections
         });
     }
 }

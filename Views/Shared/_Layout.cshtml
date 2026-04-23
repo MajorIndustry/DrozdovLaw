@@ -8,169 +8,160 @@
 </head>
 <body>
 
-@{
-    var lang = (string)(ViewBag.Lang ?? "ru");
-    var currentPath = Context.Request.Path.ToString();
-    // Определяем базовый путь без языкового префикса для переключения языков
-    // Для Case: /Case?lang=ru -> переключить на /Case?lang=en
-}
+    @{
+        var lang = (string)(ViewBag.Lang ?? "ru");
+        var availableLanguages = ViewBag.AvailableLanguages as List<DrozdovLaw.Models.Language> ?? new List<DrozdovLaw.Models.Language>();
+    }
 
-<div class="page-layout @(ViewBag.PageLayoutClass ?? "")">
-    <!-- HEADER -->
-    <div class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="/">
-                    <span class="logo__name">Vadim Drozdov</span>
-                    <span class="logo__info">law office</span>
-                </a>
-            </div>
-            <div class="header-aside">
-                <div class="lang-select">
-                    <button class="lang-select__active" type="button">
-                        @(lang == "ru" ? "Русский" : "English")
-                    </button>
-                    <ul class="lang-select__options">
-                        <li class="@(lang == "ru" ? "active" : "")">
-                            <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = "ru" })">Русский</a>
-                        </li>
-                        <li><a href="#">Schweizerhochdeutsch</a></li>
-                        <li class="@(lang == "en" ? "active" : "")">
-                            <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = "en" })">English</a>
-                        </li>
-                        <li><a href="#">Polski</a></li>
-                        <li><a href="#">Deutsch</a></li>
-                    </ul>
-                </div>
-                <button class="header-nav-icon" type="button"></button>
-            </div>
-            <div class="header-nav">
+    <div class="page-layout @(ViewBag.PageLayoutClass ?? "")">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="container">
                 <div class="logo">
                     <a href="/">
                         <span class="logo__name">Vadim Drozdov</span>
                         <span class="logo__info">law office</span>
                     </a>
                 </div>
-                <div class="container">
+                <div class="header-aside">
+                    <div class="lang-select">
+                        <button class="lang-select__active" type="button">
+                            @(availableLanguages.FirstOrDefault(l => l.Code == lang)?.Name ?? lang)
+                        </button>
+                        <ul class="lang-select__options">
+                            @foreach (var l in availableLanguages)
+                            {
+                                <li class="@(lang == l.Code ? "active" : "")">
+                                    <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = l.Code })">@l.Name</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                     <button class="header-nav-icon" type="button"></button>
-                    <div class="header-nav__mid">
-                        <nav class="header-nav__links">
-                            <ul>
-                                <li><a href="@Url.Action("List", "Case", new { lang })">@(lang == "ru" ? "Кейсы" : "Cases")</a></li>
-                                <li><a href="#">@(lang == "ru" ? "Вакансии" : "Vacancies")</a></li>
-                                <li><a href="#">@(lang == "ru" ? "Услуги" : "Services")</a></li>
-                                <li><a href="@Url.Action("Index", "WhoWeAre", new { lang })">@(lang == "ru" ? "Кто мы" : "Who we are")</a></li>
-                                <li><a href="#">@(lang == "ru" ? "Задать вопрос" : "Ask a question")</a></li>
-                                <li><a href="#">@(lang == "ru" ? "Контакты" : "Contacts")</a></li>
-                            </ul>
-                        </nav>
-                        <div class="soc-icons">
-                            <a href="#" class="soc-icon soc-icon__fb">Facebook</a>
-                            <a href="#" class="soc-icon soc-icon__instag">Instagram</a>
-                            <a href="#" class="soc-icon soc-icon__linked">Linkedin</a>
-                            <a href="#" class="soc-icon soc-icon__tw">Twitter</a>
+                </div>
+                <div class="header-nav">
+                    <div class="logo">
+                        <a href="/">
+                            <span class="logo__name">Vadim Drozdov</span>
+                            <span class="logo__info">law office</span>
+                        </a>
+                    </div>
+                    <div class="container">
+                        <button class="header-nav-icon" type="button"></button>
+                        <div class="header-nav__mid">
+                            <nav class="header-nav__links">
+                                <ul>
+                                    <li><a href="@Url.Action("List", "Case", new { lang })">@(lang == "ru" ? "Кейсы" : "Cases")</a></li>
+                                    <li><a href="#">@(lang == "ru" ? "Вакансии" : "Vacancies")</a></li>
+                                    <li><a href="#">@(lang == "ru" ? "Услуги" : "Services")</a></li>
+                                    <li><a href="@Url.Action("Index", "WhoWeAre", new { lang })">@(lang == "ru" ? "Кто мы" : "Who we are")</a></li>
+                                    <li><a href="#">@(lang == "ru" ? "Задать вопрос" : "Ask a question")</a></li>
+                                    <li><a href="#">@(lang == "ru" ? "Контакты" : "Contacts")</a></li>
+                                </ul>
+                            </nav>
+                            <div class="soc-icons">
+                                <a href="#" class="soc-icon soc-icon__fb">Facebook</a>
+                                <a href="#" class="soc-icon soc-icon__instag">Instagram</a>
+                                <a href="#" class="soc-icon soc-icon__linked">Linkedin</a>
+                                <a href="#" class="soc-icon soc-icon__tw">Twitter</a>
+                            </div>
+                        </div>
+                        <div class="header-nav__foot">
+                            <div class="header-nav__email">
+                                <a href="mailto:info@vadimdrozdov.ch">info@vadimdrozdov.ch</a>
+                            </div>
+                            <div class="lang-select">
+                                <button class="lang-select__active" type="button">
+                                    @(availableLanguages.FirstOrDefault(l => l.Code == lang)?.Name ?? lang)
+                                </button>
+                                <ul class="lang-select__options">
+                                    @foreach (var l in availableLanguages)
+                                    {
+                                        <li class="@(lang == l.Code ? "active" : "")">
+                                            <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = l.Code })">@l.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="header-nav__foot">
-                        <div class="header-nav__email">
-                            <a href="mailto:info@vadimdrozdov.ch">info@@vadimdrozdov.ch</a>
-                        </div>
-                        <div class="lang-select">
-                            <button class="lang-select__active" type="button">
-                                @(lang == "ru" ? "Русский" : "English")
-                            </button>
-                            <ul class="lang-select__options">
-                                <li class="@(lang == "ru" ? "active" : "")">
-                                    <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = "ru" })">Русский</a>
-                                </li>
-                                <li><a href="#">Schweizerhochdeutsch</a></li>
-                                <li class="@(lang == "en" ? "active" : "")">
-                                    <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = "en" })">English</a>
-                                </li>
-                                <li><a href="#">Polski</a></li>
-                                <li><a href="#">Deutsch</a></li>
-                            </ul>
-                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
+        @if (ViewBag.IsPreview == true)
+        {
+            <div style="background:#1a6fa8;color:#fff;text-align:center;padding:8px 16px;font-size:13px;font-weight:600;position:sticky;top:0;z-index:999">
+                👁 ПРЕДПРОСМОТР — @(ViewBag.PreviewPage) &nbsp;|&nbsp;
+                <a href="@Url.Action("Index", "Admin", new { page = ViewBag.PreviewPage, lang = ViewBag.Lang })"
+                   style="color:#fff;text-decoration:underline">← Вернуться в админ-панель</a>
+            </div>
+        }
+        <div class="content">
+            @RenderBody()
+        </div>
+
+        <!-- СЕКЦИЯ "У вас есть вопрос?" -->
+        <div class="section-question">
+            <section class="container">
+                <h1>@(lang == "ru" ? "У вас есть вопрос?" : "Do you have a question?")</h1>
+                <div class="content-text-split">
+                    <div class="e-text">
+                        <p>
+                            @(lang == "ru"
+                                                        ? "Наша компания осуществляет поддержку и профессиональную юридическую консультацию имигрантам за границей"
+                                                        : "Our company provides support and professional legal advice to immigrants abroad")
+                        </p>
+                    </div>
+                    <div class="e-aside">
+                        <a href="#" class="btn-primary">@(lang == "ru" ? "Получить консультацию" : "Get a consultation")</a>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </div>
 
-    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
-    @if (ViewBag.IsPreview == true)
-    {
-        <div style="background:#1a6fa8;color:#fff;text-align:center;padding:8px 16px;font-size:13px;font-weight:600;position:sticky;top:0;z-index:999">
-            👁 ПРЕДПРОСМОТР — @(ViewBag.PreviewPage) &nbsp;|&nbsp;
-            <a href="@Url.Action("Index", "Admin", new { page = ViewBag.PreviewPage, lang = ViewBag.Lang })"
-               style="color:#fff;text-decoration:underline">← Вернуться в админ-панель</a>
-        </div>
-    }
-    <div class="content">
-        @RenderBody()
-    </div>
-
-    <!-- СЕКЦИЯ "У вас есть вопрос?" -->
-    <div class="section-question">
-        <section class="container">
-            <h1>@(lang == "ru" ? "У вас есть вопрос?" : "Do you have a question?")</h1>
-            <div class="content-text-split">
-                <div class="e-text">
-                    <p>@(lang == "ru"
-                        ? "Наша компания осуществляет поддержку и профессиональную юридическую консультацию имигрантам за границей"
-                        : "Our company provides support and professional legal advice to immigrants abroad")</p>
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <nav class="footer__nav">
+                        <ul>
+                            <li><a href="@Url.Action("List", "Case", new { lang })">@(lang == "ru" ? "Кейсы" : "Cases")</a></li>
+                            <li><a href="#">@(lang == "ru" ? "Услуги" : "Services")</a></li>
+                            <li><a href="#">@(lang == "ru" ? "Задать вопрос" : "Ask a question")</a></li>
+                            <li><a href="#">@(lang == "ru" ? "Вакансии" : "Vacancies")</a></li>
+                            <li><a href="@Url.Action("Index", "WhoWeAre", new { lang })">@(lang == "ru" ? "Кто мы" : "Who we are")</a></li>
+                            <li><a href="#">@(lang == "ru" ? "Контакты" : "Contacts")</a></li>
+                        </ul>
+                    </nav>
+                    <div class="lang-select">
+                        <button class="lang-select__active" type="button">
+                            @(availableLanguages.FirstOrDefault(l => l.Code == lang)?.Name ?? lang)
+                        </button>
+                        <ul class="lang-select__options">
+                            @foreach (var l in availableLanguages)
+                            {
+                                <li class="@(lang == l.Code ? "active" : "")">
+                                    <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = l.Code })">@l.Name</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 </div>
-                <div class="e-aside">
-                    <a href="#" class="btn-primary">@(lang == "ru" ? "Получить консультацию" : "Get a consultation")</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        <div class="container">
-            <div class="footer__top">
-                <nav class="footer__nav">
-                    <ul>
-                        <li><a href="@Url.Action("Index", "Case", new { lang })">@(lang == "ru" ? "Кейсы" : "Cases")</a></li>
-                        <li><a href="#">@(lang == "ru" ? "Услуги" : "Services")</a></li>
-                        <li><a href="#">@(lang == "ru" ? "Задать вопрос" : "Ask a question")</a></li>
-                        <li><a href="#">@(lang == "ru" ? "Вакансии" : "Vacancies")</a></li>
-                        <li><a href="@Url.Action("Index", "WhoWeAre", new { lang })">@(lang == "ru" ? "Кто мы" : "Who we are")</a></li>
-                        <li><a href="#">@(lang == "ru" ? "Контакты" : "Contacts")</a></li>
-                    </ul>
-                </nav>
-                <div class="lang-select">
-                    <button class="lang-select__active" type="button">
-                        @(lang == "ru" ? "Русский" : "English")
-                    </button>
-                    <ul class="lang-select__options">
-                        <li class="@(lang == "ru" ? "active" : "")">
-                            <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = "ru" })">Русский</a>
-                        </li>
-                        <li><a href="#">Schweizerhochdeutsch</a></li>
-                        <li class="@(lang == "en" ? "active" : "")">
-                            <a href="@Url.Action(ViewContext.RouteData.Values["action"]?.ToString(), ViewContext.RouteData.Values["controller"]?.ToString(), new { lang = "en" })">English</a>
-                        </li>
-                        <li><a href="#">Polski</a></li>
-                        <li><a href="#">Deutsch</a></li>
-                    </ul>
+                <div class="footer__email">
+                    <a href="mailto:info@vadimdrozdov.ch">info@vadimdrozdov.ch</a>
                 </div>
             </div>
-            <div class="footer__email">
-                <a href="mailto:info@vadimdrozdov.ch">info@@vadimdrozdov.ch</a>
+            <div class="footer__bottom">
+                <div class="e-copy">&copy; Company NoName 1996-2025</div>
+                <a href="#" class="e-design">Разработка дизайна ― компания PRAS</a>
             </div>
         </div>
-        <div class="footer__bottom">
-            <div class="e-copy">&copy; Company NoName 1996-2025</div>
-            <a href="#" class="e-design">Разработка дизайна ― компания PRAS</a>
-        </div>
     </div>
-</div>
 
-<script src="~/js/scripts.js" asp-append-version="true"></script>
-@await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/scripts.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>

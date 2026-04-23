@@ -1,50 +1,54 @@
 ﻿using DrozdovLaw.Interfaces;
 using DrozdovLaw.Models;
+using DrozdovLaw.Models.ViewModels;
 
 namespace DrozdovLaw.Services;
 
 public class PreviewService : IPreviewService
 {
     private readonly IBlockService _blockService;
-    private readonly ICaseService _caseService;
+    private readonly ISectionService _sectionService;
 
-    public PreviewService(IBlockService blockService, ICaseService caseService)
+    public PreviewService(IBlockService blockService, ISectionService sectionService)
     {
         _blockService = blockService;
-        _caseService = caseService;
+        _sectionService = sectionService;
     }
 
-    public async Task<(string viewName, object viewModel)> GetPreviewAsync(string page)
+    public async Task<(string viewName, object viewModel)> GetPreviewAsync(string systemName, string lang, int? sectionId = null)
     {
-        var lang = page.EndsWith("-en") ? "en" : "ru";
-        var blocks = await _blockService.GetPageBlocksAsync(page);
+        var page = await _blockService.GetPageAsync(systemName, lang, sectionId);
+        var blocks = await _blockService.GetPageBlocksAsync(systemName, lang, sectionId);
 
-        if (page.StartsWith("case-") && !page.StartsWith("case-ru") && !page.StartsWith("case-en")
-            || (page.StartsWith("case-") && page.Count(c => c == '-') >= 2))
+        if (systemName == "case" && page?.Section != null)
         {
-            var parts = page.Split('-');
-            var slug = string.Join("-", parts[1..^1]);
-            var meta = await _caseService.GetCaseBySlugAsync(slug);
-            var viewName = "~/Views/Case/Detail.cshtml";
+            var section = page.Section;
+            var similarSections = (await _sectionService.GetAllSectionsAsync())
+                                    .Where(s => s.IsPublished && s.Slug != section.Slug)
+                                    .Take(4)
+                                    .ToList();
+
             var viewModel = new CaseViewModel
             {
-                PageName = page,
+                Page = page,
                 Language = lang,
                 Blocks = blocks,
-                Meta = meta
+                Section = section,
+                SimilarSections = similarSections
             };
-            return (viewName, viewModel);
+            return ("~/Views/Case/Detail.cshtml", viewModel);
         }
         else
         {
-            var viewName = "~/Views/WhoWeAre/Index.cshtml";
+            var sections = await _sectionService.GetAllSectionsAsync();
             var viewModel = new PageViewModel
             {
-                PageName = page,
+                Page = page ?? new Page { SystemName = systemName, Name = systemName, LanguageCode = lang },
                 Language = lang,
-                Blocks = blocks
+                Blocks = blocks,
+                Sections = sections
             };
-            return (viewName, viewModel);
+            return ("~/Views/WhoWeAre/Index.cshtml", viewModel);
         }
     }
 }
