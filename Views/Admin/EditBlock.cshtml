@@ -1,0 +1,593 @@
+@model DrozdovLaw.Models.ViewModels.AdminEditViewModel
+@{
+    var isNew = Model.Id == 0;
+    var title = isNew ? "Новый блок" : "Редактирование блока";
+    Layout = null;
+    var styles = ViewBag.Styles as List<DrozdovLaw.Models.BlockStyle> ?? new();
+
+    var extra = Model.ExtraAttribute ?? "";
+    var personParts = extra.Split('|');
+    string photoPath = personParts.Length > 0 ? personParts[0] : "";
+    string personRole = personParts.Length > 1 ? personParts[1] : "";
+    string url = extra;
+    string docType = extra;
+    string colorHex = extra;
+    string flagPath = extra;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>@title — Drozdov Admin</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .admin-header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+            .admin-header a {
+                color: #7eb8d4;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+            .admin-header h1 {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+        .edit-wrap {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.08);
+        }
+
+            .card h2 {
+                font-size: 20px;
+                color: #1a1a2e;
+                margin-bottom: 28px;
+                padding-bottom: 16px;
+                border-bottom: 1px solid #eee;
+            }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+            .form-group label {
+                display: block;
+                font-size: 13px;
+                font-weight: 600;
+                color: #555;
+                margin-bottom: 6px;
+                text-transform: uppercase;
+                letter-spacing: .4px;
+            }
+
+            .form-group input, .form-group select, .form-group textarea {
+                width: 100%;
+                padding: 10px 14px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                font-size: 14px;
+                font-family: inherit;
+                transition: border-color .15s;
+                background: #fafafa;
+            }
+
+                .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+                    outline: none;
+                    border-color: #1a6fa8;
+                    background: #fff;
+                    box-shadow: 0 0 0 3px rgba(26,111,168,.1);
+                }
+
+            .form-group textarea {
+                min-height: 180px;
+                resize: vertical;
+                font-family: 'Consolas', monospace;
+            }
+
+        .form-hint {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .preview-box {
+            border: 1px dashed #ddd;
+            border-radius: 6px;
+            padding: 16px;
+            background: #fefefe;
+            min-height: 60px;
+            margin-top: 16px;
+        }
+
+            .preview-box h3 {
+                font-size: 12px;
+                color: #999;
+                text-transform: uppercase;
+                letter-spacing: .5px;
+                margin-bottom: 10px;
+            }
+
+        .style-info {
+            background: #f0f7fb;
+            border: 1px solid #bee3f8;
+            border-radius: 6px;
+            padding: 14px 16px;
+            margin-bottom: 22px;
+            font-size: 13px;
+        }
+
+            .style-info strong {
+                color: #1a6fa8;
+            }
+
+            .style-info code {
+                background: #daedf8;
+                padding: 2px 5px;
+                border-radius: 3px;
+                font-size: 12px;
+            }
+
+        .actions-bar {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: .15s;
+        }
+
+        .btn-primary {
+            background: #1a6fa8;
+            color: #fff;
+        }
+
+            .btn-primary:hover {
+                background: #145d8e;
+            }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #555;
+        }
+
+            .btn-secondary:hover {
+                background: #e0e0e0;
+            }
+
+        .file-upload-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+            .file-upload-wrapper input[type=file] {
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+            }
+
+        .upload-status {
+            font-size: 12px;
+            color: #16a34a;
+            margin-left: 10px;
+            display: none;
+        }
+
+        .image-preview {
+            margin-top: 8px;
+            max-width: 100px;
+            max-height: 80px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            display: none;
+        }
+
+        .extra-fields {
+            margin-top: 10px;
+        }
+
+        .extra-block {
+            display: none;
+        }
+
+            .extra-block.active {
+                display: block;
+            }
+
+        .color-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+            .color-row input[type=color] {
+                width: 50px;
+                height: 40px;
+                padding: 2px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+
+    @{
+        var bSection = ViewBag.Section as string ?? "cases";
+        var bSlug = ViewBag.Slug as string ?? "";
+    }
+
+    <div class="admin-header">
+        <a href="@Url.Action("Index", "Admin", new { section = bSection, slug = bSlug, page = Model.ReturnPage, lang = Model.Lang })">← Назад</a>
+        <h1>@title</h1>
+        <span>@Model.ReturnPage · @Model.Lang.ToUpper()</span>
+    </div>
+
+    <div class="edit-wrap">
+        <div class="card">
+            <h2>@title</h2>
+
+            <div class="style-info">
+                <strong>Подсказки:</strong><br>
+                Для <code>person</code> — загрузите фото и укажите должность.<br>
+                Для <code>case-link</code> — укажите URL.<br>
+                Для <code>doc-item</code> — тип документа.<br>
+                Для <code>e-dots</code> — выберите цвет (контент не используется).<br>
+                Для остальных стилей доступна цветовая палитра.
+            </div>
+
+            <form asp-action="@(isNew ? "CreateBlock" : "EditBlock")" method="post" onsubmit="prepareExtraAttribute()" novalidate>
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="ReturnPage" value="@Model.ReturnPage" />
+                <input type="hidden" name="Lang" value="@Model.Lang" />
+                <input type="hidden" name="section" value="@bSection" />
+                <input type="hidden" name="slug" value="@bSlug" />
+                <input type="hidden" name="ExtraAttribute" id="finalExtraAttribute" value="@Model.ExtraAttribute" />
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Стиль блока</label>
+                        <select name="StyleId" id="styleSelect" onchange="onStyleChange()">
+                            @foreach (var style in styles)
+                            {
+                                <option value="@style.Id" selected="@(Model.StyleId == style.Id)">@style.Name — @style.Description</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group" id="contentGroup">
+                        <label>Содержимое</label>
+                        <textarea name="Content" id="contentArea" oninput="updatePreview()">@Model.Content</textarea>
+                    </div>
+                </div>
+
+                <!-- Универсальный выбор цвета (для всех стилей, где нет спец. блока) -->
+                <div class="extra-block" id="extra-color">
+                    <div class="form-group">
+                        <label>Цвет</label>
+                        <div class="color-row">
+                            <input type="color" id="colorPicker" value="@colorHex" oninput="updateColorHex(); updateExtra(); updatePreview();" />
+                            <input type="text" id="colorHex" value="@colorHex" placeholder="#000000" oninput="updateColorPicker(); updateExtra(); updatePreview();" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Person -->
+                <div class="extra-block" id="extra-person">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Фотография</label>
+                            <div class="file-upload-wrapper">
+                                <button type="button" class="btn btn-secondary btn-sm">Выбрать файл</button>
+                                <input type="file" id="personFileInput" accept="image/*" onchange="uploadPersonPhoto(this)" />
+                            </div>
+                            <input type="hidden" id="personPhoto" value="@photoPath" />
+                            <span class="upload-status" id="personUploadStatus"></span>
+                            <img id="personPhotoPreview" class="image-preview" src="@(string.IsNullOrEmpty(photoPath) ? "" : Url.Content("~/" + photoPath))" alt="Фото" style="@(string.IsNullOrEmpty(photoPath) ? "" : "display:block;")" onerror="this.style.display='none'" />
+                        </div>
+                        <div class="form-group">
+                            <label>Должность</label>
+                            <input type="text" id="personRole" value="@personRole" placeholder="Адвокат" oninput="updateExtra(); updatePreview();" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case-link -->
+                <div class="extra-block" id="extra-caselink">
+                    <div class="form-group">
+                        <label>URL дела</label>
+                        <input type="url" id="caseLinkUrl" value="@url" placeholder="https://..." oninput="updateExtra(); updatePreview();" />
+                    </div>
+                </div>
+
+                <!-- Doc-item -->
+                <div class="extra-block" id="extra-docitem">
+                    <div class="form-group">
+                        <label>Тип документа</label>
+                        <input type="text" id="docItemType" value="@docType" placeholder="PDF Document" oninput="updateExtra(); updatePreview();" />
+                    </div>
+                </div>
+
+                <!-- Флаг -->
+                <div class="extra-block" id="extra-loc">
+                    <div class="form-group">
+                        <label>Флаг</label>
+                        <div class="file-upload-wrapper">
+                            <button type="button" class="btn btn-secondary btn-sm">Выбрать файл</button>
+                            <input type="file" id="flagFileInput" accept="image/*" onchange="uploadFlagPhoto(this)" />
+                        </div>
+                        <input type="hidden" id="flagPath" value="@flagPath" />
+                        <span class="upload-status" id="flagUploadStatus"></span>
+                        <img id="flagPreview" class="image-preview" src="@(string.IsNullOrEmpty(flagPath) ? "" : Url.Content("~/" + flagPath))" alt="Флаг" style="@(string.IsNullOrEmpty(flagPath) ? "" : "display:block;")" onerror="this.style.display='none'" />
+                    </div>
+                </div>
+
+                <!-- Превью -->
+                <div class="preview-box">
+                    <h3>Предварительный просмотр</h3>
+                    <div id="previewContent"></div>
+                </div>
+
+                <div class="actions-bar">
+                    <button type="submit" class="btn btn-primary">💾 Сохранить</button>
+                    <a href="@Url.Action("Index", "Admin", new { section = bSection, slug = bSlug, page = Model.ReturnPage, lang = Model.Lang })" class="btn btn-secondary">Отмена</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const styleSelect = document.getElementById('styleSelect');
+        const finalExtraAttribute = document.getElementById('finalExtraAttribute');
+        const contentGroup = document.getElementById('contentGroup');
+        const csrfToken = document.querySelector('input[name="__RequestVerificationToken"]')?.value || '';
+
+        const specialBlockIds = ['extra-person', 'extra-caselink', 'extra-docitem', 'extra-loc']
+            .map(id => document.getElementById(id));
+
+        const styleExtraMap = {
+            'person': {
+                blockId: 'extra-person',
+                getValue: () => {
+                    const photo = document.getElementById('personPhoto').value.trim();
+                    const role = document.getElementById('personRole').value.trim();
+                    return photo || role ? `${photo}|${role}` : '';
+                }
+            },
+            'case-link': { blockId: 'extra-caselink', getValue: () => document.getElementById('caseLinkUrl').value.trim() },
+            'doc-item': { blockId: 'extra-docitem', getValue: () => document.getElementById('docItemType').value.trim() },
+            'e-details__loc': { blockId: 'extra-loc', getValue: () => document.getElementById('flagPath').value.trim() },
+            'e-details__type': { blockId: 'extra-color', getValue: () => document.getElementById('colorHex').value.trim() },
+            'tag': { blockId: 'extra-color', getValue: () => document.getElementById('colorHex').value.trim() }
+        };
+
+        function getCurrentStyleName() {
+            const option = styleSelect.options[styleSelect.selectedIndex];
+            return option.text.split(' ')[0];
+        }
+
+        function hideAllSpecialBlocks() {
+            specialBlockIds.forEach(b => b.classList.remove('active'));
+        }
+
+        function onStyleChange() {
+            const styleName = getCurrentStyleName();
+
+            hideAllSpecialBlocks();
+            document.getElementById('extra-color').classList.remove('active');
+
+            if (styleExtraMap[styleName]) {
+                const blockId = styleExtraMap[styleName].blockId;
+                const block = document.getElementById(blockId);
+                if (block) block.classList.add('active');
+            }
+
+            if (styleName === 'e-dots') {
+                contentGroup.style.display = 'none';
+            } else {
+                contentGroup.style.display = 'block';
+            }
+
+            const alwaysShowColor = !['breadcrumb', 'section-title', 'e-id', 'person', 'case-link', 'doc-item', 'e-details__loc'].includes(styleName);
+            if (alwaysShowColor) {
+                document.getElementById('extra-color').classList.add('active');
+            }
+
+            updatePreview();
+        }
+
+        function prepareExtraAttribute() {
+            const styleName = getCurrentStyleName();
+            if (styleExtraMap[styleName]) {
+                finalExtraAttribute.value = styleExtraMap[styleName].getValue();
+            } else if (styleName === 'e-dots') {
+                finalExtraAttribute.value = document.getElementById('colorHex').value.trim();
+            } else {
+                const colorBlock = document.getElementById('extra-color');
+                if (colorBlock.classList.contains('active')) {
+                    finalExtraAttribute.value = document.getElementById('colorHex').value.trim();
+                } else {
+                    finalExtraAttribute.value = '';
+                }
+            }
+        }
+
+        window.updateExtra = prepareExtraAttribute;
+
+        window.updateColorHex = function() {
+            document.getElementById('colorHex').value = document.getElementById('colorPicker').value;
+        };
+        window.updateColorPicker = function() {
+            const hex = document.getElementById('colorHex').value.trim();
+            if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+                document.getElementById('colorPicker').value = hex;
+            }
+        };
+
+        async function uploadPersonPhoto(input) {
+            if (input.files.length === 0) return;
+            const file = input.files[0];
+            const status = document.getElementById('personUploadStatus');
+            status.textContent = 'Загрузка...';
+            status.style.display = 'inline';
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                const response = await fetch('@Url.Action("UploadImage", "Admin")', {
+                    method: 'POST',
+                    body: formData,
+                    headers: csrfToken ? { 'RequestVerificationToken': csrfToken } : {}
+                });
+                if (!response.ok) throw new Error('Ошибка загрузки');
+                const data = await response.json();
+                document.getElementById('personPhoto').value = data.path;
+                document.getElementById('personPhotoPreview').src = '@Url.Content("~/")' + data.path;
+                document.getElementById('personPhotoPreview').style.display = 'block';
+                status.textContent = 'Готово';
+                status.style.color = '#16a34a';
+                updateExtra();
+                updatePreview();
+            } catch (e) {
+                status.textContent = 'Ошибка';
+                status.style.color = '#e11d48';
+            }
+        }
+
+        async function uploadFlagPhoto(input) {
+            if (input.files.length === 0) return;
+            const file = input.files[0];
+            const status = document.getElementById('flagUploadStatus');
+            status.textContent = 'Загрузка...';
+            status.style.display = 'inline';
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                const response = await fetch('@Url.Action("UploadImage", "Admin")', {
+                    method: 'POST',
+                    body: formData,
+                    headers: csrfToken ? { 'RequestVerificationToken': csrfToken } : {}
+                });
+                if (!response.ok) throw new Error('Ошибка загрузки');
+                const data = await response.json();
+                document.getElementById('flagPath').value = data.path;
+                document.getElementById('flagPreview').src = '@Url.Content("~/")' + data.path;
+                document.getElementById('flagPreview').style.display = 'block';
+                status.textContent = 'Готово';
+                status.style.color = '#16a34a';
+                updateExtra();
+                updatePreview();
+            } catch (e) {
+                status.textContent = 'Ошибка';
+                status.style.color = '#e11d48';
+            }
+        }
+
+        function updatePreview() {
+            const styleName = getCurrentStyleName();
+            const content = document.getElementById('contentArea').value;
+            let extra = finalExtraAttribute.value;
+            if (!extra && styleExtraMap[styleName]) {
+                extra = styleExtraMap[styleName].getValue();
+            }
+            const preview = document.getElementById('previewContent');
+            let html = '';
+
+            switch (styleName) {
+                case 'h1': html = `<h1 style="font-size:28px;font-weight:700;color:${extra || 'inherit'}">${content}</h1>`; break;
+                case 'h2': html = `<h2 style="font-size:22px;font-weight:600;color:${extra || 'inherit'}">${content}</h2>`; break;
+                case 'h3': html = `<h3 style="font-size:18px;font-weight:600;color:${extra || 'inherit'}">${content}</h3>`; break;
+                case 'h4': html = `<h4 style="font-size:16px;font-weight:600;color:${extra || 'inherit'}">${content}</h4>`; break;
+                case 'h5': html = `<h5 style="font-size:14px;font-weight:600;color:${extra || 'inherit'}">${content}</h5>`; break;
+                case 'p': case 'p-large': html = `<p style="line-height:1.6;color:${extra || 'inherit'}">${content}</p>`; break;
+                case 'blockquote': html = `<blockquote style="border-left:3px solid #ccc;padding-left:16px;color:${extra || '#666'};font-style:italic"><p>${content}</p></blockquote>`; break;
+                case 'small': html = `<small style="font-size:12px;color:${extra || '#888'}">${content}</small>`; break;
+                case 'ul': { const items=content.split('|').filter(Boolean); html=`<ul>${items.map(i=>`<li style="color:${extra || 'inherit'}">${i.trim()}</li>`).join('')}</ul>`; break; }
+                case 'ol': { const items=content.split('|').filter(Boolean); html=`<ol>${items.map(i=>`<li style="color:${extra || 'inherit'}">${i.trim()}</li>`).join('')}</ol>`; break; }
+                case 'e-dots': html = `<div style="display:flex;gap:8px"><div style="width:20px;height:20px;border-radius:50%;background:${extra}"></div></div>`; break;
+                case 'e-id': html = `<div style="font-size:13px;color:#888">${content}</div>`; break;
+                case 'e-details__type': html = `<div style="font-weight:600;color:${extra || '#000'}">${content}</div>`; break;
+                case 'e-details__loc': html = `<div style="font-size:13px">🏳️ ${content}</div>`; break;
+                case 'e-details__def': html = `<div style="font-size:13px"><strong>Тип:</strong> ${content}</div>`; break;
+                case 'person': {
+                    const [photo, role] = (extra || '|').split('|');
+                    html = `<div style="display:flex;align-items:center;gap:12px;padding:10px;border:1px solid #eee;border-radius:8px;margin:4px 0">
+                        <div style="width:44px;height:44px;border-radius:50%;background:#ddd;display:flex;align-items:center;justify-content:center;font-size:20px">👤</div>
+                        <div><div style="font-size:11px;color:#888">${role || 'Адвокат'}</div><div style="font-weight:700">${content}</div></div>
+                    </div>`;
+                    break;
+                }
+                case 'note-title': html = `<h5 style="font-size:14px;font-weight:700;margin-bottom:6px;color:${extra || 'inherit'}">${content}</h5>`; break;
+                case 'note-text': html = `<p style="font-size:13px;color:${extra || '#666'}">${content}</p>`; break;
+                case 'decision-title': html = `<h2 style="font-size:22px;font-weight:600;color:${extra || 'inherit'}">${content}</h2>`; break;
+                case 'decision-text': html = `<p style="color:${extra || 'inherit'}">${content}</p>`; break;
+                case 'case-link':
+                    if (extra && extra.startsWith('http')) {
+                        const linkText = content || extra;
+                        html = `<p>Ссылка на дело: <a href="${extra}" target="_blank" style="color:#1a6fa8"><strong>${linkText}</strong></a></p>`;
+                    } else {
+                        html = `<p>Ссылка на дело: <strong>${content || '(без ссылки)'}</strong></p>`;
+                    }
+                    break;
+                case 'docs-title': html = `<h2 style="font-size:22px;font-weight:600;color:${extra || 'inherit'}">${content}</h2>`; break;
+                case 'doc-item': html = `<div style="border:1px solid #eee;border-radius:6px;padding:12px 16px;margin:6px 0"><div style="font-size:11px;color:#888">${extra || 'Документ'}</div><h3 style="font-size:15px;margin-top:4px">${content}</h3></div>`; break;
+                case 'tags-title': html = `<h4 style="font-size:16px;font-weight:600;color:${extra || 'inherit'}">${content}</h4>`; break;
+                case 'tag': { const bg = extra || '#ccc'; html = `<a href="#" style="display:inline-block;padding:4px 12px;border-radius:3px;background:${bg};color:#fff;font-size:12px;margin:2px">${content}</a>`; break; }
+                case 'breadcrumb': { const crumbs=content.split('/').map(c=>`<a href="#" style="color:#888">${c.trim()}</a>`); html=`<nav style="font-size:13px">${crumbs.join(' / ')}</nav>`; break; }
+                case 'section-title': html = `<h1 style="font-size:26px;font-weight:700;text-transform:uppercase;color:${extra || 'inherit'}">${content}</h1>`; break;
+                default: html = content;
+            }
+            preview.innerHTML = html;
+        }
+
+        onStyleChange();
+    </script>
+</body>
+</html>

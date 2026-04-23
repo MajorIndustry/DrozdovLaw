@@ -1,64 +1,167 @@
-﻿using DrozdovLaw.Interfaces;
+﻿using DrozdovLaw.Data;
+using DrozdovLaw.Interfaces;
 using DrozdovLaw.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DrozdovLaw.Services;
 
 public class BlockService : IBlockService
 {
-    private readonly IContentRepository _repository;
+    private readonly AppDbContext _db;
 
-    public BlockService(IContentRepository repository)
+    public BlockService(AppDbContext dbContext)
     {
-        _repository = repository;
+        _db = dbContext;
     }
 
-    public async Task<List<ContentBlock>> GetPageBlocksAsync(string pageName)
+    #region Blocks
+
+    public async Task<List<ContentBlock>> GetPageBlocksAsync(string systemName, string lang, int? sectionId = null)
     {
-        var data = await _repository.LoadAsync();
-        return data.Blocks.Where(b => b.PageName == pageName).OrderBy(b => b.Order).ToList();
+        var page = await GetPageAsync(systemName, lang, sectionId);
+        if (page == null)
+            return new List<ContentBlock>();
+
+        return await _db.ContentBlocks
+            .Where(b => b.PageId == page.Id)
+            .Include(b => b.Style)
+            .OrderBy(b => b.Order)
+            .ToListAsync();
     }
 
-    public async Task<ContentBlock?> GetBlockAsync(string id)
+    public async Task<ContentBlock?> GetBlockByIdAsync(int id)
     {
-        var data = await _repository.LoadAsync();
-        return data.Blocks.FirstOrDefault(b => b.Id == id);
+        return await _db.ContentBlocks
+            .Include(b => b.Style)
+            .FirstOrDefaultAsync(b => b.Id == id);
     }
 
-    public async Task SaveBlockAsync(ContentBlock block)
+    public async Task<ContentBlock> CreateBlockAsync(string systemName, string lang, string displayName, string styleName, string content, string? extraAttribute = null, int? sectionId = null)
     {
-        var data = await _repository.LoadAsync();
-        var existing = data.Blocks.FirstOrDefault(b => b.Id == block.Id);
-        if (existing != null)
+        var pageId = await GetOrCreatePageIdAsync(systemName, lang, displayName, sectionId);
+        var style = await GetStyleByNameAsync(styleName)
+            ?? throw new InvalidOperationException($"Style '{styleName}' not found.");
+
+        var maxOrder = await _db.ContentBlocks
+            .Where(b => b.PageId == pageId)
+            .MaxAsync(b => (int?)b.Order) ?? 0;
+
+        var block = new ContentBlock
         {
-            existing.Content = block.Content;
-            existing.Style = block.Style;
-            existing.Order = block.Order;
-            existing.ExtraAttribute = block.ExtraAttribute;
-            existing.UpdatedAt = DateTime.UtcNow;
-        }
-        else
+            PageId = pageId,
+            StyleId = style.Id,
+            Content = content,
+            ExtraAttribute = extraAttribute,
+            Order = maxOrder + 1,
+            UpdatedAt = DateTime.UtcNow
+        };
+
+        _db.ContentBlocks.Add(block);
+        await _db.SaveChangesAsync();
+        return block;
+    }
+
+    public async Task UpdateBlockAsync(int id, string content, string? extraAttribute, int styleId)
+    {
+        var block = await _db.ContentBlocks.FindAsync(id)
+            ?? throw new InvalidOperationException($"Block with id {id} not found.");
+
+        block.Content = content;
+        block.ExtraAttribute = extraAttribute;
+        block.StyleId = styleId;
+        block.UpdatedAt = DateTime.UtcNow;
+
+        await _db.SaveChangesAsync();
+    }
+
+    public async Task DeleteBlockAsync(int id)
+    {
+        var block = await _db.ContentBlocks.FindAsync(id);
+        if (block != null)
         {
-            block.UpdatedAt = DateTime.UtcNow;
-            data.Blocks.Add(block);
+            _db.ContentBlocks.Remove(block);
+            await _db.SaveChangesAsync();
         }
-        await _repository.SaveAsync(data);
     }
 
-    public async Task DeleteBlockAsync(string id)
+    public async Task ReorderBlocksAsync(string systemName, string lang, List<int> orderedIds, int? sectionId = null)
     {
-        var data = await _repository.LoadAsync();
-        data.Blocks.RemoveAll(b => b.Id == id);
-        await _repository.SaveAsync(data);
-    }
+        var page = await GetPageAsync(systemName, lang, sectionId);
+        if (page == null)
+            return;
 
-    public async Task ReorderAsync(string pageName, List<string> orderedIds)
-    {
-        var data = await _repository.LoadAsync();
+        var blocks = await _db.ContentBlocks
+            .Where(b => b.PageId == page.Id && orderedIds.Contains(b.Id))
+            .ToListAsync();
+
         for (int i = 0; i < orderedIds.Count; i++)
         {
-            var b = data.Blocks.FirstOrDefault(x => x.Id == orderedIds[i] && x.PageName == pageName);
-            if (b != null) b.Order = i + 1;
+            var block = blocks.FirstOrDefault(b => b.Id == orderedIds[i]);
+            if (block != null)
+                block.Order = i + 1;
         }
-        await _repository.SaveAsync(data);
+
+        await _db.SaveChangesAsync();
     }
+
+    #endregion
+
+    #region Pages
+
+    public async Task<Page?> GetPageAsync(string systemName, string lang, int? sectionId = null)
+    {
+        return await _db.Pages
+            .Include(p => p.Section)
+            .FirstOrDefaultAsync(p => p.SystemName == systemName && p.LanguageCode == lang && p.SectionId == sectionId);
+    }
+
+    public async Task<int> GetOrCreatePageIdAsync(string systemName, string lang, string displayName, int? sectionId = null)
+    {
+        var page = await _db.Pages
+            .FirstOrDefaultAsync(p => p.SystemName == systemName && p.LanguageCode == lang && p.SectionId == sectionId);
+        if (page != null)
+            return page.Id;
+
+        page = new Page
+        {
+            SystemName = systemName,
+            Name = displayName,
+            LanguageCode = lang,
+            SectionId = sectionId
+        };
+        _db.Pages.Add(page);
+        await _db.SaveChangesAsync();
+        return page.Id;
+    }
+
+    public async Task UpdatePageAsync(Page page)
+    {
+        _db.Pages.Update(page);
+        await _db.SaveChangesAsync();
+    }
+
+    #endregion
+
+    #region Styles
+
+    public async Task<BlockStyle?> GetStyleByNameAsync(string name)
+    {
+        return await _db.BlockStyles.FirstOrDefaultAsync(s => s.Name == name);
+    }
+
+    public async Task<List<BlockStyle>> GetAllStylesAsync()
+    {
+        return await _db.BlockStyles.OrderBy(s => s.Name).ToListAsync();
+    }
+
+    #endregion
+
+    #region Languages
+
+    public async Task<List<Language>> GetAllLanguagesAsync()
+    {
+        return await _db.Languages.OrderBy(l => l.Code).ToListAsync();
+    }
+
+    #endregion
 }

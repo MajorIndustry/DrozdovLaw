@@ -1,0 +1,370 @@
+@model DrozdovLaw.Models.ViewModels.EditSectionViewModel
+@{
+    Layout = null;
+    var sec = Model.Section;
+    var pg = Model.Page;
+    var lang = Model.Lang;
+    var title = pg.Status ?? sec.Slug;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Метаданные раздела — Drozdov Law Admin</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+            background: #eef1f6;
+            min-height: 100vh
+        }
+
+        .ph {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 0 32px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+            .ph a {
+                color: #7eb8d4;
+                text-decoration: none;
+                font-size: 13px
+            }
+
+            .ph h1 {
+                font-size: 15px;
+                font-weight: 700;
+                color: #fff;
+                margin-left: 8px
+            }
+
+        .pb {
+            max-width: 760px;
+            margin: 32px auto;
+            padding: 0 20px
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,.05);
+            margin-bottom: 20px
+        }
+
+        .ch {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e2e8f0
+        }
+
+            .ch h2 {
+                font-size: 17px;
+                font-weight: 700;
+                color: #1a202c
+            }
+
+            .ch p {
+                font-size: 13px;
+                color: #718096;
+                margin-top: 2px
+            }
+
+        .cb {
+            padding: 24px
+        }
+
+        .fg {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 14px
+        }
+
+            .fg label {
+                font-size: 11px;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: .4px
+            }
+
+            .fg input, .fg textarea {
+                padding: 9px 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 7px;
+                font-size: 14px;
+                color: #1a202c;
+                font-family: inherit;
+                transition: .12s;
+                background: #fff;
+                width: 100%
+            }
+
+                .fg input:focus, .fg textarea:focus {
+                    outline: none;
+                    border-color: #1a6fa8;
+                    box-shadow: 0 0 0 3px rgba(26,111,168,.1)
+                }
+
+            .fg textarea {
+                resize: vertical;
+                min-height: 64px;
+                line-height: 1.5
+            }
+
+        .hint {
+            font-size: 11px;
+            color: #a0aec0;
+            margin-top: 3px
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .sep {
+            font-size: 11px;
+            font-weight: 700;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            margin: 18px 0 12px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #f0f4f8
+        }
+
+        .cf {
+            padding: 16px 24px;
+            border-top: 1px solid #f0f4f8;
+            background: #fafbfc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: .12s
+        }
+
+        .btn-primary {
+            background: #1a6fa8;
+            color: #fff
+        }
+
+            .btn-primary:hover {
+                background: #155d8e
+            }
+
+        .btn-outline {
+            background: #fff;
+            color: #4a5568;
+            border: 1px solid #e2e8f0
+        }
+
+            .btn-outline:hover {
+                border-color: #1a6fa8;
+                color: #1a6fa8
+            }
+
+        .btn-danger {
+            background: #fff1f2;
+            color: #e11d48;
+            border: 1px solid #fecdd3;
+            font-size: 13px;
+            padding: 8px 14px
+        }
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .toggle {
+            position: relative;
+            width: 44px;
+            height: 24px
+        }
+
+            .toggle input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                position: absolute
+            }
+
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: #cbd5e0;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: .2s
+        }
+
+            .toggle-slider:before {
+                content: "";
+                position: absolute;
+                height: 18px;
+                width: 18px;
+                left: 3px;
+                top: 3px;
+                background: #fff;
+                border-radius: 50%;
+                transition: .2s
+            }
+
+        .toggle input:checked + .toggle-slider {
+            background: #16a34a
+        }
+
+            .toggle input:checked + .toggle-slider:before {
+                transform: translateX(20px)
+            }
+
+        .color-row {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+            .color-row input[type=color] {
+                width: 40px;
+                height: 34px;
+                padding: 2px;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                cursor: pointer
+            }
+
+        .presets {
+            display: flex;
+            gap: 5px
+        }
+
+        .preset {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: .12s
+        }
+
+            .preset:hover {
+                transform: scale(1.15);
+                box-shadow: 0 0 0 2px #1a6fa8
+            }
+
+        .slug-box {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 7px;
+            padding: 9px 12px;
+            font-size: 14px;
+            color: #718096;
+            font-family: monospace
+        }
+    </style>
+</head>
+<body>
+    <header class="ph">
+        <a href="@Url.Action("Index", "Admin", new { section = "case-detail", slug = sec.Slug, lang })">← Назад к разделу</a>
+        <span>|</span>
+        <h1>Метаданные: @title</h1>
+    </header>
+
+    <div class="pb">
+        <div class="card">
+            <div class="ch"><h2>Редактировать метаданные раздела (@lang.ToUpper())</h2></div>
+            <form method="post" action="@Url.Action("EditSection","Admin")">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="Section.Id" value="@sec.Id">
+                <input type="hidden" name="Section.Slug" value="@sec.Slug">
+                <input type="hidden" name="Section.CreatedAt" value="@sec.CreatedAt.ToString("o")">
+                <input type="hidden" name="Page.Id" value="@pg.Id">
+                <input type="hidden" name="Page.SystemName" value="@pg.SystemName">
+                <input type="hidden" name="Page.LanguageCode" value="@pg.LanguageCode">
+                <input type="hidden" name="Page.SectionId" value="@pg.SectionId">
+                <input type="hidden" name="Lang" value="@lang">
+
+                <div class="cb">
+                    <div class="sep">Общие данные</div>
+                    <div class="fg">
+                        <label>Цвет статуса</label>
+                        <input type="color" name="Section.StatusColor" value="@sec.StatusColor">
+                    </div>
+                    <div class="fg">
+                        <label>Путь к флагу</label>
+                        <input name="Section.FlagImage" value="@sec.FlagImage">
+                    </div>
+                    <div class="toggle-row">
+                        <label class="toggle">
+                            <input type="checkbox" name="Section.IsPublished" value="true" @(sec.IsPublished ? "checked" : "")>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span>Опубликован</span>
+                        <input type="hidden" name="Section.IsPublished" value="false">
+                    </div>
+
+                    <div class="sep">Языковые поля (@lang)</div>
+                    <div class="fg">
+                        <label>Название страницы</label>
+                        <input name="Page.Name" value="@pg.Name">
+                        <div class="hint">Отображается как основной заголовок в карточке и на странице</div>
+                    </div>
+                    <div class="fg">
+                        <label>Заголовок (статус)</label>
+                        <input name="Page.Status" value="@pg.Status">
+                        <div class="hint">Отображается как статус в карточке</div>
+                    </div>
+                    <div class="fg">
+                        <label>Краткое описание</label>
+                        <textarea name="Page.Summary">@pg.Summary</textarea>
+                        <div class="hint">Отображается в карточке под заголовком</div>
+                    </div>
+                </div>
+
+                <div class="cf">
+                    <button type="button" class="btn btn-danger"
+                            onclick="document.getElementById('delete-form').submit()">
+                        Удалить раздел
+                    </button>
+                    <div>
+                        <a href="@Url.Action("Index", "Admin", new { section = "case-detail", slug = sec.Slug, lang })" class="btn btn-outline">Отмена</a>
+                        <button type="submit" class="btn btn-primary">Сохранить</button>
+                    </div>
+                </div>
+            </form>
+
+            <form id="delete-form" method="post" action="@Url.Action("DeleteSection","Admin")"
+                  onsubmit="return confirm('Удалить раздел?')">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@sec.Id">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

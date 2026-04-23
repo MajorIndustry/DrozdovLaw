@@ -1,50 +1,51 @@
 using DrozdovLaw.Interfaces;
-using DrozdovLaw.Models;
+using DrozdovLaw.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-
-namespace DrozdovLaw.Controllers;
 
 public class CaseController : Controller
 {
-    private readonly ICaseService _caseService;
+    private readonly ISectionService _sectionService;
     private readonly IBlockService _blockService;
+    private readonly ILanguageService _languageService;
 
-    public CaseController(ICaseService caseService, IBlockService blockService)
+    public CaseController(ISectionService sectionService, IBlockService blockService, ILanguageService languageService)
     {
-        _caseService = caseService;
+        _sectionService = sectionService;
         _blockService = blockService;
+        _languageService = languageService;
     }
 
     public async Task<IActionResult> List(string lang = "ru")
     {
-        var cases = await _caseService.GetAllCasesAsync();
-        return View(new CasesListViewModel { Language = lang, Cases = cases });
+        var sections = await _sectionService.GetAllSectionsAsync();
+        ViewBag.AvailableLanguages = await _languageService.GetAllAsync();
+        return View(new CasesListViewModel { Language = lang, Sections = sections });
     }
 
     public async Task<IActionResult> Detail(string slug, string lang = "ru")
     {
-        var meta = await _caseService.GetCaseBySlugAsync(slug);
-        if (meta == null) return NotFound();
+        var section = await _sectionService.GetSectionBySlugAsync(slug);
+        if (section == null) return NotFound();
 
-        var pageName = $"case-{slug}-{lang}";
-        var blocks = await _blockService.GetPageBlocksAsync(pageName);
-        var allCases = await _caseService.GetAllCasesAsync();
-        var similar = allCases
-            .Where(c => c.IsPublished && c.Slug != slug)
-            .Take(4)
-            .ToList();
+        var page = await _sectionService.GetSectionPageAsync(slug, lang);
+        if (page == null) return NotFound();
+
+        var blocks = await _blockService.GetPageBlocksAsync("case", lang, section.Id);
+        var allSections = await _sectionService.GetAllSectionsAsync();
+        var similar = allSections.Where(s => s.IsPublished && s.Slug != slug).Take(4).ToList();
 
         ViewBag.Lang = lang;
         ViewBag.PageLayoutClass = "m-light";
-        ViewBag.Title = lang == "ru" ? meta.TitleRu : meta.TitleEn;
+        ViewBag.Title = page.Status ?? section.Slug;
+        ViewBag.AvailableLanguages = await _languageService.GetAllAsync();
 
         return View(new CaseViewModel
         {
-            PageName = pageName,
+            Page = page,
             Language = lang,
             Blocks = blocks,
-            Meta = meta,
-            SimilarCases = similar
+            Section = section,
+            SimilarSections = similar
         });
     }
 }
